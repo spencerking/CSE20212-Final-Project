@@ -3,6 +3,10 @@
 	#include <GLUT/glut.h>
 	#include <OpenGL/gl.h>
 	#include <OpenGL/glu.h>
+#elif WIN32
+	#include <windows.h>
+	#include <wingdi.h>
+	#include <GL/gl.h>
 #else
 	#include <GL/glut.h>
 	#include <GL/gl.h>
@@ -10,6 +14,7 @@
 #endif
 // Windows headers?
 //#include "Hero"
+
 // include rest
 #include "IntroRoom.h"
 #include <iostream>
@@ -26,6 +31,7 @@ int main(int argc, char* argv[]) {
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100,100);
 	glutInitWindowSize(640,360); // Change later
+
 	glutCreateWindow("Game");
 
 	/*if (glewInit() != GLEW_OK) {
