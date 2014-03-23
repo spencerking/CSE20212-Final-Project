@@ -6,9 +6,13 @@
 //
 //
 
+#include <OpenGL/gl.h>
+#include <OpenGL/glu.h>
+#include <GLUT/glut.h>
 #include "IntroRoom.h"
+#include <iostream>
 
-
+using namespace std;
 //default constructor
 IntroRoom::IntroRoom(){
     IntroRoom::drawRoom();
