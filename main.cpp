@@ -3,12 +3,15 @@
 	#include <GLUT/glut.h>
 	#include <OpenGL/gl.h>
 	#include <OpenGL/glu.h>
+#elif WIN32
+	#include <windows.h>
+	#include <wingdi.h>
+	#include <GL/gl.h>
 #else
 	#include <GL/glut.h>
 	#include <GL/gl.h>
 	#include <GL/glu.h>
 #endif
-// Windows headers?
 #include "Hero"
 // include rest
 
@@ -18,7 +21,7 @@ int main(int argc, char* argv[]) {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(-1,-1);
-	glutInitWindowSize(100,100); // Change later
+	glutInitWindowSize(1000,1000); // Change later
 	glutCreateWindow("Game");
 
 	if (glewInit() != GLEW_OK) {
@@ -26,7 +29,7 @@ int main(int argc, char* argv[]) {
 		return 0;
 	}
 
-	glEnable(GL-DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
 	glShadeModel(GL_SMOOTH);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
