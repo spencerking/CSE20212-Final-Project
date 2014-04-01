@@ -18,7 +18,7 @@ class HeightField {
 public:
     bool Create(char *hFileName, int hWidth, const int hHeight);
     void Render(void);
-    BYTE hhEIGHTfIELD[1024][1024];
+    BYTE hheightField[1024][1024];
     
 private:
     //these hold the heigh and width of the height field
