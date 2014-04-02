@@ -1,12 +1,12 @@
 all: main
 
-main: main.o IntroRoom.o
-	g++ main.o IntroRoom.o -framework OpenGL -framework GLUT -o main # FOR MAC
+main: main.o heightfield.o
+	g++ main.o heightfield.o -lglut -lGL -lGLU
 
 main.o: main.cpp
 	g++ -c main.cpp
 
-IntroRoom.o: IntroRoom.cpp
-	g++ -c IntroRoom.cpp
+heightfield.o: heightfield.cpp
+	g++ -c heightfield.cpp
 
 clean: main
