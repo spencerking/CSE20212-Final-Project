@@ -1,30 +1,20 @@
-//
-//  heightfield.h
-//  
-//
-//  Created by Spencer King on 3/31/14.
-//
-//
+//significant assistance from: http://www.swiftless.com/tutorials/terrain/3_rendering.html
 
-#ifndef ____heightfield__
-#define ____heightfield__
-
-#include <iostream>
 //#include <windows.h>
-//windows.h is needed for the BYTE variable type to load in the heightfield.raw image file, we need to either find a replacement for the header or define BYTE ourselves
+//the following typedef eliminates the need for windows.h
+typedef unsigned char MAP; //this somehow stores the heighfield
 
 class HeightField {
     
 public:
-    bool Create(char *hFileName, int hWidth, const int hHeight);
-    void Render(void);
-    BYTE hheightField[1024][1024];
+	bool Create(char *hFileName, const int hWidth, const int hHeight); //reads in the file
+    
+	void Render(void); //renders the map
+    
+	MAP hHeightField[1024][1024]; //stores the map data
     
 private:
-    //these hold the heigh and width of the height field
-    int hmHeight;
-    int hmWidth;
+	int hmHeight;
+	int hmWidth;
     
 };
-
-#endif /* defined(____heightfield__) */
