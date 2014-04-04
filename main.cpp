@@ -9,18 +9,27 @@
 #include <assert.h>
 
 #include "heightfield.h"
+#include "camera.h"
 
 
 
 //global variables for camera control
 //we will have to play with these to get everything set up how we want
-float xpos = 851.078, ypos = 351.594, zpos = 281.033, xrot = 758, yrot = 238, angle=0.0;
-float lastx, lasty;
+float xpos = 851.078;
+float ypos = 351.594;
+float zpos = 281.033; 
+float xrot = 758;
+float yrot = 238;
+float angle=0.0;
+float previousx;
+float previousy;
 
 float bounce;
 float cScale = 1.0;
 
+//instantiate objects
 HeightField hField;
+camera camera1;
 
 //basic camera function
 //this is straight from the swiftless tutorial, we will definitely have our own
@@ -28,17 +37,37 @@ void camera (void) {
 	int posX = (int)xpos;
 	int posZ = (int)zpos;
     
-	glRotatef(xrot,1.0,0.0,0.0);
-	glRotatef(yrot,0.0,1.0,0.0);
-	glTranslated(-xpos,-ypos,-zpos);
+	glRotatef(xrot,1.0,0.0,0.0); //rotates on the x-axis
+	glRotatef(yrot,0.0,1.0,0.0); //rotates on the y-axis
+	glTranslated(-xpos,-ypos,-zpos); //translates the screen to the current camera positon
 }
+
+//collision detection function
+//one point is going to be the current position of the camera
+//the other point needs to be one of the many points that make up the terrain
+//we probably need a loop to run through all of the possible points
+//my only concern is that this could take a noticeable amount of time and create lag
+/*
+void collisionDetection(){
+
+    //calculate the distance between the points
+    d=sqrt(((sx-p2x)*(sx-p2x))+((sy-p2y)*(sy-p2y))+((sz-p2z)*(sz-p2z)));
+    cout << d <<endl;
+    //check for collision
+    if (d <= p2radius + p1radius)
+    {
+        cout << "collision detected" <<endl;
+        
+    }
+
+}*/
 
 //basic display function, this is also straight from swiftless
 //what we already had was very similar to this
 //I doubt we can vary this too much
 void display (void) {
 	glClearColor (0.0,0.0,0.0,1.0);
-    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
    	glLoadIdentity();
 	camera();
     
@@ -62,22 +91,30 @@ void Init (void) {
 //I already have the basics figured out with arrow keys
 //we might want to look into figuring out exactly how this works later
 //if we do, we should probably write our own function
-/*
- void mouseMovement(int x, int y) {
- int diffx=x-lastx;
- int diffy=y-lasty;
- lastx=x;
- lasty=y;
+
+ void orientMe(int x, int y) {
+
+//calculates the differences between the current x and y positions
+//and the previous x and y positions
+ int diffx=x-previousx;
+ int diffy=y-previousy;
+
+//the previous x and y positions become the current x and y positions
+ previousx=x;
+ previousy=y;
  xrot += (float) diffy;
  yrot += (float) diffx;
- }*/
+ }
 
 
 
 //I think we already have the keyboard figured out based on Emrich's tutorials
 //this is still a good reference though
-/*
+
  void keyboard (unsigned char key, int x, int y) {
+if (key=='q'){
+		camera1.screenshot("test",1500,1500);
+	}
  
  if (key == 'w')
  {
@@ -117,7 +154,7 @@ void Init (void) {
  zpos -= float(sin(yrotrad)) * cScale;
  }
  
- }*/
+ }
 
 //a standard function for handling reshaping of the window
 //our reshape function was nearly identicaly to this
@@ -139,13 +176,13 @@ int main (int argc, char **argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
 	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(100, 100);
-    glutCreateWindow("A basic OpenGL Window");
+   	glutCreateWindow("A basic OpenGL Window");
 	Init();
-    glutDisplayFunc(display);
+   	glutDisplayFunc(display);
 	glutIdleFunc(display);
 	glutReshapeFunc(reshape);
-	//glutKeyboardFunc(keyboard);
-	//glutPassiveMotionFunc(mouseMovement);
+	glutKeyboardFunc(keyboard);
+	glutPassiveMotionFunc(orientMe);
    	glutMainLoop ();
    	return 0;
 }
