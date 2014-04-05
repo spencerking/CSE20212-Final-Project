@@ -7,8 +7,10 @@ class camera{
 	public:
 	camera(); //constructor
 	void screenshot(char *, short, short);
+	void setupScreenshot();
 
 	private:
+	int screenCounter;
 
 };
 

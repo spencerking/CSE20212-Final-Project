@@ -12,7 +12,10 @@ using namespace std;
 //default constructor
 camera::camera(){
 
+	screenCounter = 0;
+
 }
+
 
 //takes a screenshot and outputs it as an image file
 //code taken from:
@@ -28,3 +31,18 @@ void camera::screenshot(char *tga_file, short W, short H) {
 	fwrite(pixel_data, 3*W*H, 1, out);
 	fclose(out); 
 }
+
+//ideally this function will call screenshot and increment the number of the file
+//e.g. first one is file1, next is file2, etc.
+//I'm blanking on how to change the char* based on the int counter
+void camera::setupScreenshot(){
+
+	screenCounter++;
+
+	char *fileName; 	
+
+	camera::screenshot(fileName, 1500, 1500);
+	
+
+}
+

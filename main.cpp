@@ -42,26 +42,6 @@ void camera (void) {
 	glTranslated(-xpos,-ypos,-zpos); //translates the screen to the current camera positon
 }
 
-//collision detection function
-//one point is going to be the current position of the camera
-//the other point needs to be one of the many points that make up the terrain
-//we probably need a loop to run through all of the possible points
-//my only concern is that this could take a noticeable amount of time and create lag
-/*
-void collisionDetection(){
-
-    //calculate the distance between the points
-    d=sqrt(((sx-p2x)*(sx-p2x))+((sy-p2y)*(sy-p2y))+((sz-p2z)*(sz-p2z)));
-    cout << d <<endl;
-    //check for collision
-    if (d <= p2radius + p1radius)
-    {
-        cout << "collision detected" <<endl;
-        
-    }
-
-}*/
-
 //basic display function, this is also straight from swiftless
 //what we already had was very similar to this
 //I doubt we can vary this too much
@@ -92,72 +72,73 @@ void Init (void) {
 //we might want to look into figuring out exactly how this works later
 //if we do, we should probably write our own function
 
- void orientMe(int x, int y) {
+void orientMe(int x, int y) {
 
-//calculates the differences between the current x and y positions
-//and the previous x and y positions
- int diffx=x-previousx;
- int diffy=y-previousy;
+	//calculates the differences between the current x and y positions
+	//and the previous x and y positions
+ 	int diffx=x-previousx;
+ 	int diffy=y-previousy;
 
-//the previous x and y positions become the current x and y positions
- previousx=x;
- previousy=y;
- xrot += (float) diffy;
- yrot += (float) diffx;
- }
+	//the previous x and y positions become the current x and y positions
+ 	previousx=x;
+	 previousy=y;
+	 xrot += (float) diffy;
+ 	yrot += (float) diffx;
+}
 
 
 
 //I think we already have the keyboard figured out based on Emrich's tutorials
 //this is still a good reference though
 
- void keyboard (unsigned char key, int x, int y) {
-if (key=='q'){
+void keyboard (unsigned char key, int x, int y) {
+	if (key=='q'){
 		camera1.screenshot("test",1500,1500);
 	}
  
- if (key == 'w')
- {
- float xrotrad, yrotrad;
- yrotrad = (yrot / 180 * 3.141592654f);
- xrotrad = (xrot / 180 * 3.141592654f);
- xpos += float(sin(yrotrad)) * cScale;
- zpos -= float(cos(yrotrad)) * cScale;
- ypos -= float(sin(xrotrad)) ;
- bounce += 0.04;
- }
+ 	if (key == 'w')
+ 	{
+ 		float xrotrad, yrotrad;
+ 		yrotrad = (yrot / 180 * 3.141592654f);
+		xrotrad = (xrot / 180 * 3.141592654f);
+		xpos += float(sin(yrotrad)) * cScale;
+ 		zpos -= float(cos(yrotrad)) * cScale;
+		ypos -= float(sin(xrotrad)) ;
+ 		bounce += 0.04;
+		//hField.collisionDetection(xpos, ypos, zpos);
+	 }
  
- if (key == 's')
- {
- float xrotrad, yrotrad;
- yrotrad = (yrot / 180 * 3.141592654f);
- xrotrad = (xrot / 180 * 3.141592654f);
- xpos -= float(sin(yrotrad)) * cScale;
- zpos += float(cos(yrotrad)) * cScale;
- ypos += float(sin(xrotrad));
- bounce += 0.04;
- }
+ 	if (key == 's')
+ 	{
+ 		float xrotrad, yrotrad;
+ 		yrotrad = (yrot / 180 * 3.141592654f);
+ 		xrotrad = (xrot / 180 * 3.141592654f);
+		xpos -= float(sin(yrotrad)) * cScale;
+ 		zpos += float(cos(yrotrad)) * cScale;
+ 		ypos += float(sin(xrotrad));
+ 		bounce += 0.04;
+ 	}
  
- if (key == 'd')
- {
- float yrotrad;
- yrotrad = (yrot / 180 * 3.141592654f);
- xpos += float(cos(yrotrad)) * cScale;
- zpos += float(sin(yrotrad)) * cScale;
- }
+ 	if (key == 'd')
+ 	{
+ 		float yrotrad;
+ 		yrotrad = (yrot / 180 * 3.141592654f);
+ 		xpos += float(cos(yrotrad)) * cScale;
+ 		zpos += float(sin(yrotrad)) * cScale;
+ 	}
  
- if (key == 'a')
- {
- float yrotrad;
- yrotrad = (yrot / 180 * 3.141592654f);
- xpos -= float(cos(yrotrad)) * cScale;
- zpos -= float(sin(yrotrad)) * cScale;
- }
+ 	if (key == 'a')
+ 	{
+ 		float yrotrad;
+ 		yrotrad = (yrot / 180 * 3.141592654f);
+ 		xpos -= float(cos(yrotrad)) * cScale;
+ 		zpos -= float(sin(yrotrad)) * cScale;
+ 	}
  
- }
+}
 
 //a standard function for handling reshaping of the window
-//our reshape function was nearly identicaly to this
+//our reshape function was nearly identical to this
 //we will probably want w and h to be global variables
 //this is for the benefit of screenshot function as it needs w and h
 //basically, as the screen is reshaped we need to adapt the screenshot function
