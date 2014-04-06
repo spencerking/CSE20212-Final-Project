@@ -4,6 +4,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <iostream>
+#include <string.h>
 #include "camera.h"
 
 using namespace std;
@@ -34,14 +35,19 @@ void camera::screenshot(char *tga_file, short W, short H) {
 
 //ideally this function will call screenshot and increment the number of the file
 //e.g. first one is file1, next is file2, etc.
-//I'm blanking on how to change the char* based on the int counter
+//currently this seg faults
 void camera::setupScreenshot(){
 
 	screenCounter++;
 
-	char *fileName; 	
+	char *number = (char*)(((int)'0')+screenCounter);
+	char *file = "file";
+	char str[10];
 
-	camera::screenshot(fileName, 1500, 1500);
+	strcpy(str, "file");
+	strcat(str, number);
+
+	camera::screenshot(str, 1500, 1500);
 	
 
 }

@@ -4,6 +4,7 @@
 #include <GL/gl.h>
 #include <iostream>
 #include <vector>
+#include <iterator>
 #include <math.h>
 #include "heightfield.h"
 using namespace std;
@@ -69,30 +70,43 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 	int terrainX;
 	int terrainY;
 	int terrainZ;
+
+	vector<int>::const_iterator xvecIter;
+	vector<int>::const_iterator yvecIter;
+	vector<int>::const_iterator zvecIter;
+
 	//bounding sphere radii
 	terrainRadius = 0.75;
 	cameraRadius = 0.75;
 
-		//0-128, what I was doing with counter won't work past the
-		//initial section
-		if ((xCamera <= 128) && (zCamera <=128)){
-			if (counter == 129){
-				return 0; //no collision
-			}
 
-			terrainX=xPoints[counter];
-			terrainY=yPoints[counter];
-			terrainZ=zPoints[counter];
+		//769-896
+		if (xCamera > 768 && xCamera < 897 && zCamera > 256 && zCamera <385){
+			cout << "test896" <<endl;
+			while (xvecIter != xPoints896.end()){
+			/*if (counter == 129){
+				return 0; //no collision
+			}*/
+
+			terrainX=xPoints896[counter];
+			terrainY=yPoints896[counter];
+			terrainZ=zPoints896[counter];
 
 			
 
 			d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-
+			cout << "d is "<< d<<endl;
 			//check for collision
 			if (d <= terrainRadius + cameraRadius){
 				cout << "collision detected"<<endl;
+				return 1;
 			}
 
+			}
+
+			xvecIter++;
+			yvecIter++;
+			zvecIter++;
 			counter++;
 		}
 
@@ -101,13 +115,20 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 void HeightField::Render(void){
 //this will render the heightfield as a series of coordinate points
 
+    int counter=0;
+
     glBegin(GL_POINTS);
     for (int hMapX = 0; hMapX < hmWidth; hMapX++){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
             glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
-	    xPoints.push_back(hMapX);
-	    yPoints.push_back(hHeightField[hMapX][hMapZ]);
-            zPoints.push_back(hMapZ);
+		if (hMapX > 768 && hMapX < 897 && hMapZ > 256 && hMapZ <385){
+			if (counter%10000==0){
+				xPoints896.push_back(hMapX);
+				yPoints896.push_back(hHeightField[hMapX][hMapZ]);
+          			zPoints896.push_back(hMapZ);
+			}
+		}
+		counter++;
         }
     }
 	glEnd();

@@ -93,7 +93,7 @@ void orientMe(int x, int y) {
 
 void keyboard (unsigned char key, int x, int y) {
 	if (key=='q'){
-		camera1.screenshot("test",1500,1500);
+		camera1.setupScreenshot();
 	}
  
  	if (key == 'w')
@@ -106,6 +106,7 @@ void keyboard (unsigned char key, int x, int y) {
 		ypos -= float(sin(xrotrad)) ;
  		bounce += 0.04;
 		//hField.collisionDetection(xpos, ypos, zpos);
+		//cout << xpos << ypos << zpos<<endl;
 	 }
  
  	if (key == 's')
@@ -117,6 +118,7 @@ void keyboard (unsigned char key, int x, int y) {
  		zpos += float(cos(yrotrad)) * cScale;
  		ypos += float(sin(xrotrad));
  		bounce += 0.04;
+		//hField.collisionDetection(xpos, ypos, zpos);
  	}
  
  	if (key == 'd')
@@ -125,6 +127,7 @@ void keyboard (unsigned char key, int x, int y) {
  		yrotrad = (yrot / 180 * 3.141592654f);
  		xpos += float(cos(yrotrad)) * cScale;
  		zpos += float(sin(yrotrad)) * cScale;
+		//hField.collisionDetection(xpos, ypos, zpos);
  	}
  
  	if (key == 'a')
@@ -133,6 +136,7 @@ void keyboard (unsigned char key, int x, int y) {
  		yrotrad = (yrot / 180 * 3.141592654f);
  		xpos -= float(cos(yrotrad)) * cScale;
  		zpos -= float(sin(yrotrad)) * cScale;
+		//hField.collisionDetection(xpos, ypos, zpos);
  	}
  
 }
@@ -155,7 +159,7 @@ void reshape (int w, int h) {
 int main (int argc, char **argv) {
    	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
-	glutInitWindowSize(500, 500);
+	glutInitWindowSize(1500, 1500);
 	glutInitWindowPosition(100, 100);
    	glutCreateWindow("A basic OpenGL Window");
 	Init();

@@ -36,6 +36,13 @@ private:
 	vector<int> yPoints;
 	vector<int> zPoints;
     
+	vector<int> xPoints128;
+	vector<int> yPoints128;
+	vector<int> zPoints128;
+
+	vector<int> xPoints896;
+	vector<int> yPoints896;
+	vector<int> zPoints896;
 };
 
 #endif
