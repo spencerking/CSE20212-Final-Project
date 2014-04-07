@@ -1,7 +1,11 @@
 //significant assistance from: http://www.swiftless.com/tutorials/terrain/3_rendering.html
 
 #include <stdio.h>
-#include <GL/gl.h>
+#ifdef __APPLE__
+	#include <OpenGL/gl.h>
+#else
+	#include <GL/gl.h>
+#endif
 #include <iostream>
 #include <vector>
 #include <iterator>
