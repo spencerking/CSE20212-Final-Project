@@ -36,7 +36,7 @@ HeightField hField;
 camera camera1;
 
 //basic camera function
-//this is straight from the swiftless tutorial, we will definitely have our own
+//this is straight from the swiftless tutorial
 void camera (void) {
 	int posX = (int)xpos;
 	int posZ = (int)zpos;
@@ -46,9 +46,7 @@ void camera (void) {
 	glTranslated(-xpos,-ypos,-zpos); //translates the screen to the current camera positon
 }
 
-//basic display function, this is also straight from swiftless
-//what we already had was very similar to this
-//I doubt we can vary this too much
+//basic display function
 void display (void) {
 	glClearColor (0.0,0.0,0.0,1.0);
         glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -63,7 +61,6 @@ void display (void) {
 }
 
 //initialization function
-//same comments as the display function
 void Init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
@@ -71,11 +68,7 @@ void Init (void) {
 	hField.Create("heightField.raw", 1024, 1024);
 }
 
-//this is how swiftless handled mouse control of the camera
-//I already have the basics figured out with arrow keys
-//we might want to look into figuring out exactly how this works later
-//if we do, we should probably write our own function
-
+//mouse control function based on the swiftless tutorials
 void orientMe(int x, int y) {
 
 	//calculates the differences between the current x and y positions
@@ -92,8 +85,7 @@ void orientMe(int x, int y) {
 
 
 
-//I think we already have the keyboard figured out based on Emrich's tutorials
-//this is still a good reference though
+//keyboard function based on swiftless and Emrich's tutorials
 
 void keyboard (unsigned char key, int x, int y) {
 	if (key=='q'){
@@ -109,8 +101,8 @@ void keyboard (unsigned char key, int x, int y) {
  		zpos -= float(cos(yrotrad)) * cScale;
 		ypos -= float(sin(xrotrad)) ;
  		bounce += 0.04;
-		//hField.collisionDetection(xpos, ypos, zpos);
-		//cout << xpos << ypos << zpos<<endl;
+		hField.collisionDetection(xpos, ypos, zpos);
+		//cout << xpos <<endl;
 	 }
  
  	if (key == 's')
@@ -122,7 +114,7 @@ void keyboard (unsigned char key, int x, int y) {
  		zpos += float(cos(yrotrad)) * cScale;
  		ypos += float(sin(xrotrad));
  		bounce += 0.04;
-		//hField.collisionDetection(xpos, ypos, zpos);
+		hField.collisionDetection(xpos, ypos, zpos);
  	}
  
  	if (key == 'd')
@@ -131,7 +123,7 @@ void keyboard (unsigned char key, int x, int y) {
  		yrotrad = (yrot / 180 * 3.141592654f);
  		xpos += float(cos(yrotrad)) * cScale;
  		zpos += float(sin(yrotrad)) * cScale;
-		//hField.collisionDetection(xpos, ypos, zpos);
+		hField.collisionDetection(xpos, ypos, zpos);
  	}
  
  	if (key == 'a')
@@ -140,13 +132,12 @@ void keyboard (unsigned char key, int x, int y) {
  		yrotrad = (yrot / 180 * 3.141592654f);
  		xpos -= float(cos(yrotrad)) * cScale;
  		zpos -= float(sin(yrotrad)) * cScale;
-		//hField.collisionDetection(xpos, ypos, zpos);
+		hField.collisionDetection(xpos, ypos, zpos);
  	}
  
 }
 
 //a standard function for handling reshaping of the window
-//our reshape function was nearly identical to this
 //we will probably want w and h to be global variables
 //this is for the benefit of screenshot function as it needs w and h
 //basically, as the screen is reshaped we need to adapt the screenshot function
@@ -158,12 +149,11 @@ void reshape (int w, int h) {
 	glMatrixMode (GL_MODELVIEW);
 }
 
-//the main function, these seem to be pretty standard
-//again, ours was nearly identical
+//the main function
 int main (int argc, char **argv) {
    	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
-	glutInitWindowSize(1500, 1500);
+	glutInitWindowSize(500, 500);
 	glutInitWindowPosition(100, 100);
    	glutCreateWindow("A basic OpenGL Window");
 	Init();

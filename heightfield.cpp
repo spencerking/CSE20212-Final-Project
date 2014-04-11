@@ -64,7 +64,7 @@ printf("%d, %d, %d\n", testx, testz, testy);*/
 //this is was originally too memory intensive, the program hangs for extended periods
 //we need to subdivide the screen into smaller sections to check
 //this way we don't need to check every single point
-//the example I'm using from swiftless is 1024 x 1024 so I'm thinking 8 subdivisions
+//the example I'm using from swiftless is 1024 x 1024 so I'm thinking 64 subdivisions
 //I'm going to try to make our heightmap as close to this as possible
 int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera){
 
@@ -76,42 +76,36 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 	int terrainZ;
 
 	vector<int>::const_iterator xvecIter;
-	vector<int>::const_iterator yvecIter;
-	vector<int>::const_iterator zvecIter;
 
-	//bounding sphere radii
-	terrainRadius = 0.75;
-	cameraRadius = 0.75;
-
-
+		//system("clear");
 		//769-896
 		if (xCamera > 768 && xCamera < 897 && zCamera > 256 && zCamera <385){
-			cout << "test896" <<endl;
-			while (xvecIter != xPoints896.end()){
-			/*if (counter == 129){
-				return 0; //no collision
-			}*/
+			
+			//cout << "test896" <<endl;
+			while (xvecIter != xPoints896.end()){ 
 
-			terrainX=xPoints896[counter];
-			terrainY=yPoints896[counter];
-			terrainZ=zPoints896[counter];
+				terrainX=xPoints896[counter];
+				terrainY=yPoints896[counter];
+				terrainZ=zPoints896[counter];
 
 			
 
-			d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-			cout << "d is "<< d<<endl;
-			//check for collision
-			if (d <= terrainRadius + cameraRadius){
-				cout << "collision detected"<<endl;
-				return 1;
-			}
+				d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+				//cout << "d is "<< d<<endl;
+				//check for collision
+				if (d <= 10){ //might want to increase this
+					cout << "collision detected"<<endl;
+					return 1;
+				}
+
+				xvecIter++;
+				counter++;
+				if (terrainX==0 && terrainY==0 && terrainZ==0){
+					return 0;
+				}
 
 			}
 
-			xvecIter++;
-			yvecIter++;
-			zvecIter++;
-			counter++;
 		}
 
 }
@@ -126,7 +120,7 @@ void HeightField::Render(void){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
             glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
 		if (hMapX > 768 && hMapX < 897 && hMapZ > 256 && hMapZ <385){
-			if (counter%10000==0){
+			if (counter%5==0){
 				xPoints896.push_back(hMapX);
 				yPoints896.push_back(hHeightField[hMapX][hMapZ]);
           			zPoints896.push_back(hMapZ);

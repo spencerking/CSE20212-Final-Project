@@ -9,10 +9,7 @@ using namespace std;
 //#include <windows.h>
 //the following typedef eliminates the need for windows.h
 typedef unsigned char MAP; //this somehow stores the heighfield
-//define the 2d and 3d vectors
-//typedef vector<int> intVector;
-//typedef vector<intVector> twoDimVector;
-//typedef vector<vector<intVector> > threeDVector;
+
 
 class HeightField {
     
@@ -29,16 +26,14 @@ public:
 private:
 	int hmHeight;
 	int hmWidth;
-	float terrainRadius;
-	float cameraRadius;
 
-	vector<int> xPoints;
-	vector<int> yPoints;
-	vector<int> zPoints;
+	vector<int> xPoints1;
+	vector<int> yPoints1;
+	vector<int> zPoints1;
     
-	vector<int> xPoints128;
-	vector<int> yPoints128;
-	vector<int> zPoints128;
+	vector<int> xPoints2;
+	vector<int> yPoints2;
+	vector<int> zPoints2;
 
 	vector<int> xPoints896;
 	vector<int> yPoints896;
