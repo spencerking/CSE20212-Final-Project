@@ -69,6 +69,7 @@ printf("%d, %d, %d\n", testx, testz, testy);*/
 int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera){
 
 	int counter = 0;
+    int zero_count = 0;
 	int q=1;
 	float d; //the distance between the camera and the terrain
 	int terrainX;
@@ -76,6 +77,72 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 	int terrainZ;
 
 	vector<int>::const_iterator xvecIter;
+    
+    //I don't have my notebook with me at the moment, I just need to change numbers here
+    //also need to change the function that reads them in
+    //Square 1 (bottom left)
+    /*
+    if (xCamera > 768 && xCamera < 897 && zCamera > 256 && zCamera <385){
+        
+        while (xvecIter != xPoints1.end()){
+            
+            terrainX=xPoints1[counter];
+            terrainY=yPoints1[counter];
+            terrainZ=zPoints1[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                zero_count++;
+                if (zero_count>1){
+                    return 0;
+                }
+            }
+            
+        }
+        
+    }*/
+    
+    //Square 2 (above square 1)
+    /*
+    if (xCamera > 768 && xCamera < 897 && zCamera > 256 && zCamera <385){
+       
+        while (xvecIter != xPoints2.end()){
+            
+            terrainX=xPoints2[counter];
+            terrainY=yPoints2[counter];
+            terrainZ=zPoints2[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }*/
+    
 
 		//system("clear");
 		//769-896
