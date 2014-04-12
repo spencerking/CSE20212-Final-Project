@@ -81,8 +81,8 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
     //I don't have my notebook with me at the moment, I just need to change numbers here
     //also need to change the function that reads them in
     //Square 1 (bottom left)
-    /*
-    if (xCamera > 768 && xCamera < 897 && zCamera > 256 && zCamera <385){
+    
+    if (xCamera > 0 && xCamera < 129 && zCamera > 0 && zCamera <129){
         
         while (xvecIter != xPoints1.end()){
             
@@ -111,11 +111,11 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
             
         }
         
-    }*/
+    }
     
     //Square 2 (above square 1)
-    /*
-    if (xCamera > 768 && xCamera < 897 && zCamera > 256 && zCamera <385){
+    
+    if (xCamera > 128 && xCamera < 257 && zCamera > 0 && zCamera <129){
        
         while (xvecIter != xPoints2.end()){
             
@@ -141,39 +141,1874 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
             
         }
         
-    }*/
+    }
     
-
-		//system("clear");
-		//769-896
-		if (xCamera > 768 && xCamera < 897 && zCamera > 256 && zCamera <385){
+    
+    //Square 3
+    
+    if (xCamera > 256 && xCamera < 385 && zCamera > 0 && zCamera <129){
+        
+        while (xvecIter != xPoints3.end()){
+            
+            terrainX=xPoints3[counter];
+            terrainY=yPoints3[counter];
+            terrainZ=zPoints3[counter];
+            
 			
-			//cout << "test896" <<endl;
-			while (xvecIter != xPoints896.end()){ 
-
-				terrainX=xPoints896[counter];
-				terrainY=yPoints896[counter];
-				terrainZ=zPoints896[counter];
-
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 4
+    
+    if (xCamera > 384 && xCamera < 513 && zCamera > 0 && zCamera <129){
+        
+        while (xvecIter != xPoints4.end()){
+            
+            terrainX=xPoints4[counter];
+            terrainY=yPoints4[counter];
+            terrainZ=zPoints4[counter];
+            
 			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+     
+    }
+    
+    //Square 5
+    
+    if (xCamera > 512 && xCamera < 641 && zCamera > 0 && zCamera <129){
+        
+        while (xvecIter != xPoints5.end()){
+            
+            terrainX=xPoints5[counter];
+            terrainY=yPoints5[counter];
+            terrainZ=zPoints5[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 6
+    
+    if (xCamera > 640 && xCamera < 769 && zCamera > 0 && zCamera <129){
+        
+        while (xvecIter != xPoints6.end()){
+            
+            terrainX=xPoints6[counter];
+            terrainY=yPoints6[counter];
+            terrainZ=zPoints6[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 7
+    
+    if (xCamera > 768 && xCamera < 897 && zCamera > 0 && zCamera <129){
+        
+        while (xvecIter != xPoints7.end()){
+            
+            terrainX=xPoints7[counter];
+            terrainY=yPoints7[counter];
+            terrainZ=zPoints7[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 8
+    
+    if (xCamera > 896 && xCamera < 1025 && zCamera > 0 && zCamera <129){
+        
+        while (xvecIter != xPoints8.end()){
+            
+            terrainX=xPoints8[counter];
+            terrainY=yPoints8[counter];
+            terrainZ=zPoints8[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 9
+    
+    if (xCamera > 0 && xCamera < 129 && zCamera > 128 && zCamera <257){
+        
+        while (xvecIter != xPoints9.end()){
+            
+            terrainX=xPoints9[counter];
+            terrainY=yPoints9[counter];
+            terrainZ=zPoints9[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 10
+    
+    if (xCamera > 128 && xCamera < 257 && zCamera > 128 && zCamera <257){
+        
+        while (xvecIter != xPoints10.end()){
+            
+            terrainX=xPoints10[counter];
+            terrainY=yPoints10[counter];
+            terrainZ=zPoints10[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 11
+    
+    if (xCamera > 256 && xCamera < 385 && zCamera > 128 && zCamera <257){
+        
+        while (xvecIter != xPoints11.end()){
+            
+            terrainX=xPoints11[counter];
+            terrainY=yPoints11[counter];
+            terrainZ=zPoints11[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 12
+    
+    if (xCamera > 384 && xCamera < 513 && zCamera > 128 && zCamera <257){
+        
+        while (xvecIter != xPoints12.end()){
+            
+            terrainX=xPoints12[counter];
+            terrainY=yPoints12[counter];
+            terrainZ=zPoints12[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 13
+    
+    if (xCamera > 512 && xCamera < 641 && zCamera > 128 && zCamera <257){
+        
+        while (xvecIter != xPoints13.end()){
+            
+            terrainX=xPoints13[counter];
+            terrainY=yPoints13[counter];
+            terrainZ=zPoints13[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 14
+    
+    if (xCamera > 640 && xCamera < 769 && zCamera > 128 && zCamera <257){
+        
+        while (xvecIter != xPoints14.end()){
+            
+            terrainX=xPoints14[counter];
+            terrainY=yPoints14[counter];
+            terrainZ=zPoints14[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 15
+    
+    if (xCamera > 768 && xCamera < 897 && zCamera > 128 && zCamera <257){
+        
+        while (xvecIter != xPoints15.end()){
+            
+            terrainX=xPoints15[counter];
+            terrainY=yPoints15[counter];
+            terrainZ=zPoints15[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 16
+    
+    if (xCamera > 896 && xCamera < 1025 && zCamera > 128 && zCamera <257){
+        
+        while (xvecIter != xPoints16.end()){
+            
+            terrainX=xPoints16[counter];
+            terrainY=yPoints16[counter];
+            terrainZ=zPoints16[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    
+    //Square 17
+    
+    if (xCamera > 0 && xCamera < 129 && zCamera > 256 && zCamera <385){
+        
+        while (xvecIter != xPoints17.end()){
+            
+            terrainX=xPoints17[counter];
+            terrainY=yPoints17[counter];
+            terrainZ=zPoints17[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 18
+    
+    if (xCamera > 128 && xCamera < 257 && zCamera > 256 && zCamera <385){
+        
+        while (xvecIter != xPoints18.end()){
+            
+            terrainX=xPoints18[counter];
+            terrainY=yPoints18[counter];
+            terrainZ=zPoints18[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 19
+    
+    if (xCamera > 256 && xCamera < 385 && zCamera > 256 && zCamera <385){
+        
+        while (xvecIter != xPoints19.end()){
+            
+            terrainX=xPoints19[counter];
+            terrainY=yPoints19[counter];
+            terrainZ=zPoints19[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 20
+    
+    if (xCamera > 384 && xCamera < 513 && zCamera > 256 && zCamera <385){
+        
+        while (xvecIter != xPoints20.end()){
+            
+            terrainX=xPoints20[counter];
+            terrainY=yPoints20[counter];
+            terrainZ=zPoints20[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 21
+    
+    if (xCamera > 512 && xCamera < 641 && zCamera > 256 && zCamera <385){
+        
+        while (xvecIter != xPoints21.end()){
+            
+            terrainX=xPoints21[counter];
+            terrainY=yPoints21[counter];
+            terrainZ=zPoints21[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 22
+    
+    if (xCamera > 640 && xCamera < 769 && zCamera > 256 && zCamera <385){
+        
+        while (xvecIter != xPoints22.end()){
+            
+            terrainX=xPoints22[counter];
+            terrainY=yPoints22[counter];
+            terrainZ=zPoints22[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 23
+    //system("clear");
+    //769-896
+    if (xCamera > 768 && xCamera < 897 && zCamera > 256 && zCamera <385){
+        
+        //cout << "test896" <<endl;
+        while (xvecIter != xPoints23.end()){
+            
+            terrainX=xPoints23[counter];
+            terrainY=yPoints23[counter];
+            terrainZ=zPoints23[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 24
+    
+    if (xCamera > 896 && xCamera < 1025 && zCamera > 256 && zCamera <385){
+        
+        while (xvecIter != xPoints24.end()){
+            
+            terrainX=xPoints24[counter];
+            terrainY=yPoints24[counter];
+            terrainZ=zPoints24[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 25
+    
+    if (xCamera > 0 && xCamera < 129 && zCamera > 384 && zCamera <513){
+        
+        while (xvecIter != xPoints25.end()){
+            
+            terrainX=xPoints25[counter];
+            terrainY=yPoints25[counter];
+            terrainZ=zPoints25[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 26
+    
+    if (xCamera > 128 && xCamera < 257 && zCamera > 384 && zCamera <513){
+        
+        while (xvecIter != xPoints26.end()){
+            
+            terrainX=xPoints26[counter];
+            terrainY=yPoints26[counter];
+            terrainZ=zPoints26[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 27
+    
+    if (xCamera > 256 && xCamera < 385 && zCamera > 384 && zCamera <513){
+        
+        while (xvecIter != xPoints27.end()){
+            
+            terrainX=xPoints27[counter];
+            terrainY=yPoints27[counter];
+            terrainZ=zPoints27[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 28
+    
+    if (xCamera > 384 && xCamera < 513 && zCamera > 384 && zCamera <513){
+        
+        while (xvecIter != xPoints28.end()){
+            
+            terrainX=xPoints28[counter];
+            terrainY=yPoints28[counter];
+            terrainZ=zPoints28[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 29
+    
+    if (xCamera > 512 && xCamera < 641 && zCamera > 384 && zCamera <513){
+        
+        while (xvecIter != xPoints29.end()){
+            
+            terrainX=xPoints29[counter];
+            terrainY=yPoints29[counter];
+            terrainZ=zPoints29[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 30
+    
+    if (xCamera > 640 && xCamera < 769 && zCamera > 384 && zCamera <513){
+        
+        while (xvecIter != xPoints30.end()){
+            
+            terrainX=xPoints30[counter];
+            terrainY=yPoints30[counter];
+            terrainZ=zPoints30[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 31
+    
+    if (xCamera > 768 && xCamera < 897 && zCamera > 384 && zCamera <513){
+        
+        //cout << "test896" <<endl;
+        while (xvecIter != xPoints31.end()){
+            
+            terrainX=xPoints31[counter];
+            terrainY=yPoints31[counter];
+            terrainZ=zPoints31[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 32
+    
+    if (xCamera > 896 && xCamera < 1025 && zCamera > 384 && zCamera <513){
+        
+        while (xvecIter != xPoints32.end()){
+            
+            terrainX=xPoints32[counter];
+            terrainY=yPoints32[counter];
+            terrainZ=zPoints32[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+     
+    }
+    
+    //Square 33
+    
+    if (xCamera > 0 && xCamera < 129 && zCamera > 512 && zCamera <641){
+        
+        while (xvecIter != xPoints33.end()){
+            
+            terrainX=xPoints33[counter];
+            terrainY=yPoints33[counter];
+            terrainZ=zPoints33[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 34
+    
+    if (xCamera > 128 && xCamera < 257 && zCamera > 512 && zCamera <641){
+        
+        while (xvecIter != xPoints34.end()){
+            
+            terrainX=xPoints34[counter];
+            terrainY=yPoints34[counter];
+            terrainZ=zPoints34[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 35
+    
+    if (xCamera > 256 && xCamera < 385 && zCamera > 512 && zCamera <641){
+        
+        while (xvecIter != xPoints35.end()){
+            
+            terrainX=xPoints35[counter];
+            terrainY=yPoints35[counter];
+            terrainZ=zPoints35[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 36
+    
+    if (xCamera > 384 && xCamera < 513 && zCamera > 512 && zCamera <641){
+        
+        while (xvecIter != xPoints36.end()){
+            
+            terrainX=xPoints36[counter];
+            terrainY=yPoints36[counter];
+            terrainZ=zPoints36[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 37
+    
+    if (xCamera > 512 && xCamera < 641 && zCamera > 512 && zCamera <641){
+        
+        while (xvecIter != xPoints37.end()){
+            
+            terrainX=xPoints37[counter];
+            terrainY=yPoints37[counter];
+            terrainZ=zPoints37[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 38
+    
+    if (xCamera > 640 && xCamera < 769 && zCamera > 512 && zCamera <641){
+        
+        while (xvecIter != xPoints38.end()){
+            
+            terrainX=xPoints38[counter];
+            terrainY=yPoints38[counter];
+            terrainZ=zPoints38[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 39
+    
+    if (xCamera > 768 && xCamera < 897 && zCamera > 512 && zCamera <641){
+        
+        while (xvecIter != xPoints39.end()){
+            
+            terrainX=xPoints39[counter];
+            terrainY=yPoints39[counter];
+            terrainZ=zPoints39[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 40
+    
+    if (xCamera > 896 && xCamera < 1025 && zCamera > 512 && zCamera <641){
+        
+        while (xvecIter != xPoints40.end()){
+            
+            terrainX=xPoints40[counter];
+            terrainY=yPoints40[counter];
+            terrainZ=zPoints40[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    
+    //Square 41
+    
+    if (xCamera > 0 && xCamera < 129 && zCamera > 640 && zCamera <769){
+        
+        while (xvecIter != xPoints41.end()){
+            
+            terrainX=xPoints41[counter];
+            terrainY=yPoints41[counter];
+            terrainZ=zPoints41[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 42
+    
+    if (xCamera > 128 && xCamera < 257 && zCamera > 640 && zCamera <769){
+        
+        while (xvecIter != xPoints42.end()){
+            
+            terrainX=xPoints42[counter];
+            terrainY=yPoints42[counter];
+            terrainZ=zPoints42[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 43
+    
+    if (xCamera > 256 && xCamera < 385 && zCamera > 640 && zCamera <769){
+        
+        while (xvecIter != xPoints43.end()){
+            
+            terrainX=xPoints43[counter];
+            terrainY=yPoints43[counter];
+            terrainZ=zPoints43[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 44
+    
+    if (xCamera > 384 && xCamera < 513 && zCamera > 640 && zCamera <769){
+        
+        while (xvecIter != xPoints44.end()){
+            
+            terrainX=xPoints44[counter];
+            terrainY=yPoints44[counter];
+            terrainZ=zPoints44[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 45
+    
+    if (xCamera > 512 && xCamera < 641 && zCamera > 640 && zCamera <769){
+        
+        while (xvecIter != xPoints45.end()){
+            
+            terrainX=xPoints45[counter];
+            terrainY=yPoints45[counter];
+            terrainZ=zPoints45[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 46
+    
+    if (xCamera > 640 && xCamera < 769 && zCamera > 640 && zCamera <769){
+        
+        while (xvecIter != xPoints46.end()){
+            
+            terrainX=xPoints46[counter];
+            terrainY=yPoints46[counter];
+            terrainZ=zPoints46[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 47
+    
+    if (xCamera > 768 && xCamera < 897 && zCamera > 640 && zCamera <769){
+        
+        while (xvecIter != xPoints47.end()){
+            
+            terrainX=xPoints47[counter];
+            terrainY=yPoints47[counter];
+            terrainZ=zPoints47[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 48
+    
+    if (xCamera > 896 && xCamera < 1025 && zCamera > 640 && zCamera <769){
+        
+        while (xvecIter != xPoints48.end()){
+            
+            terrainX=xPoints48[counter];
+            terrainY=yPoints48[counter];
+            terrainZ=zPoints48[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 49
+    
+    if (xCamera > 0 && xCamera < 129 && zCamera > 768 && zCamera <897){
+        
+        while (xvecIter != xPoints49.end()){
+            
+            terrainX=xPoints49[counter];
+            terrainY=yPoints49[counter];
+            terrainZ=zPoints49[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 50
+    
+    if (xCamera > 128 && xCamera < 257 && zCamera > 768 && zCamera <897){
+        
+        while (xvecIter != xPoints50.end()){
+            
+            terrainX=xPoints50[counter];
+            terrainY=yPoints50[counter];
+            terrainZ=zPoints50[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 51
+    
+    if (xCamera > 256 && xCamera < 385 && zCamera > 768 && zCamera <897){
+        
+        while (xvecIter != xPoints51.end()){
+            
+            terrainX=xPoints51[counter];
+            terrainY=yPoints51[counter];
+            terrainZ=zPoints51[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 52
+    
+    if (xCamera > 384 && xCamera < 513 && zCamera > 768 && zCamera <897){
+        
+        while (xvecIter != xPoints52.end()){
+            
+            terrainX=xPoints52[counter];
+            terrainY=yPoints52[counter];
+            terrainZ=zPoints52[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 53
+    
+    if (xCamera > 512 && xCamera < 641 && zCamera > 768 && zCamera <897){
+        
+        while (xvecIter != xPoints53.end()){
+            
+            terrainX=xPoints53[counter];
+            terrainY=yPoints53[counter];
+            terrainZ=zPoints53[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 54
+    
+    if (xCamera > 640 && xCamera < 769 && zCamera > 768 && zCamera <897){
+        
+        while (xvecIter != xPoints54.end()){
+            
+            terrainX=xPoints54[counter];
+            terrainY=yPoints54[counter];
+            terrainZ=zPoints54[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 55
+    
+    if (xCamera > 768 && xCamera < 897 && zCamera > 768 && zCamera <897){
+        
+        while (xvecIter != xPoints55.end()){
+            
+            terrainX=xPoints55[counter];
+            terrainY=yPoints55[counter];
+            terrainZ=zPoints55[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 56
+    
+    if (xCamera > 896 && xCamera < 1025 && zCamera > 768 && zCamera <897){
+        
+        while (xvecIter != xPoints56.end()){
+            
+            terrainX=xPoints56[counter];
+            terrainY=yPoints56[counter];
+            terrainZ=zPoints56[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 57
+    
+    if (xCamera > 0 && xCamera < 129 && zCamera > 896 && zCamera <1025){
+        
+        while (xvecIter != xPoints57.end()){
+            
+            terrainX=xPoints57[counter];
+            terrainY=yPoints57[counter];
+            terrainZ=zPoints57[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 58
+    
+    if (xCamera > 128 && xCamera < 257 && zCamera > 896 && zCamera <1025){
+        
+        while (xvecIter != xPoints58.end()){
+            
+            terrainX=xPoints58[counter];
+            terrainY=yPoints58[counter];
+            terrainZ=zPoints58[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 59
+    
+    if (xCamera > 256 && xCamera < 385 && zCamera > 896 && zCamera <1025){
+        
+        while (xvecIter != xPoints59.end()){
+            
+            terrainX=xPoints59[counter];
+            terrainY=yPoints59[counter];
+            terrainZ=zPoints59[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 60
+    
+    if (xCamera > 384 && xCamera < 513 && zCamera > 896 && zCamera <1025){
+        
+        while (xvecIter != xPoints60.end()){
+            
+            terrainX=xPoints60[counter];
+            terrainY=yPoints60[counter];
+            terrainZ=zPoints60[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 61
+    
+    if (xCamera > 512 && xCamera < 641 && zCamera > 896 && zCamera <1025){
+        
+        while (xvecIter != xPoints61.end()){
+            
+            terrainX=xPoints61[counter];
+            terrainY=yPoints61[counter];
+            terrainZ=zPoints61[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 62
+    
+    if (xCamera > 640 && xCamera < 769 && zCamera > 896 && zCamera <1025){
+        
+        while (xvecIter != xPoints62.end()){
+            
+            terrainX=xPoints62[counter];
+            terrainY=yPoints62[counter];
+            terrainZ=zPoints62[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 63
+    
+    if (xCamera > 768 && xCamera < 897 && zCamera > 896 && zCamera <1025){
+        
+        while (xvecIter != xPoints63.end()){
+            
+            terrainX=xPoints63[counter];
+            terrainY=yPoints63[counter];
+            terrainZ=zPoints63[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
+    
+    //Square 64
+    
+    if (xCamera > 896 && xCamera < 1025 && zCamera > 896 && zCamera <1025){
+        
+        while (xvecIter != xPoints64.end()){
+            
+            terrainX=xPoints64[counter];
+            terrainY=yPoints64[counter];
+            terrainZ=zPoints64[counter];
+            
+			
+            
+            d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
+            //cout << "d is "<< d<<endl;
+            //check for collision
+            if (d <= 10){ //might want to increase this
+                cout << "collision detected"<<endl;
+                return 1;
+            }
+            
+            xvecIter++;
+            counter++;
+            if (terrainX==0 && terrainY==0 && terrainZ==0){
+                return 0;
+            }
+            
+        }
+        
+    }
 
-				d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-				//cout << "d is "<< d<<endl;
-				//check for collision
-				if (d <= 10){ //might want to increase this
-					cout << "collision detected"<<endl;
-					return 1;
-				}
-
-				xvecIter++;
-				counter++;
-				if (terrainX==0 && terrainY==0 && terrainZ==0){
-					return 0;
-				}
-
-			}
-
-		}
 
 }
 
@@ -186,14 +2021,15 @@ void HeightField::Render(void){
     for (int hMapX = 0; hMapX < hmWidth; hMapX++){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
             glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
-		if (hMapX > 768 && hMapX < 897 && hMapZ > 256 && hMapZ <385){
-			if (counter%5==0){
-				xPoints896.push_back(hMapX);
-				yPoints896.push_back(hHeightField[hMapX][hMapZ]);
-          			zPoints896.push_back(hMapZ);
-			}
-		}
-		counter++;
+            //Square 23
+            if (hMapX > 768 && hMapX < 897 && hMapZ > 256 && hMapZ <385){
+                if (counter%5==0){
+                    xPoints23.push_back(hMapX);
+                    yPoints23.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints23.push_back(hMapZ);
+                }
+            }
+            counter++;
         }
     }
 	glEnd();
