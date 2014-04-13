@@ -65,7 +65,7 @@ void Init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
     
-	hField.Create("heightField.raw", 1024, 1024);
+	hField.Create("heightField2.raw", 1024, 1024);
 }
 
 //mouse control function based on the swiftless tutorials
