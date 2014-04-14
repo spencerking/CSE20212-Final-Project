@@ -94,45 +94,74 @@ void keyboard (unsigned char key, int x, int y) {
  
  	if (key == 'w')
  	{
- 		float xrotrad, yrotrad;
- 		yrotrad = (yrot / 180 * 3.141592654f);
-		xrotrad = (xrot / 180 * 3.141592654f);
-		xpos += float(sin(yrotrad)) * cScale;
- 		zpos -= float(cos(yrotrad)) * cScale;
-		ypos -= float(sin(xrotrad)) ;
- 		bounce += 0.04;
-		hField.collisionDetection(xpos, ypos, zpos);
-		//cout << xpos <<endl;
+        float xrotrad, yrotrad;
+        yrotrad = (yrot / 180 * 3.141592654f);
+        xrotrad = (xrot / 180 * 3.141592654f);
+        float xposFuture = xpos + float(sin(yrotrad)) * cScale;
+        float zposFuture = zpos - float(cos(yrotrad)) * cScale;
+        float yposFuture = ypos - float(sin(xrotrad));
+        
+        if (hField.collisionDetection(xposFuture, yposFuture, zposFuture)){
+            
+        }
+        else{
+            xpos += float(sin(yrotrad)) * cScale;
+            zpos -= float(cos(yrotrad)) * cScale;
+            ypos -= float(sin(xrotrad));
+            bounce += 0.04;
+        }
 	 }
  
  	if (key == 's')
  	{
- 		float xrotrad, yrotrad;
- 		yrotrad = (yrot / 180 * 3.141592654f);
- 		xrotrad = (xrot / 180 * 3.141592654f);
-		xpos -= float(sin(yrotrad)) * cScale;
- 		zpos += float(cos(yrotrad)) * cScale;
- 		ypos += float(sin(xrotrad));
- 		bounce += 0.04;
-		hField.collisionDetection(xpos, ypos, zpos);
+        float xrotrad, yrotrad;
+        yrotrad = (yrot / 180 * 3.141592654f);
+        xrotrad = (xrot / 180 * 3.141592654f);
+        float xposFuture = xpos - float(sin(yrotrad)) * cScale;
+        float zposFuture = zpos + float(cos(yrotrad)) * cScale;
+        float yposFuture = ypos + float(sin(xrotrad));
+        
+        if (hField.collisionDetection(xposFuture, yposFuture, zposFuture)){
+            
+        }
+        else{
+            xpos -= float(sin(yrotrad)) * cScale;
+            zpos += float(cos(yrotrad)) * cScale;
+            ypos += float(sin(xrotrad));
+            bounce += 0.04;
+        }
  	}
  
  	if (key == 'd')
  	{
- 		float yrotrad;
- 		yrotrad = (yrot / 180 * 3.141592654f);
- 		xpos += float(cos(yrotrad)) * cScale;
- 		zpos += float(sin(yrotrad)) * cScale;
-		hField.collisionDetection(xpos, ypos, zpos);
+        float yrotrad;
+        yrotrad = (yrot / 180 * 3.141592654f);
+        float xposFuture = xpos + float(cos(yrotrad)) * cScale;
+        float zposFuture = zpos + float(sin(yrotrad)) * cScale;
+        
+        if (hField.collisionDetection(xposFuture, ypos, zposFuture)){
+            
+        }
+        else{
+            xpos += float(cos(yrotrad)) * cScale;
+            zpos += float(sin(yrotrad)) * cScale;
+        }
  	}
  
  	if (key == 'a')
  	{
- 		float yrotrad;
- 		yrotrad = (yrot / 180 * 3.141592654f);
- 		xpos -= float(cos(yrotrad)) * cScale;
- 		zpos -= float(sin(yrotrad)) * cScale;
-		hField.collisionDetection(xpos, ypos, zpos);
+        float yrotrad;
+        yrotrad = (yrot / 180 * 3.141592654f);
+        float xposFuture = xpos - float(cos(yrotrad)) * cScale;
+        float zposFuture = zpos - float(sin(yrotrad)) * cScale;
+        
+        if (hField.collisionDetection(xposFuture, ypos, zposFuture)){
+            
+        }
+        else{
+            xpos -= float(cos(yrotrad)) * cScale;
+            zpos -= float(sin(yrotrad)) * cScale;
+        }
  	}
  
 }

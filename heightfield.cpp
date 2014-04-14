@@ -2341,6 +2341,198 @@ void HeightField::Render(void){
                     zPoints40.push_back(hMapZ);
                 }
             }
+            //Square 41
+            else if (hMapX > 0 && hMapX < 129 && hMapZ > 640 && hMapZ <769){
+                if (counter1%10==0){
+                    xPoints41.push_back(hMapX);
+                    yPoints41.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints41.push_back(hMapZ);
+                }
+            }
+            //Square 42
+            else if (hMapX > 128 && hMapX < 257 && hMapZ > 640 && hMapZ <769){
+                if (counter1%10==0){
+                    xPoints42.push_back(hMapX);
+                    yPoints42.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints42.push_back(hMapZ);
+                }
+            }
+            //Square 43
+            else if (hMapX > 256 && hMapX < 385 && hMapZ > 640 && hMapZ <769){
+                if (counter1%10==0){
+                    xPoints43.push_back(hMapX);
+                    yPoints43.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints43.push_back(hMapZ);
+                }
+            }
+            //Square 44
+            else if (hMapX > 384 && hMapX < 513 && hMapZ > 640 && hMapZ <769){
+                if (counter1%10==0){
+                    xPoints44.push_back(hMapX);
+                    yPoints44.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints44.push_back(hMapZ);
+                }
+            }
+            //Square 45
+            else if (hMapX > 512 && hMapX < 641 && hMapZ > 640 && hMapZ <769){
+                if (counter1%10==0){
+                    xPoints45.push_back(hMapX);
+                    yPoints45.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints45.push_back(hMapZ);
+                }
+            }
+            //Square 46
+            else if (hMapX > 640 && hMapX < 769 && hMapZ > 640 && hMapZ <769){
+                if (counter1%10==0){
+                    xPoints46.push_back(hMapX);
+                    yPoints46.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints46.push_back(hMapZ);
+                }
+            }
+            //Square 47
+            else if (hMapX > 768 && hMapX < 897 && hMapZ > 640 && hMapZ <769){
+                if (counter1%10==0){
+                    xPoints47.push_back(hMapX);
+                    yPoints47.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints47.push_back(hMapZ);
+                }
+            }
+            //Square 48
+            else if (hMapX > 896 && hMapX < 1025 && hMapZ > 640 && hMapZ <769){
+                if (counter1%10==0){
+                    xPoints48.push_back(hMapX);
+                    yPoints48.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints48.push_back(hMapZ);
+                }
+            }
+            //Square 49
+            else if (hMapX > 0 && hMapX < 129 && hMapZ > 768 && hMapZ <897){
+                if (counter1%10==0){
+                    xPoints49.push_back(hMapX);
+                    yPoints49.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints49.push_back(hMapZ);
+                }
+            }
+            //Square 50
+            else if (hMapX > 128 && hMapX < 257 && hMapZ > 768 && hMapZ <897){
+                if (counter1%10==0){
+                    xPoints50.push_back(hMapX);
+                    yPoints50.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints50.push_back(hMapZ);
+                }
+            }
+            //Square 51
+            else if (hMapX > 256 && hMapX < 385 && hMapZ > 768 && hMapZ <897){
+                if (counter1%10==0){
+                    xPoints51.push_back(hMapX);
+                    yPoints51.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints51.push_back(hMapZ);
+                }
+            }
+            //Square 52
+            else if (hMapX > 384 && hMapX < 513 && hMapZ > 768 && hMapZ <897){
+                if (counter1%10==0){
+                    xPoints52.push_back(hMapX);
+                    yPoints52.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints52.push_back(hMapZ);
+                }
+            }
+            //Square 53
+            else if (hMapX > 512 && hMapX < 641 && hMapZ > 768 && hMapZ <897){
+                if (counter1%10==0){
+                    xPoints53.push_back(hMapX);
+                    yPoints53.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints53.push_back(hMapZ);
+                }
+            }
+            //Square 54
+            else if (hMapX > 640 && hMapX < 769 && hMapZ > 768 && hMapZ <897){
+                if (counter1%10==0){
+                    xPoints54.push_back(hMapX);
+                    yPoints54.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints54.push_back(hMapZ);
+                }
+            }
+            //Square 55
+            else if (hMapX > 768 && hMapX < 897 && hMapZ > 768 && hMapZ <897){
+                if (counter1%10==0){
+                    xPoints55.push_back(hMapX);
+                    yPoints55.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints55.push_back(hMapZ);
+                }
+            }
+            //Square 56
+            else if (hMapX > 896 && hMapX < 1025 && hMapZ > 768 && hMapZ <897){
+                if (counter1%10==0){
+                    xPoints56.push_back(hMapX);
+                    yPoints56.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints56.push_back(hMapZ);
+                }
+            }
+            //Square 57
+            else if (hMapX > 0 && hMapX < 129 && hMapZ > 896 && hMapZ <1025){
+                if (counter1%10==0){
+                    xPoints57.push_back(hMapX);
+                    yPoints57.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints57.push_back(hMapZ);
+                }
+            }
+            //Square 58
+            else if (hMapX > 128 && hMapX < 257 && hMapZ > 896 && hMapZ <1025){
+                if (counter1%10==0){
+                    xPoints58.push_back(hMapX);
+                    yPoints58.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints58.push_back(hMapZ);
+                }
+            }
+            //Square 59
+            else if (hMapX > 256 && hMapX < 385 && hMapZ > 896 && hMapZ <1025){
+                if (counter1%10==0){
+                    xPoints59.push_back(hMapX);
+                    yPoints59.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints59.push_back(hMapZ);
+                }
+            }
+            //Square 60
+            else if (hMapX > 384 && hMapX < 513 && hMapZ > 896 && hMapZ <1025){
+                if (counter1%10==0){
+                    xPoints60.push_back(hMapX);
+                    yPoints60.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints60.push_back(hMapZ);
+                }
+            }
+            //Square 61
+            else if (hMapX > 512 && hMapX < 641 && hMapZ > 896 && hMapZ <1025){
+                if (counter1%10==0){
+                    xPoints61.push_back(hMapX);
+                    yPoints61.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints61.push_back(hMapZ);
+                }
+            }
+            //Square 62
+            else if (hMapX > 640 && hMapX < 769 && hMapZ > 896 && hMapZ <1025){
+                if (counter1%10==0){
+                    xPoints62.push_back(hMapX);
+                    yPoints62.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints62.push_back(hMapZ);
+                }
+            }
+            //Square 63
+            else if (hMapX > 768 && hMapX < 897 && hMapZ > 896 && hMapZ <1025){
+                if (counter1%10==0){
+                    xPoints63.push_back(hMapX);
+                    yPoints63.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints63.push_back(hMapZ);
+                }
+            }
+            //Square 64
+            else if (hMapX > 896 && hMapX < 1025 && hMapZ > 896 && hMapZ <1025){
+                if (counter1%10==0){
+                    xPoints64.push_back(hMapX);
+                    yPoints64.push_back(hHeightField[hMapX][hMapZ]);
+                    zPoints64.push_back(hMapZ);
+                }
+            }
             counter1++;
         }
     }
