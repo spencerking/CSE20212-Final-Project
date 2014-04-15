@@ -3,7 +3,7 @@ OBJECTS = main.o heightfield.o camera.o
 WARNINGS = -g
 
 ifeq ($(OS),Darwin)
-	LFLAGS += -framework OpenGL -framework GLUT
+	LFLAGS += —lglew lSOIL -framework OpenGL -framework GLUT -framework CoreFoundation
 	WARNINGS += -Wno-deprecated
 else
 	LFLAGS += -lGL -lglut -lGLU
