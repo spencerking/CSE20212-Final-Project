@@ -20,13 +20,14 @@ public:
     
 	MAP hHeightField[1024][1024]; //stores the map data
 
-	int collisionDetection(float, float, float);
+	int collisionDetection(float, float, float); //collision detection function
    	
 
 private:
 	int hmHeight;
 	int hmWidth;
 
+    //vectors for reading in the coordinate points for each square
 	vector<int> xPoints1;
 	vector<int> yPoints1;
 	vector<int> zPoints1;

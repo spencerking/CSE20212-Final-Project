@@ -61,37 +61,37 @@ printf("%d, %d, %d\n", testx, testz, testy);*/
 
 
 //Collision detection with terrain using bounding spheres method
-//this is was originally too memory intensive, the program hangs for extended periods
-//we need to subdivide the screen into smaller sections to check
-//this way we don't need to check every single point
-//the example I'm using from swiftless is 1024 x 1024 so I'm thinking 64 subdivisions
-//I'm going to try to make our heightmap as close to this as possible
+//this is was originally too memory intensive, the program would hang for extended periods
+//we decided to subdivide the screen into smaller sections to check
+//this way we don't need to check every single point every time the user moves
 int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera){
 
 	int counter = 0;
     int zero_count = 0;
-	int q=1;
+	//int q=1;
 	float d; //the distance between the camera and the terrain
+    
+    //coordinates for each point in the terrain
 	int terrainX;
 	int terrainY;
 	int terrainZ;
 
 	vector<int>::const_iterator xvecIter;
     
-    //I don't have my notebook with me at the moment, I just need to change numbers here
-    //also need to change the function that reads them in
+    
     //Square 1 (bottom left)
     
     if (xCamera > 0 && xCamera < 129 && zCamera > 0 && zCamera <129){
         
         while (xvecIter != xPoints1.end()){
             
+            //sets the coordinates from the vectors
             terrainX=xPoints1[counter];
             terrainY=yPoints1[counter];
             terrainZ=zPoints1[counter];
             
 			
-            
+            //calculates the distance between the camera and a point
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
 
             //check for collision
@@ -100,8 +100,13 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
                 return 1;
             }
             
+            //increment the iterator and the count
             xvecIter++;
             counter++;
+            
+            //check is (0,0,0) appears more than once
+            //sometimes this point appears endlessly and we are not sure why
+            //this function breaks the loop should it appear more than it should
             if (terrainX==0 && terrainY==0 && terrainZ==0){
                 zero_count++;
                 if (zero_count>1){
