@@ -1,6 +1,7 @@
 
 #ifndef CAMERA_H
 #define CAMERA_H
+#include <string>
 
 class camera{
 
@@ -8,10 +9,10 @@ class camera{
 	camera(); //constructor
 	void screenshot(char *, short, short);
 	void setupScreenshot();
-
+    void stringIncrement(std::string&);
+    
 	private:
-	int screenCounter;
-
+    std::string fileName;
 };
 
 

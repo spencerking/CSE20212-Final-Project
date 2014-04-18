@@ -84,13 +84,17 @@ void orientMe(int x, int y) {
 }
 
 
-
 //keyboard function based on swiftless and Emrich's tutorials
 
 void keyboard (unsigned char key, int x, int y) {
-	if (key=='q'){
+	if (key == 'e'){
 		camera1.setupScreenshot();
 	}
+    
+    if (key == 'q'){
+        cout << "Thank you for playing!" <<endl;
+        exit(1);
+    }
  
  	if (key == 'w')
  	{

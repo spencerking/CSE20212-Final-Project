@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
+#include <ostream>
 #include "camera.h"
 
 using namespace std;
@@ -19,8 +20,25 @@ using namespace std;
 //default constructor
 camera::camera(){
 
-	screenCounter = 0;
+    fileName = "0";
 
+}
+
+//string incrementer
+//help from: http://rosettacode.org/wiki/Increment_a_numerical_string#C.2B.2B
+void camera::stringIncrement(std::string& s){
+    std::string::reverse_iterator iter = s.rbegin(), end = s.rend();
+    int carry = 1;
+    while (carry && iter != end){
+        int value = (*iter - '0') + carry;
+        carry = (value/10);
+        *iter = '0'+(value%10);
+        ++iter;
+    }
+    if (carry){
+        s.insert(0, "1");
+    }
+    
 }
 
 
@@ -39,21 +57,21 @@ void camera::screenshot(char *tga_file, short W, short H) {
 	fclose(out); 
 }
 
-//ideally this function will call screenshot and increment the number of the file
-//e.g. first one is file1, next is file2, etc.
-//currently this seg faults
+//sets up the filename for the screenshot function
 void camera::setupScreenshot(){
 
-	screenCounter++;
+    char file[30];
+    strcpy(file, "file");
+    //cout << "before: "<< fileName<<endl;
+    camera::stringIncrement(fileName);
+    //cout <<"after: "<<fileName<<endl;
+    const char *c = fileName.c_str();
+    char str[15];
+    strcpy(str, c);
+    strcat(str, ".tga");
+    strcat(file, str);
 
-	char *number = (char*)(((int)'0')+screenCounter);
-	char *file = "file";
-	char str[10];
-
-	strcpy(str, "file");
-	strcat(str, number);
-
-	camera::screenshot(str, 1500, 1500);
+	camera::screenshot(file, 500, 500);
 	
 
 }
