@@ -28,35 +28,38 @@ bool HeightField::Create(const char *hFileName, const int hWidth, const int hHei
     
 	fclose(fp);
 
-//prints out all points on the map
-/*
-	for (int hMapX = 0; hMapX < hWidth; hMapX++){
-		for (int hMapZ = 0; hMapZ < hHeight; hMapZ++){
-			printf("%d, %d, %d\n", hMapX, hMapZ, hHeightField[hMapX][hMapZ]);
-		}
-	}
-   */
+    textureJpeg(texture, "texture.jpg", 0);
+    
 
-//prints out the max coordinates for each axis
-/*
-int testx=0;
-int testy=0;
-int testz=0;
-for (int hMapX = 0; hMapX < hWidth; hMapX++){
-		for (int hMapZ = 0; hMapZ < hHeight; hMapZ++){
-			if (hMapX>testx){
-				testx = hMapX;
-			}
-			if (hMapZ>testz){
-				testz = hMapZ;
-			}
-			if (hHeightField[hMapX][hMapZ]>testy){
-				testy = hHeightField[hMapX][hMapZ];
-			}
-		}
-	}
+    //prints out all points on the map
+    /*
+    	for (int hMapX = 0; hMapX < hWidth; hMapX++){
+    		for (int hMapZ = 0; hMapZ < hHeight; hMapZ++){
+    			printf("%d, %d, %d\n", hMapX, hMapZ, hHeightField[hMapX][hMapZ]);
+    		}
+    	}
+       */
 
-printf("%d, %d, %d\n", testx, testz, testy);*/
+    //prints out the max coordinates for each axis
+    /*
+    int testx=0;
+    int testy=0;
+    int testz=0;
+    for (int hMapX = 0; hMapX < hWidth; hMapX++){
+    		for (int hMapZ = 0; hMapZ < hHeight; hMapZ++){
+    			if (hMapX>testx){
+    				testx = hMapX;
+    			}
+    			if (hMapZ>testz){
+    				testz = hMapZ;
+    			}
+    			if (hHeightField[hMapX][hMapZ]>testy){
+    				testy = hHeightField[hMapX][hMapZ];
+    			}
+    		}
+    	}
+
+    printf("%d, %d, %d\n", testx, testz, testy);*/
 	return true;
 }
 
@@ -2551,16 +2554,16 @@ void HeightField::Render(void){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
             glBegin(GL_TRIANGLE_STRIP);
                 glTexCoord2f((float)hMapX / hmWidth, (float)hMapZ / hmHeight);
-                glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
+                //glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
 
                 glTexCoord2f((float)hMapX / hmWidth, (float)(hMapZ + 1) / hmHeight);
-                glVertex3f(hMapX, hHeightField[hMapX][hMapZ + 1], hMapZ + 1);
+                //glVertex3f(hMapX, hHeightField[hMapX][hMapZ + 1], hMapZ + 1);
 
                 glTexCoord2f((float)(hMapX + 1) / hmWidth, (float)hMapZ / hmHeight);
-                glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ], hMapZ);
+                //glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ], hMapZ);
 
                 glTexCoord2f((float)(hMapX + 1) / hmWidth, (float)(hMapZ + 1) / hmHeight);
-                glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ + 1], hMapZ + 1);
+                //glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ + 1], hMapZ + 1);
             glEnd();
         }
     }

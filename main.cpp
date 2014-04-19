@@ -186,7 +186,7 @@ void reshape (int w, int h) {
 int main (int argc, char **argv) {
    	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
-	glutInitWindowSize(500, 500);
+	glutInitWindowSize(1000, 800);
 	glutInitWindowPosition(100, 100);
    	glutCreateWindow("A basic OpenGL Window");
 	Init();
