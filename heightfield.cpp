@@ -29,7 +29,7 @@ bool HeightField::Create(const char *hFileName, const int hWidth, const int hHei
 	fclose(fp);
 
     textureJpeg(texture, "texture.jpg", 0);
-    
+
 
     //prints out all points on the map
     /*
@@ -2026,10 +2026,10 @@ void HeightField::Render(void){
 
     counter1=0;
 
-    glBegin(GL_POINTS);
+    //glBegin(GL_POINTS);
     for (int hMapX = 0; hMapX < hmWidth; hMapX++){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
-            glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
+            //glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
             //Square 1
             if (hMapX > 0 && hMapX < 129 && hMapZ > 0 && hMapZ <129){
                 if (counter1%10==0){
@@ -2545,7 +2545,7 @@ void HeightField::Render(void){
             counter1++;
         }
     }
-	glEnd();
+	//glEnd();
 
     // Test
     glEnable(GL_TEXTURE_2D);
@@ -2554,16 +2554,16 @@ void HeightField::Render(void){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
             glBegin(GL_TRIANGLE_STRIP);
                 glTexCoord2f((float)hMapX / hmWidth, (float)hMapZ / hmHeight);
-                //glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
+                glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
 
                 glTexCoord2f((float)hMapX / hmWidth, (float)(hMapZ + 1) / hmHeight);
-                //glVertex3f(hMapX, hHeightField[hMapX][hMapZ + 1], hMapZ + 1);
+                glVertex3f(hMapX, hHeightField[hMapX][hMapZ + 1], hMapZ + 1);
 
                 glTexCoord2f((float)(hMapX + 1) / hmWidth, (float)hMapZ / hmHeight);
-                //glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ], hMapZ);
+                glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ], hMapZ);
 
                 glTexCoord2f((float)(hMapX + 1) / hmWidth, (float)(hMapZ + 1) / hmHeight);
-                //glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ + 1], hMapZ + 1);
+                glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ + 1], hMapZ + 1);
             glEnd();
         }
     }
