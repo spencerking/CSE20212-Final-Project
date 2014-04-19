@@ -29,7 +29,7 @@ float previousx;
 float previousy;
 
 float bounce;
-float cScale = 1.0;
+float cScale = 5.0; //multiplier for the speed of movement
 
 //instantiate objects
 HeightField hField;
