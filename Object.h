@@ -1,5 +1,5 @@
-#ifndef _OPENGL_OBJECT_H_
-#define _OPENGL_OBJECT_H_
+#ifndef _OBJECT_H_
+#define _OBJECT_H_
 
 #include "Face.h"
 #include "Material.h"

@@ -1,5 +1,5 @@
-#ifndef _CSE40166_FACE_H_
-#define _CSE40166_FACE_H_
+#ifndef _FACE_H_
+#define _FACE_H_
 
 #ifdef __APPLE__
         #include <OpenGL/glu.h>

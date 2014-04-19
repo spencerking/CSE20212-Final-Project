@@ -1,5 +1,5 @@
-#ifndef _OPENGL_MATERIAL_H_
-#define _OPENGL_MATERIAL_H_ 1
+#ifndef _MATERIAL_H_
+#define _MATERIAL_H_ 1
 
 #ifdef __APPLE__
         #include <OpenGL/glu.h>

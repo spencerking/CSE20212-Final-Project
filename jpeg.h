@@ -1,3 +1,6 @@
+#ifndef JPEG_H
+#define JPEG_H
+
 #include <stdio.h>
 #include <jpeglib.h>
 #include <string>
@@ -13,3 +16,5 @@ struct jpegtexture {
 jpegtexture *loadJpeg(const char *srFileName);
 
 void textureJpeg(unsigned int tTexture[], std::string strFileName, int ID);
+
+#endif
