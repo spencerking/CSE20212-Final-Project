@@ -1,5 +1,6 @@
 //significant assistance from: http://www.swiftless.com/tutorials/terrain/3_rendering.html
 #ifdef __APPLE__
+    #include <GLUT/glut.h>
 	#include <OpenGL/gl.h>
 	#include <GLUT/glut.h>
 #else
@@ -11,17 +12,17 @@
 #include <string.h>
 #include <fstream>
 #include <assert.h>
+#include "Object.h"
 
 #include "heightfield.h"
 #include "camera.h"
 
 
 
-//global variables for camera control
-//we will have to play with these to get everything set up how we want
-float xpos = 851.078;
-float ypos = 351.594;
-float zpos = 281.033; 
+//global variables for camera control and starting position
+float xpos = 1000.00;
+float ypos = 51.594;
+float zpos = 320.00;
 float xrot = 758;
 float yrot = 238;
 float angle=0.0;
@@ -29,11 +30,13 @@ float previousx;
 float previousy;
 
 float bounce;
-float cScale = 5.0; //multiplier for the speed of movement
+float cScale = 5.0; //multiplier for the speed of camera movement
 
 //instantiate objects
 HeightField hField;
 camera camera1;
+//Object* Pikachu;
+//unsigned int pikachutexture;
 
 //basic camera function
 //this is straight from the swiftless tutorial
@@ -49,11 +52,25 @@ void camera (void) {
 
 //basic display function
 void display (void) {
-	glClearColor (0.0,0.0,0.0,1.0);
-        glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClearColor (0.0,0.0,0.0,1.0); //black
+    glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    //glMatrixMode(GL_MODELVIEW);
    	glLoadIdentity();
-	camera();
-    
+    camera();
+
+/*
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_NORMALIZE);
+    glBindTexture(GL_TEXTURE_2D, pikachutexture);
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+    glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
+    glRotatef(90.0, 0.0, 1.0, 0.0);
+    Pikachu->draw();
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+    */
+ 
 	glPushMatrix();
 	hField.Render();
 	glPopMatrix();
@@ -67,6 +84,7 @@ void Init (void) {
 	glDepthFunc(GL_LEQUAL);
     
 	hField.Create("heightField2.raw", 1024, 1024);
+
 }
 
 //mouse control function based on the swiftless tutorials
@@ -81,7 +99,7 @@ void orientMe(int x, int y) {
     previousx=x;
     previousy=y;
     xrot += (float) diffy;
- 	yrot += (float) diffx;
+    yrot += (float) diffx;
 }
 
 
@@ -171,6 +189,22 @@ void keyboard (unsigned char key, int x, int y) {
  
 }
 
+//allows for altitude change with up and down arrow keys
+void arrowKeys(int key, int x, int y){
+    
+    switch(key){
+        //moves the camera directly upwards
+        case GLUT_KEY_UP :
+            ypos += 5.00;
+            break;
+        //moves the camera directly downwards
+        case GLUT_KEY_DOWN:
+            ypos -= 5.00;
+            break;
+    }
+    
+}
+
 //a standard function for handling reshaping of the window
 //we will probably want w and h to be global variables
 //this is for the benefit of screenshot function as it needs w and h
@@ -189,12 +223,21 @@ int main (int argc, char **argv) {
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
 	glutInitWindowSize(1000, 800);
 	glutInitWindowPosition(100, 100);
-   	glutCreateWindow("A basic OpenGL Window");
+   	glutCreateWindow("Pokémon Snap: The Sequel");
+   
+    /*
+    Pikachu = new Object();
+	Pikachu->loadObjectFile("Pikachu.obj");
+	Pikachu->getLocation()->setZ(-25.0);
+    */
+    
+    
 	Init();
    	glutDisplayFunc(display);
 	glutIdleFunc(display);
 	glutReshapeFunc(reshape);
 	glutKeyboardFunc(keyboard);
+    glutSpecialFunc(arrowKeys);
 	glutPassiveMotionFunc(orientMe);
    	glutMainLoop ();
    	return 0;

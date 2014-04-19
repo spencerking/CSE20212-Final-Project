@@ -12,7 +12,7 @@ endif
 all: main
 
 main: $(OBJECTS)
-	g++ $(LFLAGS) $(OBJECTS) jpeg.cpp -o main $(WARNINGS)
+	g++ $(LFLAGS) $(OBJECTS) Object.cpp Face.cpp Material.cpp Point.cpp PointBase.cpp Vector.cpp jpeg.cpp -o main $(WARNINGS)
 
 main.o: main.cpp
 	g++ -c main.cpp $(WARNINGS)
