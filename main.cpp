@@ -46,6 +46,7 @@ void camera (void) {
 	glTranslated(-xpos,-ypos,-zpos); //translates the screen to the current camera positon
 }
 
+
 //basic display function
 void display (void) {
 	glClearColor (0.0,0.0,0.0,1.0);
@@ -77,9 +78,9 @@ void orientMe(int x, int y) {
  	int diffy=y-previousy;
 
 	//the previous x and y positions become the current x and y positions
- 	previousx=x;
-	 previousy=y;
-	 xrot += (float) diffy;
+    previousx=x;
+    previousy=y;
+    xrot += (float) diffy;
  	yrot += (float) diffx;
 }
 
@@ -87,16 +88,16 @@ void orientMe(int x, int y) {
 //keyboard function based on swiftless and Emrich's tutorials
 
 void keyboard (unsigned char key, int x, int y) {
-	if (key == 'e'){
+	if (key == 'e'){ //takes a screenshot
 		camera1.setupScreenshot();
 	}
     
-    if (key == 'q'){
+    if (key == 'q'){ //quits the game
         cout << "Thank you for playing!" <<endl;
         exit(1);
     }
  
- 	if (key == 'w')
+ 	if (key == 'w') //moves the camera forwards
  	{
         float xrotrad, yrotrad;
         yrotrad = (yrot / 180 * 3.141592654f);
@@ -116,7 +117,7 @@ void keyboard (unsigned char key, int x, int y) {
         }
 	 }
  
- 	if (key == 's')
+ 	if (key == 's') //moves the camera backwards
  	{
         float xrotrad, yrotrad;
         yrotrad = (yrot / 180 * 3.141592654f);
@@ -136,7 +137,7 @@ void keyboard (unsigned char key, int x, int y) {
         }
  	}
  
- 	if (key == 'd')
+ 	if (key == 'd') //moves the camera to the right
  	{
         float yrotrad;
         yrotrad = (yrot / 180 * 3.141592654f);
@@ -152,7 +153,7 @@ void keyboard (unsigned char key, int x, int y) {
         }
  	}
  
- 	if (key == 'a')
+ 	if (key == 'a') //moves the camera to the left
  	{
         float yrotrad;
         yrotrad = (yrot / 180 * 3.141592654f);

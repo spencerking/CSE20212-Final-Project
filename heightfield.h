@@ -6,8 +6,6 @@
 #include <vector>
 #include <algorithm>
 using namespace std; 
-//#include <windows.h>
-//the following typedef eliminates the need for windows.h
 typedef unsigned char MAP; //this somehow stores the heighfield
 
 

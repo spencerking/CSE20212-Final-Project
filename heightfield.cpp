@@ -72,7 +72,6 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 
 	int counter = 0;
     int zero_count = 0;
-	//int q=1;
 	float d; //the distance between the camera and the terrain
     
     //coordinates for each point in the terrain
@@ -2031,6 +2030,7 @@ void HeightField::Render(void){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
             //glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
             //Square 1
+            //this series of if statements reads in the points into the appropriate vectors
             if (hMapX > 0 && hMapX < 129 && hMapZ > 0 && hMapZ <129){
                 if (counter1%10==0){
                     xPoints1.push_back(hMapX);

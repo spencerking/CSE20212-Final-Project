@@ -62,10 +62,10 @@ void camera::setupScreenshot(){
 
     char file[30];
     strcpy(file, "file");
-    //cout << "before: "<< fileName<<endl;
+    
     camera::stringIncrement(fileName);
-    //cout <<"after: "<<fileName<<endl;
     const char *c = fileName.c_str();
+    
     char str[15];
     strcpy(str, c);
     strcat(str, ".tga");
