@@ -2025,10 +2025,10 @@ void HeightField::Render(void){
 
     counter1=0;
 
-    //glBegin(GL_POINTS);
+   // glBegin(GL_POINTS);
     for (int hMapX = 0; hMapX < hmWidth; hMapX++){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
-            //glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
+         //   glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
             //Square 1
             //this series of if statements reads in the points into the appropriate vectors
             if (hMapX > 0 && hMapX < 129 && hMapZ > 0 && hMapZ <129){

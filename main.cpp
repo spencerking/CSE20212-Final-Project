@@ -35,8 +35,8 @@ float cScale = 5.0; //multiplier for the speed of camera movement
 //instantiate objects
 HeightField hField;
 camera camera1;
-//Object* Pikachu;
-//unsigned int pikachutexture;
+Object* Pikachu;
+unsigned int pikachutexture;
 
 //basic camera function
 //this is straight from the swiftless tutorial
@@ -54,25 +54,15 @@ void camera (void) {
 void display (void) {
 	glClearColor (0.0,0.0,0.0,1.0); //black
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    //glMatrixMode(GL_MODELVIEW);
+   // glMatrixMode(GL_MODELVIEW);
    	glLoadIdentity();
+    
     camera();
-
-/*
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_NORMALIZE);
-    glBindTexture(GL_TEXTURE_2D, pikachutexture);
-	glEnable(GL_TEXTURE_2D);
 	glPushMatrix();
-    glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
-    glRotatef(90.0, 0.0, 1.0, 0.0);
-    Pikachu->draw();
-	glPopMatrix();
-	glDisable(GL_TEXTURE_2D);
-    */
- 
-	glPushMatrix();
-	hField.Render();
+        glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
+        //glRotatef(90.0, 0.0, 1.0, 0.0);
+       Pikachu->draw();
+    hField.Render();
 	glPopMatrix();
     
 	glutSwapBuffers();
@@ -225,11 +215,11 @@ int main (int argc, char **argv) {
 	glutInitWindowPosition(100, 100);
    	glutCreateWindow("Pokémon Snap: The Sequel");
    
-    /*
+    
     Pikachu = new Object();
 	Pikachu->loadObjectFile("Pikachu.obj");
 	Pikachu->getLocation()->setZ(-25.0);
-    */
+    
     
     
 	Init();
