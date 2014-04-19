@@ -1,6 +1,6 @@
 //significant assistance from: http://www.swiftless.com/tutorials/terrain/3_rendering.html
-#ifndef PUZZLE_H
-#define PUZZLE_H
+#ifndef HEIGHTFIELD_H
+#define HEIGHTFIELD_H
 
 #include <iostream>
 #include <vector>
@@ -14,7 +14,7 @@ typedef unsigned char MAP; //this somehow stores the heighfield
 class HeightField {
     
 public:
-	bool Create(char *hFileName, const int hWidth, const int hHeight); //reads in the file
+	bool Create(const char *hFileName, const int hWidth, const int hHeight); //reads in the file
     
 	void Render(void); //renders the map
     
@@ -27,6 +27,8 @@ private:
 	int hmHeight;
 	int hmWidth;
 
+	unsigned int texture[2];
+	
     //vectors for reading in the coordinate points for each square
 	vector<int> xPoints1;
 	vector<int> yPoints1;
