@@ -12,8 +12,8 @@
 #else
 #include <GL/gl.h>
 #include <GL/glut.h>
-
-#include "models.h"
+#endif
+//#include "models.h"
 #include "pikachu.h"
 #include "Object.h"
 
