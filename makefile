@@ -27,7 +27,7 @@ camera.o: camera.cpp
 	g++ -c camera.cpp $(WARNINGS)
 
 clean:
-	rm -rf *.o main
+	rm -rf *.o *.dSYM main
 
 love:
 	clear;
