@@ -8,6 +8,14 @@
 using namespace std; 
 typedef unsigned char MAP; //this somehow stores the heighfield
 
+class Vert {
+public:
+	float x, y, z;
+};
+
+class TexCoord {
+	float u, v;
+};
 
 class HeightField {
     
@@ -25,7 +33,17 @@ private:
 	int hmHeight;
 	int hmWidth;
 
-	unsigned int texture[2];
+	// Texture array
+	unsigned int texture[0];
+
+	// VBO stuff
+	inr vhVertexCount;
+	Vert *vhVertices;
+	TexCoord *vhTexCoords;
+	unsigned int vhVBOVertices;
+	unsigned int vhVBOTexVoords;
+
+	bool init();
 	
     //vectors for reading in the coordinate points for each square
 	vector<int> xPoints1;

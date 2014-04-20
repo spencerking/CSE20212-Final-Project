@@ -14,6 +14,24 @@
 #include "jpeg.h"
 using namespace std;
 
+bool HeightField::init() {
+    glGenBuffersARB(1, &vhVBOVertices);
+    glBindBufferARB(GL_ARRAY_BUFFER_ARB, vhVBOVertices);
+    glBufferDataARB(GL_ARRAY_BUFFER_ARB, vhVertexCount * 3 * sizeof(float), vhVertices, GL_STATIC_DRAW_ARB);
+
+    glGenBuffersARB(1, &vhVBOTexCoords);
+    glBindBufferARB(GL_ARRAY_BUFFER_ARB, vhVBOTexCoords);
+    glBufferDataARB(GL_ARRAY_BUFFER_ARB, vhVertexCount * 2 * sizeof(float), vhTexCoords, GL_STATIC_DRAW_ARB);
+
+    delete [] vhVertices;
+    vhVertices = NULL;
+
+    delete [] vhTexCoords;
+    vhTexCoords = NULL;
+
+    return true;
+}
+
 //this function open a raw heightmap file and reads it in
 //I have no idea how heightmaps are stored, but this works
 bool HeightField::Create(const char *hFileName, const int hWidth, const int hHeight){
@@ -27,6 +45,31 @@ bool HeightField::Create(const char *hFileName, const int hWidth, const int hHei
 	fread(hHeightField, 1, hWidth * hHeight, fp);
     
 	fclose(fp);
+
+    vhVertexCount = (int)(hmHeight * hHeight * 6) / (1 * 1);
+    vhVertices = new Vert[vhVertexCount];
+    vhTexCoords = new TexCoord[vhVertexCount];
+
+    int nIndex = 0;
+    float flX;
+    float flZ;
+
+    for (int hMapX = 0; hMapX < hmWidth; hMapX++){
+        for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
+            for (int nTri = 0; nTri < 6; nTri++){
+                flX = (float)hMapX + ((nTri == 1 || nTri == 2 || nTri == 5) ? 1 : 0);
+                flZ = (float)hMapZ + ((nTri == 2 || nTri == 4 || nTri == 5) ? 1 : 0);
+
+                vhVertices[nIndex].x = flX;
+                vhVertices[nIndex].y = hHeightField[(int)flX][(int)flZ];
+                vhVertices[nIndex].z = flZ;
+
+                vhTexCoords[nIndex].u = flX / 1024;
+                vhTexCoords[nIndex].v = flZ / 1024;
+                nIndex++;
+            }
+        }
+    }
 
     textureJpeg(texture, "texture.jpg", 0);
 
@@ -60,6 +103,7 @@ bool HeightField::Create(const char *hFileName, const int hWidth, const int hHei
     	}
 
     printf("%d, %d, %d\n", testx, testz, testy);*/
+    init();
 	return true;
 }
 
@@ -2025,7 +2069,8 @@ void HeightField::Render(void){
 
     counter1=0;
 
-   // glBegin(GL_POINTS);
+    // Collision detection points
+    // glBegin(GL_POINTS);
     for (int hMapX = 0; hMapX < hmWidth; hMapX++){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
          //   glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
@@ -2547,9 +2592,12 @@ void HeightField::Render(void){
     }
 	//glEnd();
 
-    // Test
+    // Draw texture triangles
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, texture[0]);
+    // Old
+    /*
     for (int hMapX = 0; hMapX < hmWidth; hMapX++){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
             glBegin(GL_TRIANGLE_STRIP);
@@ -2566,9 +2614,21 @@ void HeightField::Render(void){
                 glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ + 1], hMapZ + 1);
             glEnd();
         }
-    }
-    glDisable(GL_TEXTURE_2D);
+    }*/
+    // New
+    glBindBufferARB(GL_ARRAY_BUFFER_ARB, vhVBOTexCoords);
+    glTexCoordPointer(2, GL_FLOAT, 0, (char *)NULL);
 
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glBindBufferARB(GL_ARRAY_BUFFER_ARB, vhVBOVertices);
+    glVertexPointer(3, GL_FLOAT, 0, (char *)NULL);
+
+    glDrawArrays(GL_TRAINGLES, 0 vhVertexCount);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+
+    glDisable(GL_TEXTURE_2D);
+    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 
 //renders as triangle strips
 
