@@ -10,7 +10,6 @@
 #include <vector>
 using namespace std;
 
-<<<<<<< HEAD
 	class Object {
 	public:
 		Object();
@@ -47,7 +46,7 @@ using namespace std;
 		
 		map< string, Material* >* _materials;
 		map< string, GLuint >* _textureHandles;
-=======
+
 class Object {
 public:
 	Object();
