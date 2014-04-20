@@ -72,15 +72,12 @@ void display (void) {
 void Init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
-<<<<<<< HEAD
     Pikachu = new Object();
 	Pikachu->loadObjectFile("Pikachu.obj");
     //Pikachu->getLocation()->setX(-1000.0);
     //Pikachu->getLocation()->setY(-51.594);
     //Pikachu->getLocation()->setZ(-320.0);
-=======
     skybox.init("skybox.png");
->>>>>>> FETCH_HEAD
 	hField.Create("heightField2.raw", 1024, 1024);
 
 }
