@@ -16,6 +16,7 @@
 #include "Skybox.h"
 #include "heightfield.h"
 #include "camera.h"
+#include "pikachu.h"
 
 //global variables for camera control and starting position
 float xpos = 1000.00;
@@ -34,8 +35,10 @@ float cScale = 5.0; //multiplier for the speed of camera movement
 Skybox skybox;
 HeightField hField;
 camera camera1;
-Object* Pikachu;
+//pikachu pikachu1;
+/*Object* Pikachu;
 unsigned int pikachutexture;
+*/
 
 //basic camera function
 //this is straight from the swiftless tutorial
@@ -55,25 +58,16 @@ void display (void) {
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
    	glLoadIdentity();
-<<<<<<< HEAD
 
-    //skybox.render();
-    camera();
-	glPushMatrix();
-        hField.Render();
-        glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
-        //glRotatef(90.0, 0.0, 1.0, 0.0);
-       Pikachu->draw();
-=======
     
     camera();
 	glPushMatrix();
         skybox.render();
-        glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
-        //glRotatef(90.0, 0.0, 1.0, 0.0);
-        Pikachu->draw();
         hField.Render();
->>>>>>> FETCH_HEAD
+       // pikachu1.draw();
+        /*glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
+        glRotatef(90.0, 0.0, 1.0, 0.0);
+        Pikachu->draw();*/
 	glPopMatrix();
     
 	glutSwapBuffers();
@@ -83,11 +77,12 @@ void display (void) {
 void Init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
-    Pikachu = new Object();
+    //pikachu1.display();
+    /*Pikachu = new Object();
 	Pikachu->loadObjectFile("Pikachu.obj");
     Pikachu->getLocation()->setX(876.902);
     Pikachu->getLocation()->setY(1.9367);
-    Pikachu->getLocation()->setZ(704.263);
+    Pikachu->getLocation()->setZ(704.263);*/
     skybox.init("skybox.png");
 	hField.Create("heightField2.raw", 1024, 1024);
 
