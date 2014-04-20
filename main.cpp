@@ -72,7 +72,11 @@ void display (void) {
 void Init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
-    
+    Pikachu = new Object();
+	Pikachu->loadObjectFile("Pikachu.obj");
+    //Pikachu->getLocation()->setX(-1000.0);
+    //Pikachu->getLocation()->setY(-51.594);
+    //Pikachu->getLocation()->setZ(-320.0);
 	hField.Create("heightField2.raw", 1024, 1024);
 
 }
@@ -214,14 +218,6 @@ int main (int argc, char **argv) {
 	glutInitWindowSize(1000, 800);
 	glutInitWindowPosition(100, 100);
    	glutCreateWindow("Pokémon Snap: The Sequel");
-   
-    
-    Pikachu = new Object();
-	Pikachu->loadObjectFile("Pikachu.obj");
-	Pikachu->getLocation()->setZ(-25.0);
-    
-    
-    
 	Init();
    	glutDisplayFunc(display);
 	glutIdleFunc(display);

@@ -58,11 +58,15 @@ using namespace std;
 	}
 
 	Object::Object() {
-		init();
+		init(0.0,0.0,0.0);
 	}
 
+    Object::Object(float x, float y, float z) {
+        init(x, y, z);
+    }
+
 	Object::Object( string filename ) : _objFile( filename ) {
-		init();
+		init(0.0,0.0,0.0);
 		loadObject();
 	}
 
@@ -284,14 +288,14 @@ using namespace std;
 		return faces;
 	}
 
-	void Object::init() {
+	void Object::init(float x, float y, float z) {
 		objHasVertexTexCoords = false;
 		objHasVertexNormals = false;
 		
 		_materials = new map< string, Material* >();
 		_textureHandles = new map< string, GLuint >();
 		
-		_location = new Point(0, 0, 0);
+		_location = new Point(x, y, z);
 	}
 
 	bool Object::loadObject( bool INFO, bool ERRORS ) {

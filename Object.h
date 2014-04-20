@@ -13,6 +13,7 @@ using namespace std;
 	class Object {
 	public:
 		Object();
+        Object(float, float, float);
 		Object( string filename );
 		~Object();
 		
@@ -34,7 +35,7 @@ using namespace std;
 		bool objHasVertexTexCoords;
 		bool objHasVertexNormals;
 		
-		void init();
+		void init(float, float, float);
 		
 		bool loadObject( bool INFO = false, bool ERRORS = false );
 		bool loadMaterial( bool INFO = false, bool ERRORS = false );
