@@ -10,6 +10,7 @@
 #include <vector>
 using namespace std;
 
+<<<<<<< HEAD
 	class Object {
 	public:
 		Object();
@@ -46,14 +47,51 @@ using namespace std;
 		
 		map< string, Material* >* _materials;
 		map< string, GLuint >* _textureHandles;
+=======
+class Object {
+public:
+	Object();
+	Object( string filename );
+	~Object();
+	
+	bool loadObjectFile( string filename );
+	bool loadObjectFile( string filename, bool INFO );
+	bool loadObjectFile( string filename, bool INFO, bool ERRORS );
+	
+	bool draw();
+	
+	Point* getLocation();
 
-		Point* _location;
-		
-		vector<string> tokenizeString(string input, string delimiters);
-		unsigned char* createTransparentTexture( unsigned char *imageData, unsigned char *imageMask, int texWidth, int texHeight, int texChannels, int maskChannels );
-		unsigned char* loadPPM( char* filename, int &texWidth, int &texHeight, int &texChannels, bool &success );
-		unsigned char* loadBMP( char* filename, int &texWidth, int &texHeight, int &texChannels, bool &success );
-	};
+	vector< Face* > *getFaces();
+	
+private:
+	string _objFile;
+	string _mtlFile;
+	GLuint _objectDisplayList;
+	
+	bool objHasVertexTexCoords;
+	bool objHasVertexNormals;
+	
+	void init();
+	
+	bool loadObject( bool INFO = false, bool ERRORS = false );
+	bool loadMaterial( bool INFO = false, bool ERRORS = false );
+	
+	vector< GLfloat > vertices;
+	vector< GLfloat > vertexNormals;
+	vector< GLfloat > vertexTexCoords;
+	
+	map< string, Material* >* _materials;
+	map< string, GLuint >* _textureHandles;
+>>>>>>> FETCH_HEAD
+
+	Point* _location;
+	
+	vector<string> tokenizeString(string input, string delimiters);
+	unsigned char* createTransparentTexture( unsigned char *imageData, unsigned char *imageMask, int texWidth, int texHeight, int texChannels, int maskChannels );
+	unsigned char* loadPPM( char* filename, int &texWidth, int &texHeight, int &texChannels, bool &success );
+	unsigned char* loadBMP( char* filename, int &texWidth, int &texHeight, int &texChannels, bool &success );
+};
 
 
 #endif

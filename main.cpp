@@ -1,11 +1,11 @@
 //significant assistance from: http://www.swiftless.com/tutorials/terrain/3_rendering.html
 #ifdef __APPLE__
-    #include <GLUT/glut.h>
-	#include <OpenGL/gl.h>
-	#include <GLUT/glut.h>
+#include <GLUT/glut.h>
+#include <OpenGL/gl.h>
+#include <GLUT/glut.h>
 #else
-	#include <GL/gl.h>
-	#include <GL/glut.h>
+#include <GL/gl.h>
+#include <GL/glut.h>
 #endif
 #include <math.h>
 #include <stdio.h>
@@ -13,11 +13,9 @@
 #include <fstream>
 #include <assert.h>
 #include "Object.h"
-
+#include "Skybox.h"
 #include "heightfield.h"
 #include "camera.h"
-
-
 
 //global variables for camera control and starting position
 float xpos = 1000.00;
@@ -33,6 +31,7 @@ float bounce;
 float cScale = 5.0; //multiplier for the speed of camera movement
 
 //instantiate objects
+Skybox skybox;
 HeightField hField;
 camera camera1;
 Object* Pikachu;
@@ -57,6 +56,7 @@ void display (void) {
    // glMatrixMode(GL_MODELVIEW);
    	glLoadIdentity();
     
+    //skybox.render();
     camera();
 	glPushMatrix();
         glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
@@ -72,11 +72,15 @@ void display (void) {
 void Init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
+<<<<<<< HEAD
     Pikachu = new Object();
 	Pikachu->loadObjectFile("Pikachu.obj");
     //Pikachu->getLocation()->setX(-1000.0);
     //Pikachu->getLocation()->setY(-51.594);
     //Pikachu->getLocation()->setZ(-320.0);
+=======
+    skybox.init("skybox.png");
+>>>>>>> FETCH_HEAD
 	hField.Create("heightField2.raw", 1024, 1024);
 
 }
