@@ -11,7 +11,7 @@ public:
 	void init(std::string filename);
 	void render();
 private:
-	//float points[];
+	float *points;
 	GLuint vbo, vao, skybox;
 };
 

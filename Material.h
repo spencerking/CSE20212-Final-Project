@@ -7,7 +7,6 @@
 #include <GL/glu.h>
 #endif
 
-/*
 // predefined materials
 enum CSE40166_MaterialColor {
 	CSE40166_MATERIAL_WHITE = 1,
@@ -17,7 +16,6 @@ enum CSE40166_MaterialColor {
 	CSE40166_MATERIAL_GREENPLASTIC = 5,
 	CSE40166_MATERIAL_CYANRUBBER = 6
 };
-*/
 
 class Material {
 public:

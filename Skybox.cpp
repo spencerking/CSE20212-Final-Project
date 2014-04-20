@@ -2,7 +2,7 @@
 #include <soil.h>
 
 Skybox::Skybox() {
-	float points = {
+	float temp[] = {
 		-10.0f,  10.0f, -10.0f,
 		-10.0f, -10.0f, -10.0f,
 		10.0f, -10.0f, -10.0f,
@@ -45,6 +45,11 @@ Skybox::Skybox() {
 		-10.0f, -10.0f,  10.0f,
 		10.0f, -10.0f,  10.0f
 	};
+	points = temp;
+}
+
+Skybox::~Skybox() {
+	delete points;
 }
 
 void Skybox::init(std::string filename) {
