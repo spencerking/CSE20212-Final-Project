@@ -14,6 +14,7 @@ public:
 };
 
 class TexCoord {
+public:
 	float u, v;
 };
 
@@ -37,11 +38,11 @@ private:
 	unsigned int texture[0];
 
 	// VBO stuff
-	inr vhVertexCount;
+	int vhVertexCount;
 	Vert *vhVertices;
 	TexCoord *vhTexCoords;
 	unsigned int vhVBOVertices;
-	unsigned int vhVBOTexVoords;
+	unsigned int vhVBOTexCoords;
 
 	bool init();
 	

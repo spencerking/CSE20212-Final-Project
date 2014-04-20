@@ -2623,7 +2623,7 @@ void HeightField::Render(void){
     glBindBufferARB(GL_ARRAY_BUFFER_ARB, vhVBOVertices);
     glVertexPointer(3, GL_FLOAT, 0, (char *)NULL);
 
-    glDrawArrays(GL_TRAINGLES, 0 vhVertexCount);
+    glDrawArrays(GL_TRIANGLES, 0, vhVertexCount);
 
     glDisableClientState(GL_VERTEX_ARRAY);
 
