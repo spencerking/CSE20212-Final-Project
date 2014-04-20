@@ -25,6 +25,6 @@ private:
     
     
     
-}
+};
 
 #endif /* defined(____models__) */

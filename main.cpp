@@ -35,10 +35,8 @@ float cScale = 5.0; //multiplier for the speed of camera movement
 Skybox skybox;
 HeightField hField;
 camera camera1;
-//pikachu pikachu1;
-/*Object* Pikachu;
-unsigned int pikachutexture;
-*/
+pikachu pikachu1;
+
 
 //basic camera function
 //this is straight from the swiftless tutorial
@@ -64,10 +62,7 @@ void display (void) {
 	glPushMatrix();
         skybox.render();
         hField.Render();
-       // pikachu1.draw();
-        /*glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
-        glRotatef(90.0, 0.0, 1.0, 0.0);
-        Pikachu->draw();*/
+       pikachu1.draw();
 	glPopMatrix();
     
 	glutSwapBuffers();
@@ -77,12 +72,7 @@ void display (void) {
 void Init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
-    //pikachu1.display();
-    /*Pikachu = new Object();
-	Pikachu->loadObjectFile("Pikachu.obj");
-    Pikachu->getLocation()->setX(876.902);
-    Pikachu->getLocation()->setY(1.9367);
-    Pikachu->getLocation()->setZ(704.263);*/
+    pikachu1.display();
     skybox.init("skybox.png");
 	hField.Create("heightField2.raw", 1024, 1024);
 

@@ -9,21 +9,22 @@
 #ifndef PIKACHU_H
 #define PIKACHU_H
 
-#include "models.h"
+//#include "models.h"
+#include "object.h"
 #include <iostream>
 
-class pikachu : public models{ //inherits from models
+class pikachu{// : public models{ //inherits from models
 public:
     pikachu(); //constructor
-    virtual void display(); //display function
-    virtual void move(); //movement function
-    virtual void draw(); //draw function
+     void display(); //display function
+    void move(); //movement function
+    void draw(); //draw function
     
 private:
+    Object* Pikachu;
     
     
-    
-}
+};
 
 
 
