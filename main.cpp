@@ -56,13 +56,13 @@ void display (void) {
    // glMatrixMode(GL_MODELVIEW);
    	glLoadIdentity();
     
-    //skybox.render();
     camera();
 	glPushMatrix();
+        skybox.render();
         glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
         //glRotatef(90.0, 0.0, 1.0, 0.0);
-       Pikachu->draw();
-    hField.Render();
+        Pikachu->draw();
+        hField.Render();
 	glPopMatrix();
     
 	glutSwapBuffers();

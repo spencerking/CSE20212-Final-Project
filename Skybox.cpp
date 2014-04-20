@@ -49,7 +49,7 @@ Skybox::Skybox() {
 }
 
 Skybox::~Skybox() {
-	delete points;
+	//delete points;
 }
 
 void Skybox::init(std::string filename) {
@@ -65,11 +65,21 @@ void Skybox::init(std::string filename) {
 	glBindBuffer (GL_ARRAY_BUFFER, vbo);
 	glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
-	// Load skybox texture from single image
-	skybox = SOIL_load_OGL_single_cubemap(
-		"skybox.png",
-		"ESWNUD",
-		SOIL_LOAD_AUTO,
+	// Load skybox texture from images
+	#define FRONT "skyboxFRONT.png"
+	#define BACK "skyboxBACK.png"
+	#define TOP "skyboxTOP.png"
+	#define BOTTOM "skyboxBOTTOM.png"
+	#define LEFT "skyboxLEFT.png"
+	#define RIGHT "skyboxRIGHT.png"
+	skybox = SOIL_load_OGL_cubemap(
+		RIGHT,
+		LEFT,
+		TOP,
+		BOTTOM,
+		BACK,
+		FRONT,
+		SOIL_LOAD_RGB,
 		SOIL_CREATE_NEW_ID,
 		0);
 	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
@@ -83,5 +93,9 @@ void Skybox::init(std::string filename) {
 }
 
 void Skybox::render() {
-	
+	glDepthMask(0);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, skybox);
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+	glDepthMask(1);
 }
