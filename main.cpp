@@ -53,16 +53,16 @@ void camera (void) {
 void display (void) {
 	glClearColor (0.0,0.0,0.0,1.0); //black
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-   // glMatrixMode(GL_MODELVIEW);
+    glMatrixMode(GL_MODELVIEW);
    	glLoadIdentity();
-    
+
     //skybox.render();
     camera();
 	glPushMatrix();
+        hField.Render();
         glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
         //glRotatef(90.0, 0.0, 1.0, 0.0);
        Pikachu->draw();
-    hField.Render();
 	glPopMatrix();
     
 	glutSwapBuffers();
@@ -74,9 +74,9 @@ void Init (void) {
 	glDepthFunc(GL_LEQUAL);
     Pikachu = new Object();
 	Pikachu->loadObjectFile("Pikachu.obj");
-    //Pikachu->getLocation()->setX(-1000.0);
-    //Pikachu->getLocation()->setY(-51.594);
-    //Pikachu->getLocation()->setZ(-320.0);
+    Pikachu->getLocation()->setX(876.902);
+    Pikachu->getLocation()->setY(1.9367);
+    Pikachu->getLocation()->setZ(704.263);
     skybox.init("skybox.png");
 	hField.Create("heightField2.raw", 1024, 1024);
 
@@ -126,6 +126,7 @@ void keyboard (unsigned char key, int x, int y) {
             xpos += float(sin(yrotrad)) * cScale;
             zpos -= float(cos(yrotrad)) * cScale;
             ypos -= float(sin(xrotrad));
+            cout<< "x= "<<xpos<<"y= "<<ypos<<"z= "<<zpos<<endl;
             bounce += 0.04;
         }
 	 }
@@ -186,15 +187,29 @@ void keyboard (unsigned char key, int x, int y) {
 
 //allows for altitude change with up and down arrow keys
 void arrowKeys(int key, int x, int y){
-    
+    float yposFuture;
     switch(key){
         //moves the camera directly upwards
         case GLUT_KEY_UP :
-            ypos += 5.00;
+            yposFuture=ypos;
+            yposFuture += 5.00;
+            if (hField.collisionDetection(xpos, yposFuture, zpos)){
+                
+            }
+            else{
+                ypos+=5.00;
+            }
             break;
         //moves the camera directly downwards
         case GLUT_KEY_DOWN:
-            ypos -= 5.00;
+            yposFuture=ypos;
+            yposFuture -= 5.00;
+            if (hField.collisionDetection(xpos, yposFuture, zpos)){
+                
+            }
+            else{
+                ypos-=5.00;
+            }
             break;
     }
     
