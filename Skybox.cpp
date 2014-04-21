@@ -1,5 +1,6 @@
 #include "Skybox.h"
 #include <soil.h>
+#include <stdio.h>
 
 Skybox::Skybox() {
 	float temp[] = {
@@ -52,7 +53,7 @@ Skybox::~Skybox() {
 	//delete points;
 }
 
-void Skybox::init(std::string filename) {
+void Skybox::init() {
 	// Init vertex buffer object
 	glGenBuffers (1, &vbo);
 	glBindBuffer (GL_ARRAY_BUFFER, vbo);
@@ -66,12 +67,12 @@ void Skybox::init(std::string filename) {
 	glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 
 	// Load skybox texture from images
-	#define FRONT "skyboxFRONT.png"
-	#define BACK "skyboxBACK.png"
-	#define TOP "skyboxTOP.png"
-	#define BOTTOM "skyboxBOTTOM.png"
-	#define LEFT "skyboxLEFT.png"
-	#define RIGHT "skyboxRIGHT.png"
+	#define FRONT "Skybox/skyboxFRONT.png"
+	#define BACK "Skybox/skyboxBACK.png"
+	#define TOP "Skybox/skyboxTOP.png"
+	#define BOTTOM "Skybox/skyboxBOTTOM.png"
+	#define LEFT "Skybox/skyboxLEFT.png"
+	#define RIGHT "Skybox/skyboxRIGHT.png"
 	skybox = SOIL_load_OGL_cubemap(
 		RIGHT,
 		LEFT,

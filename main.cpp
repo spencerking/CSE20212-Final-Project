@@ -13,9 +13,9 @@
 #include <assert.h>
 #include "Object.h"
 #include "Skybox.h"
-#include "heightfield.h"
-#include "camera.h"
-#include "pikachu.h"
+#include "Heightfield.h"
+#include "Camera.h"
+#include "Pikachu.h"
 
 //global variables for camera control and starting position
 float xpos = 1000.00;
@@ -36,7 +36,6 @@ HeightField hField;
 camera camera1;
 pikachu pikachu1;
 
-
 //basic camera function
 //this is straight from the swiftless tutorial
 void camera (void) {
@@ -47,7 +46,6 @@ void camera (void) {
 	glRotatef(yrot,0.0,1.0,0.0); //rotates on the y-axis
 	glTranslated(-xpos,-ypos,-zpos); //translates the screen to the current camera positon
 }
-
 
 //basic display function
 void display (void) {
@@ -71,9 +69,9 @@ void Init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
     pikachu1.display();
-    skybox.init("skybox.png");
+    skybox.init();
     hField.hLOD = 8; // Level of detail
-	hField.Create("heightField2.raw", 1024, 1024);
+	hField.Create("Heightfield/heightField2.raw", 1024, 1024);
 }
 
 //mouse control function based on the swiftless tutorials
@@ -229,6 +227,7 @@ int main (int argc, char **argv) {
 	glutInitWindowPosition(0, 0);
    	glutCreateWindow("Pokémon Snap: The Sequel");
 	Init();
+    glutSetCursor(GLUT_CURSOR_CROSSHAIR);
    	glutDisplayFunc(display);
 	glutIdleFunc(display);
 	glutReshapeFunc(reshape);

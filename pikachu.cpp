@@ -14,7 +14,7 @@
 #include <GL/glut.h>
 #endif
 //#include "models.h"
-#include "pikachu.h"
+#include "Pikachu.h"
 #include "Object.h"
 
 
@@ -27,7 +27,7 @@ pikachu::pikachu(){
 //display function
 void pikachu::display(){
     Pikachu = new Object();
-	Pikachu->loadObjectFile("Pikachu.obj");
+	Pikachu->loadObjectFile("Pokemon/Pikachu/Pikachu.obj");
     Pikachu->getLocation()->setX(876.902);
     Pikachu->getLocation()->setY(1.9367);
     Pikachu->getLocation()->setZ(704.263);

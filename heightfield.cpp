@@ -10,7 +10,7 @@
 #include <vector>
 #include <iterator>
 #include <math.h>
-#include "heightfield.h"
+#include "Heightfield.h"
 #include "jpeg.h"
 using namespace std;
 
@@ -72,7 +72,7 @@ bool HeightField::Create(const char *hFileName, const int hWidth, const int hHei
         }
     }
 
-    textureJpeg(texture, "texture.jpg", 0);
+    textureJpeg(texture, "Heightfield/terrain.jpg", 0);
 
 
     //prints out all points on the map
