@@ -1,5 +1,5 @@
 //
-//  pikachu.h
+//  Pikachu.h
 //  
 //
 //  Created by Spencer King on 4/20/14.
@@ -13,9 +13,9 @@
 #include "object.h"
 #include <iostream>
 
-class pikachu{// : public models{ //inherits from models
+class Pikachu{// : public models{ //inherits from models
 public:
-    pikachu(); //constructor
+    Pikachu(); //constructor
      void display(); //display function
     void move(); //movement function
     void draw(); //draw function
@@ -28,4 +28,4 @@ private:
 
 
 
-#endif /* defined(____pikachu__) */
+#endif /* defined(____Pikachu__) */

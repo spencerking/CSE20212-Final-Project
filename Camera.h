@@ -2,9 +2,9 @@
 #define CAMERA_H
 #include <string>
 
-class camera {
+class Camera {
 public:
-	camera(); //constructor
+	Camera(); //constructor
 	void screenshot(char *, short, short); //screenshot function
 	void setupScreenshot(); //sets up the filename for the screenshot function
 	void stringIncrement(std::string&); //increments the filename string

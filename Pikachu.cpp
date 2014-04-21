@@ -1,5 +1,5 @@
 //
-//  pikachu.cpp
+//  Pikachu.cpp
 //  
 //
 //  Created by Spencer King on 4/20/14.
@@ -19,13 +19,13 @@
 
 
 //default constructor
-pikachu::pikachu(){
+Pikachu::Pikachu(){
     Object* Pikachu;
-    unsigned int pikachutexture;
+    unsigned int Pikachutexture;
 }
 
 //display function
-void pikachu::display(){
+void Pikachu::display(){
     Pikachu = new Object();
 	Pikachu->loadObjectFile("Pokemon/Pikachu/Pikachu.obj");
     Pikachu->getLocation()->setX(876.902);
@@ -34,12 +34,12 @@ void pikachu::display(){
 }
 
 //movement function
-void pikachu::move(){
+void Pikachu::move(){
     
 }
 
 //draw function
-void pikachu::draw(){
+void Pikachu::draw(){
     glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
     glRotatef(90.0, 0.0, 1.0, 0.0);
     Pikachu->draw();

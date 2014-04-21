@@ -12,13 +12,13 @@
 #include <iostream>
 #include <string.h>
 #include <ostream>
-#include "camera.h"
+#include "Camera.h"
 
 using namespace std;
 
 
 //default constructor
-camera::camera(){
+Camera::Camera(){
 
     fileName = "0";
 
@@ -26,7 +26,7 @@ camera::camera(){
 
 //string incrementer
 //help from: http://rosettacode.org/wiki/Increment_a_numerical_string#C.2B.2B
-void camera::stringIncrement(std::string& s){
+void Camera::stringIncrement(std::string& s){
     std::string::reverse_iterator iter = s.rbegin(), end = s.rend();
     int carry = 1;
     while (carry && iter != end){
@@ -45,7 +45,7 @@ void camera::stringIncrement(std::string& s){
 //takes a screenshot and outputs it as an image file
 //code taken from:
 //https://www.opengl.org/discussion_boards/showthread.php/158514-capturing-the-OpenGL-output-to-a-image-file
-void camera::screenshot(char *tga_file, short W, short H) {
+void Camera::screenshot(char *tga_file, short W, short H) {
 	FILE   *out = fopen(tga_file, "w");
 	char   pixel_data[3*W*H];
 	short  TGAhead[] = {0, 2, 0, 0, 0, 0, W, H, 24};
@@ -58,12 +58,12 @@ void camera::screenshot(char *tga_file, short W, short H) {
 }
 
 //sets up the filename for the screenshot function
-void camera::setupScreenshot(){
+void Camera::setupScreenshot(){
 
     char file[30];
     strcpy(file, "file");
     
-    camera::stringIncrement(fileName);
+    Camera::stringIncrement(fileName);
     const char *c = fileName.c_str();
     
     char str[15];
@@ -71,7 +71,7 @@ void camera::setupScreenshot(){
     strcat(str, ".tga");
     strcat(file, str);
 
-	camera::screenshot(file, 500, 500);
+	Camera::screenshot(file, 500, 500);
 	
 
 }
