@@ -14,7 +14,7 @@
 #include "jpeg.h"
 using namespace std;
 
-bool HeightField::init() {
+bool HeightField::init(void) {
     glGenBuffersARB(1, &vhVBOVertices);
     glBindBufferARB(GL_ARRAY_BUFFER_ARB, vhVBOVertices);
     glBufferDataARB(GL_ARRAY_BUFFER_ARB, vhVertexCount * 3 * sizeof(float), vhVertices, GL_STATIC_DRAW_ARB);
@@ -50,6 +50,7 @@ bool HeightField::Create(const char *hFileName, const int hWidth, const int hHei
     vhVertices = new Vert[vhVertexCount];
     vhTexCoords = new TexCoord[vhVertexCount];
 
+    // Temp
     int nIndex = 0;
     float flX;
     float flZ;
@@ -103,7 +104,7 @@ bool HeightField::Create(const char *hFileName, const int hWidth, const int hHei
     	}
 
     printf("%d, %d, %d\n", testx, testz, testy);*/
-    init();
+    HeightField::init();
 	return true;
 }
 
@@ -2593,11 +2594,10 @@ void HeightField::Render(void){
 	//glEnd();
 
     // Draw texture triangles
-    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, texture[0]);
     // Old
     /*
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, texture[0]);
     for (int hMapX = 0; hMapX < hmWidth; hMapX++){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
             glBegin(GL_TRIANGLE_STRIP);
@@ -2614,8 +2614,13 @@ void HeightField::Render(void){
                 glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ + 1], hMapZ + 1);
             glEnd();
         }
-    }*/
+    }
+    glDisable(GL_TEXTURE_2D); */
     // New
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    glEnable(GL_TEXTURE_2D);
+    glBindTexture(GL_TEXTURE_2D, texture[0]);
+
     glBindBufferARB(GL_ARRAY_BUFFER_ARB, vhVBOTexCoords);
     glTexCoordPointer(2, GL_FLOAT, 0, (char *)NULL);
 
@@ -2629,23 +2634,4 @@ void HeightField::Render(void){
 
     glDisable(GL_TEXTURE_2D);
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
-
-//renders as triangle strips
-
-/*
-
-	for (int hMapX = 0; hMapX < hmWidth; hMapX++){
-		for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
-			glBegin(GL_TRIANGLE_STRIP);
-				glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);	
-				glVertex3f(hMapX, hHeightField[hMapX][hMapZ + 1], hMapZ + 1);	
-				glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ], hMapZ);	
-				glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ + 1], hMapZ + 1);
-			glEnd();
-		}
-	}
-*/
-
-
-
 }

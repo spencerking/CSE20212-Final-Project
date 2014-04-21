@@ -23,11 +23,6 @@ public:
 private:
     Object* Pikachu;
     
-    
-<<<<<<< HEAD
-    
-=======
->>>>>>> FETCH_HEAD
 };
 
 

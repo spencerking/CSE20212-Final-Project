@@ -35,7 +35,7 @@ private:
 	int hmWidth;
 
 	// Texture array
-	unsigned int texture[0];
+	unsigned int texture[2];
 
 	// VBO stuff
 	int vhVertexCount;

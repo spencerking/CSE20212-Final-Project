@@ -2,7 +2,6 @@
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #include <OpenGL/gl.h>
-#include <GLUT/glut.h>
 #else
 #include <GL/gl.h>
 #include <GL/glut.h>
@@ -56,13 +55,12 @@ void display (void) {
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
    	glLoadIdentity();
-
     
     camera();
 	glPushMatrix();
         skybox.render();
         hField.Render();
-       pikachu1.draw();
+        pikachu1.draw();
 	glPopMatrix();
     
 	glutSwapBuffers();
@@ -228,7 +226,7 @@ int main (int argc, char **argv) {
    	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
 	glutInitWindowSize(1000, 800);
-	glutInitWindowPosition(100, 100);
+	glutInitWindowPosition(0, 0);
    	glutCreateWindow("Pokémon Snap: The Sequel");
 	Init();
    	glutDisplayFunc(display);
