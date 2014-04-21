@@ -1,7 +1,11 @@
 #ifndef SKYBOX_H
 #define SKYBOX_H
 
-#include <OpenGL/gl.h>
+#ifdef __APPLE__
+   #include <OpenGL/gl.h>
+#else
+   #include <GL/gl.h>
+#endif  
 
 class Skybox {
 public:
