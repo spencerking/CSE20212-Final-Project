@@ -24,12 +24,12 @@ Xatu::Xatu(){
 }
 
 //display function
-void Xatu::init(){
+void Xatu::init(float x, float y, float z){
     xatu = new Object();
 	xatu->loadObjectFile("xatu.obj");
-    xatu->getLocation()->setX(680.128);
-    xatu->getLocation()->setY(241.622);
-    xatu->getLocation()->setZ(271.506);
+    xatu->getLocation()->setX(x);
+    xatu->getLocation()->setY(y);
+    xatu->getLocation()->setZ(z);
 }
 
 //movement function
@@ -39,7 +39,9 @@ void Xatu::move(){
 
 //draw function
 void Xatu::render(){
+    glPushMatrix();
     glTranslatef(xatu->getLocation()->getX(), xatu->getLocation()->getY(), xatu->getLocation()->getZ());
     glRotatef(90.0, 0.0, 1.0, 0.0);
     xatu->render();
+    glPopMatrix();
 }

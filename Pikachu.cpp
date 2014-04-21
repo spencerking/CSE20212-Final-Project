@@ -23,12 +23,12 @@ Pikachu::Pikachu(){
 }
 
 //display function
-void Pikachu::init(){
+void Pikachu::init(float x, float y, float z){
     pikachu = new Object();
 	pikachu->loadObjectFile("Pikachu.obj");
-    pikachu->getLocation()->setX(876.902);
-    pikachu->getLocation()->setY(1.9367);
-    pikachu->getLocation()->setZ(704.263);
+    pikachu->getLocation()->setX(x);
+    pikachu->getLocation()->setY(y);
+    pikachu->getLocation()->setZ(z);
 }
 
 //movement function
@@ -38,7 +38,9 @@ void Pikachu::move(){
 
 //draw function
 void Pikachu::render(){
+    glPushMatrix();
     glTranslatef(pikachu->getLocation()->getX(), pikachu->getLocation()->getY(), pikachu->getLocation()->getZ());
     glRotatef(90.0, 0.0, 1.0, 0.0);
     pikachu->render();
+    glPopMatrix();
 }

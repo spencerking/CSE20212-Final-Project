@@ -16,7 +16,7 @@
 class Pikachu{// : public models{ //inherits from models
 public:
     Pikachu(); //constructor
-    void init(); //init function
+    void init(float, float, float); //init function
     void move(); //movement function
     void render(); //draw function
     
