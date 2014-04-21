@@ -17,20 +17,18 @@
 #include "Pikachu.h"
 #include "Object.h"
 
-
 //default constructor
 Pikachu::Pikachu(){
-    Object* Pikachu;
-    unsigned int Pikachutexture;
+    
 }
 
 //display function
-void Pikachu::display(){
-    Pikachu = new Object();
-	Pikachu->loadObjectFile("Pokemon/Pikachu/Pikachu.obj");
-    Pikachu->getLocation()->setX(876.902);
-    Pikachu->getLocation()->setY(1.9367);
-    Pikachu->getLocation()->setZ(704.263);
+void Pikachu::init(){
+    pikachu = new Object();
+	pikachu->loadObjectFile("Pikachu.obj");
+    pikachu->getLocation()->setX(876.902);
+    pikachu->getLocation()->setY(1.9367);
+    pikachu->getLocation()->setZ(704.263);
 }
 
 //movement function
@@ -39,8 +37,8 @@ void Pikachu::move(){
 }
 
 //draw function
-void Pikachu::draw(){
-    glTranslatef(Pikachu->getLocation()->getX(), Pikachu->getLocation()->getY(), Pikachu->getLocation()->getZ());
+void Pikachu::render(){
+    glTranslatef(pikachu->getLocation()->getX(), pikachu->getLocation()->getY(), pikachu->getLocation()->getZ());
     glRotatef(90.0, 0.0, 1.0, 0.0);
-    Pikachu->draw();
+    pikachu->render();
 }

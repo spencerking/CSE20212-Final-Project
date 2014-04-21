@@ -20,8 +20,8 @@ public:
 
 class HeightField {
 public:
-	bool Create(const char *hFileName, const int hWidth, const int hHeight); //reads in the file
-	void Render(void); //renders the map
+	bool init(const char *hFileName, const int hWidth, const int hHeight); //reads in the file
+	void render(void); //renders the map
 	MAP hHeightField[1024][1024]; //stores the map data
 	int collisionDetection(float, float, float); //collision detection function
    	int hLOD; // Level of detail
@@ -40,7 +40,7 @@ private:
 	unsigned int vhVBOVertices;
 	unsigned int vhVBOTexCoords;
 
-	bool init();
+	bool makeVBO();
 	
     //vectors for reading in the coordinate points for each square
 	vector<int> xPoints1;

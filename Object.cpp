@@ -92,7 +92,7 @@ using namespace std;
 		return result;
 	}
 
-	bool Object::draw() {
+	bool Object::render() {
 		bool result = true;
 		
 		glPushMatrix(); {

@@ -21,7 +21,7 @@ using namespace std;
 		bool loadObjectFile( string filename, bool INFO );
 		bool loadObjectFile( string filename, bool INFO, bool ERRORS );
 		
-		bool draw();
+		bool render();
 		
 		Point* getLocation();
 

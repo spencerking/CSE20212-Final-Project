@@ -10,22 +10,19 @@
 #define PIKACHU_H
 
 //#include "models.h"
-#include "object.h"
+#include "Object.h"
 #include <iostream>
 
 class Pikachu{// : public models{ //inherits from models
 public:
     Pikachu(); //constructor
-     void display(); //display function
+    void init(); //init function
     void move(); //movement function
-    void draw(); //draw function
+    void render(); //draw function
     
 private:
-    Object* Pikachu;
+    Object* pikachu;
     
 };
-
-
-
 
 #endif /* defined(____Pikachu__) */

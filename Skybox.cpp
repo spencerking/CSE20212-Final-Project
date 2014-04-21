@@ -49,10 +49,6 @@ Skybox::Skybox() {
 	points = temp;
 }
 
-Skybox::~Skybox() {
-	//delete points;
-}
-
 void Skybox::init() {
 	// Init vertex buffer object
 	glGenBuffers (1, &vbo);
@@ -60,8 +56,13 @@ void Skybox::init() {
 	glBufferData (GL_ARRAY_BUFFER, 3 * 36 * sizeof (float), &points, GL_STATIC_DRAW);
 
 	// Init vertex array object
+#ifdef __APPLE__
 	glGenVertexArraysAPPLE (1, &vao);
 	glBindVertexArrayAPPLE (vao);
+#else
+	glGenVertexArrays (1, &vao);
+	glBindVertexArray (vao);
+#endif
 	glEnableVertexAttribArray (0);
 	glBindBuffer (GL_ARRAY_BUFFER, vbo);
 	glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, NULL);

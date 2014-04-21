@@ -6,7 +6,6 @@
 class Skybox {
 public:
 	Skybox();
-	~Skybox();
 	void init();
 	void render();
 private:

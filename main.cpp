@@ -33,8 +33,8 @@ float cScale = 5.0; //multiplier for the speed of camera movement
 //instantiate objects
 Skybox skybox;
 HeightField hField;
-camera camera1;
-pikachu pikachu1;
+Camera camera1;
+Pikachu pikachu;
 
 //basic camera function
 //this is straight from the swiftless tutorial
@@ -57,21 +57,21 @@ void display (void) {
     camera();
 	glPushMatrix();
         skybox.render();
-        hField.Render();
-        pikachu1.draw();
+        hField.render();
+        pikachu.render();
 	glPopMatrix();
     
 	glutSwapBuffers();
 }
 
 //initialization function
-void Init (void) {
+void init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
-    pikachu1.display();
+    pikachu.init();
     skybox.init();
     hField.hLOD = 8; // Level of detail
-	hField.Create("Heightfield/heightField2.raw", 1024, 1024);
+	hField.init("Heightfield/heightField2.raw", 1024, 1024);
 }
 
 //mouse control function based on the swiftless tutorials
@@ -226,7 +226,7 @@ int main (int argc, char **argv) {
 	glutInitWindowSize(1000, 800);
 	glutInitWindowPosition(0, 0);
    	glutCreateWindow("Pokémon Snap: The Sequel");
-	Init();
+	init();
     glutSetCursor(GLUT_CURSOR_CROSSHAIR);
    	glutDisplayFunc(display);
 	glutIdleFunc(display);

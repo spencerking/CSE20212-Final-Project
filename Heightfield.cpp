@@ -14,7 +14,7 @@
 #include "jpeg.h"
 using namespace std;
 
-bool HeightField::init(void) {
+bool HeightField::makeVBO(void) {
     glGenBuffersARB(1, &vhVBOVertices);
     glBindBufferARB(GL_ARRAY_BUFFER_ARB, vhVBOVertices);
     glBufferDataARB(GL_ARRAY_BUFFER_ARB, vhVertexCount * 3 * sizeof(float), vhVertices, GL_STATIC_DRAW_ARB);
@@ -34,7 +34,7 @@ bool HeightField::init(void) {
 
 //this function open a raw heightmap file and reads it in
 //I have no idea how heightmaps are stored, but this works
-bool HeightField::Create(const char *hFileName, const int hWidth, const int hHeight){
+bool HeightField::init(const char *hFileName, const int hWidth, const int hHeight){
 	hmHeight = hHeight;
 	hmWidth = hWidth;
 	
@@ -104,7 +104,7 @@ bool HeightField::Create(const char *hFileName, const int hWidth, const int hHei
     	}
 
     printf("%d, %d, %d\n", testx, testz, testy);*/
-    HeightField::init();
+    HeightField::makeVBO();
 	return true;
 }
 
@@ -2065,7 +2065,7 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
     return 0;
 }
 
-void HeightField::Render(void){
+void HeightField::render(void){
 //this will render the heightfield as a series of coordinate points
 
     counter1=0;
