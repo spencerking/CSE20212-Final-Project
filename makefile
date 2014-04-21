@@ -1,12 +1,12 @@
 OS := $(shell uname)
-OBJECTS = main.o Skybox.o Heightfield.o Camera.o Pikachu.o
+OBJECTS = main.o Skybox.o Heightfield.o Camera.o Sound.o Pikachu.o
 WARNINGS = -g
 
 ifeq ($(OS),Darwin)
-	LFLAGS += -lSOIL -ljpeg -framework OpenGL -framework GLUT -framework CoreFoundation
+	LFLAGS += -lSOIL -ljpeg -lfmodex -framework OpenGL -framework GLUT -framework CoreFoundation
 	WARNINGS += -Wno-deprecated
 else
-	LFLAGS += -lGL -lglut -lGLU
+	LFLAGS += -lGL -lglut -lGLU -lm
 endif
 
 all: main
@@ -25,6 +25,9 @@ Heightfield.o: Heightfield.cpp
 
 Camera.o: Camera.cpp
 	g++ -c Camera.cpp $(WARNINGS)
+
+Sound.o: Sound.cpp
+	g++ -c Sound.cpp $(WARNINGS)
 
 Pikachu.o: Pikachu.cpp
 	g++ -c Pikachu.cpp $(WARNINGS)

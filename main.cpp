@@ -1,4 +1,3 @@
-//significant assistance from: http://www.swiftless.com/tutorials/terrain/3_rendering.html
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #include <OpenGL/gl.h>
@@ -15,6 +14,7 @@
 #include "Skybox.h"
 #include "Heightfield.h"
 #include "Camera.h"
+#include "Sound.h"
 #include "Pikachu.h"
 
 //global variables for camera control and starting position
@@ -33,12 +33,13 @@ float cScale = 5.0; //multiplier for the speed of camera movement
 //instantiate objects
 Skybox skybox;
 HeightField hField;
-Camera camera1;
+Camera camera;
 Pikachu pikachu;
+Sound sound;
 
 //basic camera function
 //this is straight from the swiftless tutorial
-void camera (void) {
+void cameraFunc (void) {
 	int posX = (int)xpos;
 	int posZ = (int)zpos;
     
@@ -54,7 +55,7 @@ void display (void) {
     glMatrixMode(GL_MODELVIEW);
    	glLoadIdentity();
     
-    camera();
+    cameraFunc();
 	glPushMatrix();
         skybox.render();
         hField.render();
@@ -70,51 +71,54 @@ void init (void) {
 	glDepthFunc(GL_LEQUAL);
     pikachu.init();
     skybox.init();
-    hField.hLOD = 8; // Level of detail
-	hField.init("Heightfield/heightField2.raw", 1024, 1024);
+	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
+    sound.init();
 }
 
 //mouse control function based on the swiftless tutorials
 void orientMe(int x, int y) {
-
 	//calculates the differences between the current x and y positions
 	//and the previous x and y positions
- 	int diffx=x-previousx;
- 	int diffy=y-previousy;
+ 	int diffx = x-previousx;
+ 	int diffy = y-previousy;
 
 	//the previous x and y positions become the current x and y positions
-    previousx=x;
-    previousy=y;
+    previousx = x;
+    previousy = y;
     xrot += (float) diffy;
     yrot += (float) diffx;
 }
 
-
 //keyboard function based on swiftless and Emrich's tutorials
 
 void keyboard (unsigned char key, int x, int y) {
-	if (key == 'e'){ //takes a screenshot
-		camera1.setupScreenshot();
+	if (key == 'e') { //takes a screenshot and play shutter sound
+		camera.setupScreenshot();
+        sound.shutter();
 	}
+
+    if (key == 'm') { //toggle music
+        sound.music();
+    }
     
-    if (key == 'q'){ //quits the game
-        cout << "Thank you for playing!" <<endl;
+    if (key == 'q') { //quits the game
+        cout << "Thank you for playing!" << endl;
         exit(1);
     }
  
  	if (key == 'w') //moves the camera forwards
  	{
         float xrotrad, yrotrad;
-        yrotrad = (yrot / 180 * 3.141592654f);
-        xrotrad = (xrot / 180 * 3.141592654f);
+        yrotrad = (yrot / 180 * M_PI);
+        xrotrad = (xrot / 180 * M_PI);
         float xposFuture = xpos + float(sin(yrotrad)) * cScale;
         float zposFuture = zpos - float(cos(yrotrad)) * cScale;
         float yposFuture = ypos - float(sin(xrotrad));
         
-        if (hField.collisionDetection(xposFuture, yposFuture, zposFuture)){
+        if (hField.collisionDetection(xposFuture, yposFuture, zposFuture)) {
             
         }
-        else{
+        else {
             xpos += float(sin(yrotrad)) * cScale;
             zpos -= float(cos(yrotrad)) * cScale;
             ypos -= float(sin(xrotrad));
@@ -126,16 +130,16 @@ void keyboard (unsigned char key, int x, int y) {
  	if (key == 's') //moves the camera backwards
  	{
         float xrotrad, yrotrad;
-        yrotrad = (yrot / 180 * 3.141592654f);
-        xrotrad = (xrot / 180 * 3.141592654f);
+        yrotrad = (yrot / 180 * M_PI);
+        xrotrad = (xrot / 180 * M_PI);
         float xposFuture = xpos - float(sin(yrotrad)) * cScale;
         float zposFuture = zpos + float(cos(yrotrad)) * cScale;
         float yposFuture = ypos + float(sin(xrotrad));
         
-        if (hField.collisionDetection(xposFuture, yposFuture, zposFuture)){
+        if (hField.collisionDetection(xposFuture, yposFuture, zposFuture)) {
             
         }
-        else{
+        else {
             xpos -= float(sin(yrotrad)) * cScale;
             zpos += float(cos(yrotrad)) * cScale;
             ypos += float(sin(xrotrad));
@@ -146,14 +150,14 @@ void keyboard (unsigned char key, int x, int y) {
  	if (key == 'd') //moves the camera to the right
  	{
         float yrotrad;
-        yrotrad = (yrot / 180 * 3.141592654f);
+        yrotrad = (yrot / 180 * M_PI);
         float xposFuture = xpos + float(cos(yrotrad)) * cScale;
         float zposFuture = zpos + float(sin(yrotrad)) * cScale;
         
-        if (hField.collisionDetection(xposFuture, ypos, zposFuture)){
+        if (hField.collisionDetection(xposFuture, ypos, zposFuture)) {
             
         }
-        else{
+        else {
             xpos += float(cos(yrotrad)) * cScale;
             zpos += float(sin(yrotrad)) * cScale;
         }
@@ -162,14 +166,14 @@ void keyboard (unsigned char key, int x, int y) {
  	if (key == 'a') //moves the camera to the left
  	{
         float yrotrad;
-        yrotrad = (yrot / 180 * 3.141592654f);
+        yrotrad = (yrot / 180 * M_PI);
         float xposFuture = xpos - float(cos(yrotrad)) * cScale;
         float zposFuture = zpos - float(sin(yrotrad)) * cScale;
         
-        if (hField.collisionDetection(xposFuture, ypos, zposFuture)){
+        if (hField.collisionDetection(xposFuture, ypos, zposFuture)) {
             
         }
-        else{
+        else {
             xpos -= float(cos(yrotrad)) * cScale;
             zpos -= float(sin(yrotrad)) * cScale;
         }
@@ -180,15 +184,15 @@ void keyboard (unsigned char key, int x, int y) {
 //allows for altitude change with up and down arrow keys
 void arrowKeys(int key, int x, int y){
     float yposFuture;
-    switch(key){
+    switch(key) {
         //moves the camera directly upwards
         case GLUT_KEY_UP :
             yposFuture=ypos;
             yposFuture += 5.00;
-            if (hField.collisionDetection(xpos, yposFuture, zpos)){
+            if (hField.collisionDetection(xpos, yposFuture, zpos)) {
                 
             }
-            else{
+            else {
                 ypos+=5.00;
             }
             break;
@@ -196,10 +200,10 @@ void arrowKeys(int key, int x, int y){
         case GLUT_KEY_DOWN:
             yposFuture=ypos;
             yposFuture -= 5.00;
-            if (hField.collisionDetection(xpos, yposFuture, zpos)){
+            if (hField.collisionDetection(xpos, yposFuture, zpos)) {
                 
             }
-            else{
+            else {
                 ypos-=5.00;
             }
             break;

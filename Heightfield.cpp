@@ -34,9 +34,10 @@ bool HeightField::makeVBO(void) {
 
 //this function open a raw heightmap file and reads it in
 //I have no idea how heightmaps are stored, but this works
-bool HeightField::init(const char *hFileName, const int hWidth, const int hHeight){
+bool HeightField::init(const char *hFileName, const int hWidth, const int hHeight, int hLOD){
 	hmHeight = hHeight;
 	hmWidth = hWidth;
+    hmLOD = hLOD;
 	
 	FILE *fp;
     
