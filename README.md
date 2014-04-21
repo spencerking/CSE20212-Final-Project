@@ -1,4 +1,4 @@
-Pokemon Snap
+Pokémon Snap
 ===========================
 Spencer King, Hannah Porter, David Wu
 CSE20212 Final Project, Spring 2014
