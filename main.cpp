@@ -16,6 +16,9 @@
 #include "Camera.h"
 #include "Sound.h"
 #include "Pikachu.h"
+#include "Xatu.h"
+#include "Wooper.h"
+
 
 //global variables for camera control and starting position
 float xpos = 1000.00;
@@ -35,6 +38,8 @@ Skybox skybox;
 HeightField hField;
 Camera camera;
 Pikachu pikachu;
+Xatu xatu;
+Wooper wooper;
 Sound sound;
 
 //basic camera function
@@ -60,6 +65,8 @@ void display (void) {
         skybox.render();
         hField.render();
         pikachu.render();
+        xatu.render();
+        wooper.render();
 	glPopMatrix();
     
 	glutSwapBuffers();
@@ -70,6 +77,8 @@ void init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
     pikachu.init();
+    xatu.init();
+    wooper.init();
     skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
     sound.init();
