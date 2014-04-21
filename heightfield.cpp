@@ -46,7 +46,7 @@ bool HeightField::Create(const char *hFileName, const int hWidth, const int hHei
     
 	fclose(fp);
 
-    vhVertexCount = (int)(hmHeight * hHeight * 6) / (1 * 1);
+    vhVertexCount = (int)(hmHeight * hHeight * 6) / (hLOD * hLOD);
     vhVertices = new Vert[vhVertexCount];
     vhTexCoords = new TexCoord[vhVertexCount];
 
@@ -55,11 +55,11 @@ bool HeightField::Create(const char *hFileName, const int hWidth, const int hHei
     float flX;
     float flZ;
 
-    for (int hMapX = 0; hMapX < hmWidth; hMapX++){
-        for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
+    for (int hMapX = 0; hMapX < hmWidth; hMapX+=hLOD){
+        for (int hMapZ = 0; hMapZ < hmHeight; hMapZ+=hLOD){
             for (int nTri = 0; nTri < 6; nTri++){
-                flX = (float)hMapX + ((nTri == 1 || nTri == 2 || nTri == 5) ? 1 : 0);
-                flZ = (float)hMapZ + ((nTri == 2 || nTri == 4 || nTri == 5) ? 1 : 0);
+                flX = (float)hMapX + ((nTri == 1 || nTri == 2 || nTri == 5) ? hLOD : 0);
+                flZ = (float)hMapZ + ((nTri == 2 || nTri == 4 || nTri == 5) ? hLOD : 0);
 
                 vhVertices[nIndex].x = flX;
                 vhVertices[nIndex].y = hHeightField[(int)flX][(int)flZ];

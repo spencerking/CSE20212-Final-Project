@@ -72,8 +72,8 @@ void Init (void) {
 	glDepthFunc(GL_LEQUAL);
     pikachu1.display();
     skybox.init("skybox.png");
+    hField.hLOD = 8; // Level of detail
 	hField.Create("heightField2.raw", 1024, 1024);
-
 }
 
 //mouse control function based on the swiftless tutorials
