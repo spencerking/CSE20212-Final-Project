@@ -108,6 +108,21 @@ void orientMe(int x, int y) {
  	int diffx = x-previousx;
  	int diffy = y-previousy;
 
+    //this prevents the camera from being inverted
+    //but it also makes the movement less smooth
+   /* if (diffx<-M_PI){
+        diffx += M_PI*2;
+    }
+    if (diffx>M_PI){
+        diffx -= M_PI*2;
+    }
+    if (diffy<-M_PI*0.49){
+        diffy = -M_PI*0.49;
+    }
+    if (diffy>M_PI*0.49){
+        diffy = M_PI*0.49;
+    }*/
+    
 	//the previous x and y positions become the current x and y positions
     previousx = x;
     previousy = y;
