@@ -1,28 +1,29 @@
 //
-//  Pikachu.h
+//  Raichu.h
 //  
 //
-//  Created by Spencer King on 4/20/14.
+//  Created by Spencer King on 4/21/14.
 //
 //
 
-#ifndef PIKACHU_H
-#define PIKACHU_H
+
+#ifndef RAICHU_H
+#define RAICHU_H
 
 //#include "models.h"
 #include "Object.h"
 #include <iostream>
 
-class Pikachu{// : public models{ //inherits from models
+class Raichu{// : public models{ //inherits from models
 public:
-    Pikachu(); //constructor
+    Raichu(); //constructor
     void init(float, float, float); //init function
     void move(); //movement function
     void render(); //draw function
     
 private:
-    Object* pikachu;
+    Object* raichu;
     
 };
 
-#endif /* defined(____Pikachu__) */
+#endif /* defined(____Raichu__) */

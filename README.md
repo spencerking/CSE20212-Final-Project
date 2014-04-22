@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Pokemon Snap
+=======
+Pokémon Snap
+>>>>>>> FETCH_HEAD
 ===========================
 Spencer King, Hannah Porter, David Wu
 CSE20212 Final Project, Spring 2014

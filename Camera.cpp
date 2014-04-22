@@ -71,7 +71,7 @@ void Camera::setupScreenshot(){
     strcat(str, ".tga");
     strcat(file, str);
 
-	Camera::screenshot(file, 500, 500);
+	Camera::screenshot(file, 1000, 800);
 	
 
 }

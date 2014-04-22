@@ -1,28 +1,28 @@
 //
-//  Pikachu.h
+//  Wooper.h
 //  
 //
-//  Created by Spencer King on 4/20/14.
+//  Created by Spencer King on 4/21/14.
 //
 //
 
-#ifndef PIKACHU_H
-#define PIKACHU_H
+#ifndef WOOPER_H
+#define WOOPER_H
 
 //#include "models.h"
 #include "Object.h"
 #include <iostream>
 
-class Pikachu{// : public models{ //inherits from models
+class Wooper{// : public models{ //inherits from models
 public:
-    Pikachu(); //constructor
+    Wooper(); //constructor
     void init(float, float, float); //init function
     void move(); //movement function
     void render(); //draw function
     
 private:
-    Object* pikachu;
+    Object* wooper;
     
 };
 
-#endif /* defined(____Pikachu__) */
+#endif /* defined(____Wooper__) */
