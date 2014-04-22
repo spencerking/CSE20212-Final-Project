@@ -3,16 +3,16 @@
 newmtl head
 Ns 0
 d 1
-illum 2
+#illum 2
 Kd 0.8 0.8 0.8
 Ks 0.0 0.0 0.0
 Ka 0.2 0.2 0.2
-map_Kd head.png
+map_Kd XatuHead.png
 
 newmtl foot
 Ns 0
 d 1
-illum 2
+#illum 2
 Kd 0.8 0.8 0.8
 Ks 0.0 0.0 0.0
 Ka 0.2 0.2 0.2
@@ -25,5 +25,5 @@ illum 2
 Kd 0.8 0.8 0.8
 Ks 0.0 0.0 0.0
 Ka 0.2 0.2 0.2
-map_Kd wing.png
+map_Kd XatuWing.png
 

@@ -27,7 +27,7 @@ float ypos = 51.594;
 float zpos = 320.00;
 float xrot = 758;
 float yrot = 238;
-float angle=0.0;
+//float angle=0.0;
 float previousx;
 float previousy;
 
@@ -51,17 +51,17 @@ Sound sound;
 //basic camera function
 //this is straight from the swiftless tutorial
 void cameraFunc (void) {
-	int posX = (int)xpos;
-	int posZ = (int)zpos;
+	//int posX = (int)xpos;
+	//int posZ = (int)zpos;
+    //Unused
     
-	glRotatef(xrot,1.0,0.0,0.0); //rotates on the x-axis
-	glRotatef(yrot,0.0,1.0,0.0); //rotates on the y-axis
+	glRotatef(xrot,0.1,0.0,0.0); //rotates on the x-axis
+	glRotatef(yrot,0.0,0.1,0.0); //rotates on the y-axis
 	glTranslated(-xpos,-ypos,-zpos); //translates the screen to the current camera positon
 }
 
 //basic display function
 void display (void) {
-	glClearColor (0.0,0.0,0.0,1.0); //black
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_MODELVIEW);
    	glLoadIdentity();
@@ -85,8 +85,27 @@ void display (void) {
 
 //initialization function
 void init (void) {
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LEQUAL);
+    // Init lighting
+    GLfloat light0_ambient[] = {0.1f, 0.1f, 0.3f, 1.0f};
+    GLfloat light0_diffuse[] = {1.0f, 1.0f, 1.0f, 1.0f};
+    GLfloat light0_position[] = {1000.0, 1000.0, 500.0, 0.0};
+    glLightfv(GL_LIGHT0, GL_AMBIENT, light0_ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, light0_diffuse);
+    glLightfv(GL_LIGHT0, GL_POSITION, light0_position);
+    GLfloat local_ambient[] = {0.2, 0.2, 0.2, 1.0};
+    GLfloat local_view[] = {0.0};
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, local_ambient);
+    glLightModelfv(GL_LIGHT_MODEL_LOCAL_VIEWER, local_view);
+
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_AUTO_NORMAL);
+    glEnable(GL_NORMALIZE);
+    glClearDepth(1.0);
+	glDepthFunc(GL_LESS);
+    glEnable(GL_DEPTH_TEST);
+
+    // Init objects
     pikachu.init(876.902, 1.9367, 704.263);
     pikachu2.init(870.902, 1.9367, 704.263);
     pikachu3.init(864.902, 1.9367, 704.263);
@@ -105,12 +124,15 @@ void init (void) {
 void orientMe(int x, int y) {
 	//calculates the differences between the current x and y positions
 	//and the previous x and y positions
- 	int diffx = x-previousx;
- 	int diffy = y-previousy;
+ 	float diffx = ((float)x-previousx)*0.5f;
+ 	float diffy = ((float)y-previousy)*0.5f;
+
+    xrot += diffy;
+    yrot += diffx;
 
     //this prevents the camera from being inverted
     //but it also makes the movement less smooth
-   /* if (diffx<-M_PI){
+    if (diffx<-M_PI){
         diffx += M_PI*2;
     }
     if (diffx>M_PI){
@@ -121,13 +143,11 @@ void orientMe(int x, int y) {
     }
     if (diffy>M_PI*0.49){
         diffy = M_PI*0.49;
-    }*/
+    }
     
 	//the previous x and y positions become the current x and y positions
     previousx = x;
     previousy = y;
-    xrot += (float) diffy;
-    yrot += (float) diffx;
 }
 
 //keyboard function based on swiftless and Emrich's tutorials
@@ -163,7 +183,7 @@ void keyboard (unsigned char key, int x, int y) {
             xpos += float(sin(yrotrad)) * cScale;
             zpos -= float(cos(yrotrad)) * cScale;
             ypos -= float(sin(xrotrad));
-            cout<< "x= "<<xpos<<"y= "<<ypos<<"z= "<<zpos<<endl;
+            cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
             bounce += 0.04;
         }
 	 }
@@ -279,6 +299,6 @@ int main (int argc, char **argv) {
 	glutKeyboardFunc(keyboard);
     glutSpecialFunc(arrowKeys);
 	glutPassiveMotionFunc(orientMe);
-   	glutMainLoop ();
+   	glutMainLoop();
    	return 0;
 }

@@ -1,14 +1,11 @@
-<<<<<<< HEAD
+
 #Pokemon Snap
-=======
-Pokémon Snap
->>>>>>> FETCH_HEAD
 ===========================
 Spencer King, Hannah Porter, David Wu
 CSE20212 Final Project, Spring 2014
 
 #How to Install
-Libraries: SOIL, libjpeg, FMOD Ex
+Libraries: SOIL, libjpeg, FMOD Ex, 
 
 #Controls
 WASD - lateral movement
@@ -20,3 +17,6 @@ Q - quit
 
 #What we learned
 OpenGL, makefiles, linking libraries
+
+#Special thanks
+To Jeremy Vercillo

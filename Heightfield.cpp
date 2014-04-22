@@ -2635,4 +2635,17 @@ void HeightField::render(void){
 
     glDisable(GL_TEXTURE_2D);
     glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+
+    /*
+    GLfloat light0_ambient[] = {0.1f, 0.1f, 0.3f, 1.0f};
+    GLfloat light0_diffuse[] = {1.0f, 1.0f, 1.0f, 1.0f};
+    GLfloat light0_position[] = {1000.0, 500.0, 500.0, 0.0};
+    glLightfv(GL_LIGHT0, GL_AMBIENT, light0_ambient);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, light0_diffuse);
+    glLightfv(GL_LIGHT0, GL_POSITION, light0_position);
+    glEnable(GL_LIGHTING);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_AUTO_NORMAL);
+    glEnable(GL_NORMALIZE);
+    */
 }
