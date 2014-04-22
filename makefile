@@ -1,5 +1,5 @@
 OS := $(shell uname)
-OBJECTS = main.o Skybox.o Heightfield.o Camera.o Sound.o Pikachu.o Xatu.o Wooper.o
+OBJECTS = main.o Skybox.o Heightfield.o Camera.o Sound.o Pikachu.o Xatu.o Wooper.o Raichu.o
 WARNINGS = -g
 
 ifeq ($(OS),Darwin)
@@ -37,6 +37,9 @@ Xatu.o: Xatu.cpp
 
 Wooper.o: Wooper.cpp
 	g++ -c Wooper.cpp $(WARNINGS)
+
+Raichu.o: Raichu.cpp
+	g++ -c Raichu.cpp $(WARNINGS)
 
 clean:
 	rm -rf *.o *.dSYM main

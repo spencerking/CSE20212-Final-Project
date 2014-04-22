@@ -18,6 +18,7 @@
 #include "Pikachu.h"
 #include "Xatu.h"
 #include "Wooper.h"
+#include "Raichu.h"
 
 
 //global variables for camera control and starting position
@@ -39,8 +40,12 @@ HeightField hField;
 Camera camera;
 Pikachu pikachu;
 Pikachu pikachu2;
+Pikachu pikachu3;
+Pikachu pikachu4;
+Pikachu pikachu5;
 Xatu xatu;
 Wooper wooper;
+//Raichu raichu;
 Sound sound;
 
 //basic camera function
@@ -67,8 +72,12 @@ void display (void) {
         hField.render();
         pikachu.render();
         pikachu2.render();
+        pikachu3.render();
+        pikachu4.render();
+        pikachu5.render();
         xatu.render();
         wooper.render();
+        //raichu.render();
 	glPopMatrix();
     
 	glutSwapBuffers();
@@ -79,9 +88,13 @@ void init (void) {
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LEQUAL);
     pikachu.init(876.902, 1.9367, 704.263);
-    pikachu2.init(864.336, 1.4533, 701.218);
+    pikachu2.init(870.902, 1.9367, 704.263);
+    pikachu3.init(864.902, 1.9367, 704.263);
+    pikachu4.init(858.902, 1.9367, 704.263);
+    pikachu5.init(852.902, 1.9367, 704.263);
     xatu.init(673.699, 222.815, 272.079);
     wooper.init(898.486, 2.2964, 361.856);
+    //raichu.init(882.902, 1.9367, 704.263);
     skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
     sound.init();
