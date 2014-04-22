@@ -1,5 +1,11 @@
 #include "Skybox.h"
-#include <soil.h>
+
+#ifdef __APPLE__
+   #include <soil.h>
+#else
+   #include <SOIL/soil.h>
+#endif
+
 #include <stdio.h>
 
 Skybox::Skybox() {

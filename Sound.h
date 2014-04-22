@@ -1,9 +1,13 @@
 #ifndef SOUND_H
 #define SOUND_H
 
-//#include <fmod.h>
-#include <fmod.hpp>
-#include <fmod_errors.h>
+#ifdef __APPLE__
+   #include <fmod.hpp>
+   #include <fmod_errors.h>
+#else
+   #include <FMOD/fmod.hpp>
+   #include <FMOD/fmod_errors.h>
+#endif
 
 class Sound {
 public:

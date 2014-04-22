@@ -1,10 +1,10 @@
 #ifdef __APPLE__
 	#include <GLUT/glut.h>
+	#include <soil.h>
 #else
 	#include <GL/glut.h>
+	#include <SOIL/soil.h>
 #endif
-
-#include <soil.h>
 
 #include "Object.h"
 #include "Point.h"
