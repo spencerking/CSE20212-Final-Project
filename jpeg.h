@@ -16,5 +16,6 @@ struct jpegtexture {
 jpegtexture *loadJpeg(const char *srFileName);
 
 void textureJpeg(unsigned int tTexture[], std::string strFileName, int ID);
+void skyboxJpeg(unsigned int tTexture[], std::string strFileName, int ID);
 
 #endif

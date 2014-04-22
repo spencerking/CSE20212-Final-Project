@@ -1,5 +1,7 @@
 #include <OpenGL/gl.h>
 #include <GLUT/glut.h>
+#include <iostream>
+
 #include <cstdlib>
 #include "jpeg.h"
 
@@ -15,6 +17,20 @@ void textureJpeg(unsigned int tTexture[], std::string strFileName, int ID) {
 	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameterf(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR_MIPMAP_LINEAR);
 
+	free(pBitMap->data);			
+	free(pBitMap);
+}
+
+void skyboxJpeg(unsigned int tTexture[], std::string strFileName, int ID) {
+	
+	jpegtexture *pBitMap = loadJpeg(strFileName.c_str());
+	
+	glGenTextures(1, &tTexture[ID]);
+	glBindTexture(GL_TEXTURE_2D, tTexture[ID]);
+	gluBuild2DMipmaps(GL_TEXTURE_2D, 3, pBitMap->sizeX, pBitMap->sizeY, GL_RGB, GL_UNSIGNED_BYTE, pBitMap->data);
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);	
+	
 	free(pBitMap->data);			
 	free(pBitMap);
 }

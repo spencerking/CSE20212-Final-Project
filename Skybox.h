@@ -13,8 +13,9 @@ public:
 	void init();
 	void render();
 private:
-	float *points;
-	GLuint vbo, vao, skybox;
+	//float *points;
+	//GLuint vbo, vao, skybox;
+	GLuint skybox;
 };
 
 #endif
