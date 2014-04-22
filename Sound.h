@@ -17,7 +17,6 @@ private:
 	FMOD::Sound *_music, *camShutter;
 	FMOD::Channel *channel[1]; // Music channel and shutter channel
 	FMOD_RESULT fmodResult;
-	int musicToggle;
 	unsigned int version;
 };
 

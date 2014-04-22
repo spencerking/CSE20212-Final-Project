@@ -6,8 +6,6 @@ Sound::Sound() {
 }
 
 void Sound::init() {
-	musicToggle = 1;
-
 	fmodResult = FMOD::System_Create(&fmodSystem);
 	Sound::errCheck(fmodResult);
 
@@ -38,15 +36,6 @@ void Sound::music() {
 	bool isPaused;
 	channel[0]->getPaused(&isPaused);
 	channel[0]->setPaused(!isPaused);
-	/*
-	musicToggle++;
-	if (musicToggle%2 == 0) {
-		fmodResult = channel[0]->setPaused
-	}
-	else {
-		fmodResult = channel[0]->
-		errCheck(fmodResult);
-	}*/
 }
 
 void Sound::shutter() {
@@ -56,6 +45,6 @@ void Sound::shutter() {
 
 void Sound::errCheck(FMOD_RESULT result) {
 	if (result != FMOD_OK) {
-		printf("FMOD error! (%d) %s\n", result, FMOD_ErrorString(result));
+		printf("FMOD error: (%d) %s\n", result, FMOD_ErrorString(result));
 	}
 }
