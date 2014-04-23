@@ -11,42 +11,17 @@
 #include <fstream>
 #include <assert.h>
 #include "Global.h"
-#include "Object.h"
+//#include "Object.h"
 #include "Skybox.h"
-#include "Heightfield.h"
+//#include "Heightfield.h"
 #include "Camera.h"
 #include "Sound.h"
-#include "Pikachu.h"
-#include "Xatu.h"
-#include "Wooper.h"
-#include "Raichu.h"
+#include "GameController.h"
 
-/*
-//global variables for camera control and starting position
-float xpos = 1000.00;
-float ypos = 51.594;
-float zpos = 320.00;
-float xrot = 758;
-float yrot = 238;
-//float angle=0.0;
-float previousx;
-float previousy;
-
-float bounce;
-float cScale = 5.0; //multiplier for the speed of camera movement
-*/
 //instantiate objects
-Skybox skybox;
-HeightField hField;
 Camera camera;
-Pikachu pikachu;
-Pikachu pikachu2;
-Pikachu pikachu3;
-Pikachu pikachu4;
-Pikachu pikachu5;
-Xatu xatu;
-Wooper wooper;
-//Raichu raichu;
+//HeightField hField;
+GameController gamecontroller;
 Sound sound;
 
 //basic camera function
@@ -68,18 +43,8 @@ void display (void) {
    	glLoadIdentity();
     
     cameraFunc();
-	glPushMatrix();
-        skybox.render();
-        hField.render();
-        pikachu.render();
-        pikachu2.render();
-        pikachu3.render();
-        pikachu4.render();
-        pikachu5.render();
-        xatu.render();
-        wooper.render();
-        //raichu.render();
-	glPopMatrix();
+ 
+    gamecontroller.GameRender();
     
 	glutSwapBuffers();
 }
@@ -106,17 +71,7 @@ void init (void) {
 	glDepthFunc(GL_LESS);
     glEnable(GL_DEPTH_TEST);
 
-    // Init objects
-    pikachu.init(876.902, 1.9367, 704.263);
-    pikachu2.init(870.902, 1.9367, 704.263);
-    pikachu3.init(864.902, 1.9367, 704.263);
-    pikachu4.init(858.902, 1.9367, 704.263);
-    pikachu5.init(852.902, 1.9367, 704.263);
-    xatu.init(673.699, 222.815, 272.079);
-    wooper.init(898.486, 2.2964, 361.856);
-    //raichu.init(882.902, 1.9367, 704.263);
-    skybox.init();
-	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
+    gamecontroller.GameInit();
     sound.init();
 }
 
@@ -177,7 +132,7 @@ void keyboard (unsigned char key, int x, int y) {
         float zposFuture = zpos - float(cos(yrotrad)) * cScale;
         float yposFuture = ypos - float(sin(xrotrad));
         
-        if (hField.collisionDetection(xposFuture, yposFuture, zposFuture)) {
+        if (gamecontroller.GameCollision(xposFuture, yposFuture, zposFuture)) {
             
         }
         else {
@@ -198,7 +153,7 @@ void keyboard (unsigned char key, int x, int y) {
         float zposFuture = zpos + float(cos(yrotrad)) * cScale;
         float yposFuture = ypos + float(sin(xrotrad));
         
-        if (hField.collisionDetection(xposFuture, yposFuture, zposFuture)) {
+        if (gamecontroller.GameCollision(xposFuture, yposFuture, zposFuture)) {
             
         }
         else {
@@ -216,7 +171,7 @@ void keyboard (unsigned char key, int x, int y) {
         float xposFuture = xpos + float(cos(yrotrad)) * cScale;
         float zposFuture = zpos + float(sin(yrotrad)) * cScale;
         
-        if (hField.collisionDetection(xposFuture, ypos, zposFuture)) {
+        if (gamecontroller.GameCollision(xposFuture, ypos, zposFuture)) {
             
         }
         else {
@@ -232,7 +187,7 @@ void keyboard (unsigned char key, int x, int y) {
         float xposFuture = xpos - float(cos(yrotrad)) * cScale;
         float zposFuture = zpos - float(sin(yrotrad)) * cScale;
         
-        if (hField.collisionDetection(xposFuture, ypos, zposFuture)) {
+        if (gamecontroller.GameCollision(xposFuture, ypos, zposFuture)) {
             
         }
         else {
@@ -251,7 +206,7 @@ void arrowKeys(int key, int x, int y){
         case GLUT_KEY_UP :
             yposFuture=ypos;
             yposFuture += 5.00;
-            if (hField.collisionDetection(xpos, yposFuture, zpos)) {
+            if (gamecontroller.GameCollision(xpos, yposFuture, zpos)) {
                 
             }
             else {
@@ -262,7 +217,7 @@ void arrowKeys(int key, int x, int y){
         case GLUT_KEY_DOWN:
             yposFuture=ypos;
             yposFuture -= 5.00;
-            if (hField.collisionDetection(xpos, yposFuture, zpos)) {
+            if (gamecontroller.GameCollision(xpos, yposFuture, zpos)) {
                 
             }
             else {
