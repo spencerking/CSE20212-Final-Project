@@ -1,9 +1,7 @@
 #include "Skybox.h"
-<<<<<<< HEAD
 #include <soil.h>
 //#include "jpeg.h"
 #include <iostream>
-=======
 
 #ifdef __APPLE__
    #include <soil.h>
@@ -11,7 +9,6 @@
    #include <SOIL/soil.h>
 #endif
 
->>>>>>> FETCH_HEAD
 #include <stdio.h>
 
 Skybox::Skybox() {
@@ -139,7 +136,6 @@ void Skybox::render() {
 	glBindTexture(GL_TEXTURE_CUBE_MAP, skybox);
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 	glDepthMask(1);
-<<<<<<< HEAD
 	
 	/*
 	glPushAttrib(GL_ENABLE_BIT);
@@ -191,6 +187,4 @@ void Skybox::render() {
 	glEnd();
 	glPopAttrib();*/
 }
-=======
-}
->>>>>>> FETCH_HEAD
+

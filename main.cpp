@@ -10,6 +10,7 @@
 #include <string.h>
 #include <fstream>
 #include <assert.h>
+#include "Global.h"
 #include "Object.h"
 #include "Skybox.h"
 #include "Heightfield.h"
@@ -20,7 +21,7 @@
 #include "Wooper.h"
 #include "Raichu.h"
 
-
+/*
 //global variables for camera control and starting position
 float xpos = 1000.00;
 float ypos = 51.594;
@@ -33,7 +34,7 @@ float previousy;
 
 float bounce;
 float cScale = 5.0; //multiplier for the speed of camera movement
-
+*/
 //instantiate objects
 Skybox skybox;
 HeightField hField;
