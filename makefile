@@ -1,5 +1,5 @@
 OS := $(shell uname)
-OBJECTS = main.o Skybox.o Heightfield.o Camera.o Sound.o Pikachu.o Xatu.o Wooper.o Raichu.o
+OBJECTS = main.o Skybox.o Heightfield.o Camera.o Sound.o GameController.o Pikachu.o Xatu.o Wooper.o Raichu.o
 WARNINGS = -g
 
 ifeq ($(OS),Darwin)
@@ -47,6 +47,9 @@ Camera.o: Camera.cpp
 
 Sound.o: Sound.cpp
 	g++ -c $(INCPATH) Sound.cpp $(LIBPATH) $(LFLAGS) $(WARNINGS)
+
+GameController.o: GameController.cpp
+	g++ -c $(INCPATH) GameController.cpp $(LIBPATH) $(LFLAGS) $(WARNINGS)
 
 Pikachu.o: Pikachu.cpp
 	g++ -c Pikachu.cpp $(WARNINGS)
