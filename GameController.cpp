@@ -28,8 +28,10 @@ void GameController::GameRender(){
     pikachu3.render();
     pikachu4.render();
     pikachu5.render();
+    pikachu6.render();
     xatu.render();
     wooper.render();
+    PikachuTest.render();
     //raichu.render();
 	glPopMatrix();
     
@@ -45,8 +47,10 @@ void GameController::GameInit(){
     pikachu3.init(864.902, 1.9367, 704.263);
     pikachu4.init(858.902, 1.9367, 704.263);
     pikachu5.init(852.902, 1.9367, 704.263);
+    pikachu6.init(757.385, 84.2711, 503.428);
     xatu.init(673.699, 222.815, 272.079);
     wooper.init(898.486, 2.2964, 361.856);
+    PikachuTest.init(882.902, 1.9367, 704.263);
     //raichu.init(882.902, 1.9367, 704.263);
     skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
@@ -102,3 +106,15 @@ void GameController::GameKeyboard(unsigned char key, int x, int y){
     
 }
 */
+
+void GameController::GameSetNames() {
+	PikachuTest.setFilename("Pikachu.obj");
+	wooper.setFilename("wooper.obj");
+	pikachu.setFilename("Pikachu.obj");
+	pikachu2.setFilename("Pikachu.obj");
+	pikachu3.setFilename("Pikachu.obj");
+	pikachu4.setFilename("Pikachu.obj");
+	pikachu5.setFilename("Pikachu.obj");
+	pikachu6.setFilename("Pikachu.obj");
+	xatu.setFilename("xatu.obj");
+}

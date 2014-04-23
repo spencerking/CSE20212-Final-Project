@@ -1,5 +1,3 @@
-#include <OpenGL/gl.h>
-#include <GLUT/glut.h>
 #include <iostream>
 #ifdef __APPLE__
    #include <OpenGL/gl.h>
