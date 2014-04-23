@@ -200,6 +200,8 @@ void keyboard (unsigned char key, int x, int y) {
 
 //allows for altitude change with up and down arrow keys
 void arrowKeys(int key, int x, int y){
+    
+    //gamecontroller.GameArrowKeys(key, x, y);
     float yposFuture;
     switch(key) {
         //moves the camera directly upwards

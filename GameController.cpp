@@ -7,6 +7,7 @@
 #include <GL/glut.h>
 #endif
 #include "GameController.h"
+//#include "Global.h"
 
 
 
@@ -63,3 +64,41 @@ int GameController::GameCollision(float x, float y, float z){
     }
     
 }
+
+//handles arrow key input
+void GameController::GameArrowKeys(int key, int x, int y){
+  /*
+    float yposFuture;
+    switch(key) {
+            //moves the camera directly upwards
+        case GLUT_KEY_UP :
+            yposFuture=ypos;
+            yposFuture += 5.00;
+            if (GameController::GameCollision(xpos, yposFuture, zpos)) {
+                
+            }
+            else {
+                ypos+=5.00;
+            }
+            break;
+            //moves the camera directly downwards
+        case GLUT_KEY_DOWN:
+            yposFuture=ypos;
+            yposFuture -= 5.00;
+            if (GameController::GameCollision(xpos, yposFuture, zpos)) {
+                
+            }
+            else {
+                ypos-=5.00;
+            }
+            break;
+    }*/
+    
+}
+/*
+
+//handles keyboard input
+void GameController::GameKeyboard(unsigned char key, int x, int y){
+    
+}
+*/

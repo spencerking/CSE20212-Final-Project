@@ -17,6 +17,8 @@ public:
     void GameRender(); //renders everying displayed in the game
     void GameInit(); //initializes everything in the game
     int GameCollision(float, float, float); //collision detection
+    void GameArrowKeys(int, int, int); //handles arrow key input
+   // void GameKeyboardInput(unsigned char, int, int); //handles keyboard input
     
 private:
     Skybox skybox;
