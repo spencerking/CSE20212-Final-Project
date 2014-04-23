@@ -1,4 +1,10 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+#include <OpenGL/gl.h>
+#include <GLUT/glut.h>
+#include <iostream>
+>>>>>>> FETCH_HEAD
 =======
 #include <OpenGL/gl.h>
 #include <GLUT/glut.h>
@@ -12,8 +18,11 @@
    #include <GL/glut.h>
 #endif
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <iostream>
 =======
+=======
+>>>>>>> FETCH_HEAD
 
 >>>>>>> FETCH_HEAD
 #include <cstdlib>
