@@ -19,7 +19,6 @@ GameController::GameController(){
 
 //render function
 void GameController::GameRender(){
-<<<<<<< Updated upstream
 	glPushMatrix();
 	skybox.render();
 	glDisable(GL_LIGHTING);
@@ -37,7 +36,6 @@ void GameController::GameRender(){
 	diglet.render();
 	//raichu.render();
 	glPopMatrix();
-=======
     
     glPushMatrix();
     skybox.render();
