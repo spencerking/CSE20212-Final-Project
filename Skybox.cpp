@@ -1,5 +1,5 @@
 #include "Skybox.h"
-#include <soil.h>
+
 //#include "jpeg.h"
 #include <iostream>
 

@@ -68,6 +68,7 @@ void init (void) {
 	glDepthFunc(GL_LESS);
     glEnable(GL_DEPTH_TEST);
 
+    gamecontroller.GameSetNames();
     gamecontroller.GameInit();
     sound.init();
 }
