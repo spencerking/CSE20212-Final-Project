@@ -67,8 +67,8 @@ int GameController::GameCollision(float x, float y, float z){
 
 //handles arrow key input
 void GameController::GameArrowKeys(int key, int x, int y){
-  /*
-    float yposFuture;
+  
+  /*  float yposFuture;
     switch(key) {
             //moves the camera directly upwards
         case GLUT_KEY_UP :
