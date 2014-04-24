@@ -48,7 +48,7 @@ bool HeightField::init(const char *hFileName, const int hWidth, const int hHeigh
     
 	fclose(fp);
 
-    vhVertexCount = (int)(hmHeight * hHeight * 6) / (hLOD * hLOD);
+    vhVertexCount = (int)(hHeight * hHeight * 6) / (hLOD * hLOD);
     vhVertices = new Vert[vhVertexCount];
     vhTexCoords = new TexCoord[vhVertexCount];
 
@@ -74,7 +74,7 @@ bool HeightField::init(const char *hFileName, const int hWidth, const int hHeigh
         }
     }
 
-    textureJpeg(texture, "Heightfield/terrain.jpg", 0);
+    textureJpeg(texture, "Heightfield/terrain.jpg", 0); // Load texture into array
 
 
     //prints out all points on the map
