@@ -7,14 +7,8 @@
 #include "Heightfield.h"
 #include "Camera.h"
 #include "Skybox.h"
-#include "Pikachu.h"
-#include "Xatu.h"
-#include "Wooper.h"
-#include "Raichu.h"
-<<<<<<< HEAD
-=======
 #include "models.h"
->>>>>>> FETCH_HEAD
+
 
 class GameController{
 public:
