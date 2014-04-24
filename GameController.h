@@ -33,6 +33,7 @@ private:
     Models xatu;
     Models wooper;
     Models PikachuTest;
+    Models diglet;
     //Raichu raichu;
    
     

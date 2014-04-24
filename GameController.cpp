@@ -32,6 +32,7 @@ void GameController::GameRender(){
     xatu.render();
     wooper.render();
     PikachuTest.render();
+    diglet.render();
     //raichu.render();
 	glPopMatrix();
     
@@ -51,6 +52,7 @@ void GameController::GameInit(){
     xatu.init(673.699, 222.815, 272.079);
     wooper.init(898.486, 2.2964, 361.856);
     PikachuTest.init(882.902, 1.9367, 704.263);
+    diglet.init(933.58, 11.2538, 351.413);
     //raichu.init(882.902, 1.9367, 704.263);
     skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
@@ -108,6 +110,7 @@ void GameController::GameKeyboard(unsigned char key, int x, int y){
 */
 
 void GameController::GameSetNames() {
+  
 	PikachuTest.setFilename("Pikachu.obj");
 	wooper.setFilename("wooper.obj");
 	pikachu.setFilename("Pikachu.obj");
@@ -117,4 +120,5 @@ void GameController::GameSetNames() {
 	pikachu5.setFilename("Pikachu.obj");
 	pikachu6.setFilename("Pikachu.obj");
 	xatu.setFilename("xatu.obj");
+	diglet.setFilename("Diglett.obj");
 }
