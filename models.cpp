@@ -25,8 +25,27 @@ void Models::init(float x, float y, float z){
 	model->getLocation()->setZ(z);
 }
 
-void Models::move() {
-
+void Models::move(float xChange, float yChange, float zChange) {
+    
+    float xcurrent = model->getLocation()->getX();
+	float ycurrent = model->getLocation()->getY();
+	float zcurrent = model->getLocation()->getZ();
+    
+    float xfuture = xcurrent+xChange;
+    float yfuture = ycurrent+yChange;
+    float zfuture = zcurrent+zChange;
+    
+    if (hField.collisionDetection(677.839, 223.289, 286.583)){
+        cout << "collision"<<endl;
+    }
+    else{
+        cout<<"collision free"<<endl;
+        model->getLocation()->setX(xfuture);
+        model->getLocation()->setY(yfuture);
+        model->getLocation()->setZ(zfuture);
+    }
+    
+    
 }
 
 void Models::render() {
@@ -36,3 +55,4 @@ void Models::render() {
 	model->render();
 	glPopMatrix();
 }
+

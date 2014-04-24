@@ -8,12 +8,12 @@
 #endif
 #include "GameController.h"
 //#include "Global.h"
-
+float ynew=2.2964;
 
 
 //default constructor
 GameController::GameController(){
-	
+	srand(time(NULL)); //seeds with time
 	
 }
 
@@ -21,9 +21,9 @@ GameController::GameController(){
 void GameController::GameRender(){
 	glPushMatrix();
 	skybox.render();
-	glDisable(GL_LIGHTING);
+	//glDisable(GL_LIGHTING);
 	hField.render();
-	glEnable(GL_LIGHTING);
+	//glEnable(GL_LIGHTING);
 	pikachu.render();
 	pikachu2.render();
 	pikachu3.render();
@@ -35,23 +35,6 @@ void GameController::GameRender(){
 	PikachuTest.render();
 	diglet.render();
 	//raichu.render();
-	glPopMatrix();
-    
-    glPushMatrix();
-    skybox.render();
-    hField.render();
-    pikachu.render();
-    pikachu2.render();
-    pikachu3.render();
-    pikachu4.render();
-    pikachu5.render();
-    pikachu6.render();
-    xatu.render();
-    wooper.render();
-    PikachuTest.render();
-    diglet.render();
-    
-    //raichu.render();
 	glPopMatrix();
 
 
@@ -101,6 +84,29 @@ int GameController::GameCollision(float x, float y, float z){
 		return 0;
 	}
 	
+}
+
+//model movement function
+void GameController::GameMoveModels(){
+    
+    float xChange;
+    float yChange;
+    float zChange;
+    
+    if (rand()%100<50){
+        xChange=-5.0;
+        yChange=0.0;
+        zChange=0.0;
+    }
+    else {
+        xChange=0.0;
+        yChange=5.0;
+        zChange=0.0;
+    }
+    
+    wooper.move(xChange, yChange, zChange);
+
+    
 }
 
 //handles arrow key input

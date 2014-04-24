@@ -12,6 +12,7 @@
 #include "Object.h"
 #include <iostream>
 #include <string>
+#include "Heightfield.h"
 
 
 class Models {
@@ -20,13 +21,15 @@ class Models {
 public:
     Models(); //constructor takes filename and location parameters
     void init(float, float, float);
-    void move(); //movement function
+    void move(float, float, float); //movement function
     void render(); //render function
     void setFilename(std::string);
     
 private:
     Object * model;
     string filename;
+    HeightField hField;
+    
         
 };
 

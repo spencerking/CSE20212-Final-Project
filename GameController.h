@@ -19,6 +19,7 @@ public:
     void GameArrowKeys(int, int, int); //handles arrow key input
     void GameSetNames();
    // void GameKeyboardInput(unsigned char, int, int); //handles keyboard input
+    void GameMoveModels(); //moves models
     
 private:
     Skybox skybox;

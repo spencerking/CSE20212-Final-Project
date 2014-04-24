@@ -127,7 +127,7 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 	int terrainZ;
 
 	vector<int>::const_iterator xvecIter;
-    
+    cout<<"called func"<<endl;
     
     //Square 1 (bottom left)
     
