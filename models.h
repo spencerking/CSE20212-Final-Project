@@ -9,22 +9,25 @@
 #ifndef MODELS_H
 #define MODELS_H
 
+#include "Object.h"
 #include <iostream>
+#include <string>
 
 
-class models {
+class Models {
     
     
 public:
-    models(); //constructor
-    virtual void display()=0; //display function
-    virtual void move()=0; //movement function
-    virtual void draw()=0; //draw function
+    Models(); //constructor takes filename and location parameters
+    void init(float, float, float);
+    void move(); //movement function
+    void render(); //render function
+    void setFilename(std::string);
     
 private:
-    
-    
-    
+    Object * model;
+    string filename;
+        
 };
 
 #endif /* defined(____models__) */

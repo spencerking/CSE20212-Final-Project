@@ -11,16 +11,13 @@
 #include <fstream>
 #include <assert.h>
 #include "Global.h"
-//#include "Object.h"
 #include "Skybox.h"
-//#include "Heightfield.h"
 #include "Camera.h"
 #include "Sound.h"
 #include "GameController.h"
 
 //instantiate objects
 Camera camera;
-//HeightField hField;
 GameController gamecontroller;
 Sound sound;
 
@@ -71,6 +68,7 @@ void init (void) {
 	glDepthFunc(GL_LESS);
     glEnable(GL_DEPTH_TEST);
 
+    gamecontroller.GameSetNames();
     gamecontroller.GameInit();
     sound.init();
 }

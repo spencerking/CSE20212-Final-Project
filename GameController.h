@@ -7,10 +7,9 @@
 #include "Heightfield.h"
 #include "Camera.h"
 #include "Skybox.h"
-#include "Pikachu.h"
-#include "Xatu.h"
-#include "Wooper.h"
-#include "Raichu.h"
+#include "models.h"
+
+
 class GameController{
 public:
     GameController(); //default constructor
@@ -18,19 +17,23 @@ public:
     void GameInit(); //initializes everything in the game
     int GameCollision(float, float, float); //collision detection
     void GameArrowKeys(int, int, int); //handles arrow key input
+    void GameSetNames();
    // void GameKeyboardInput(unsigned char, int, int); //handles keyboard input
     
 private:
     Skybox skybox;
     HeightField hField;
     Camera camera;
-    Pikachu pikachu;
-    Pikachu pikachu2;
-    Pikachu pikachu3;
-    Pikachu pikachu4;
-    Pikachu pikachu5;
-    Xatu xatu;
-    Wooper wooper;
+    Models pikachu;
+    Models pikachu2;
+    Models pikachu3;
+    Models pikachu4;
+    Models pikachu5;
+    Models pikachu6;
+    Models xatu;
+    Models wooper;
+    Models PikachuTest;
+    Models diglet;
     //Raichu raichu;
    
     
