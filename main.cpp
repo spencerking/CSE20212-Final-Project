@@ -49,7 +49,7 @@ void display (void) {
 //initialization function
 void init (void) {
     // Init lighting
-   /* GLfloat light0_ambient[] = {0.1f, 0.1f, 0.3f, 1.0f};
+    GLfloat light0_ambient[] = {0.1f, 0.1f, 0.3f, 1.0f};
     GLfloat light0_diffuse[] = {1.0f, 1.0f, 1.0f, 1.0f};
     GLfloat light0_position[] = {1030.0, 500.0, 300.0, 0.0};
     glLightfv(GL_LIGHT0, GL_AMBIENT, light0_ambient);
@@ -61,9 +61,9 @@ void init (void) {
     glLightModelfv(GL_LIGHT_MODEL_LOCAL_VIEWER, local_view);
 
     glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);*/
-    //glEnable(GL_AUTO_NORMAL);
-    //glEnable(GL_NORMALIZE);
+    glEnable(GL_LIGHT0);
+    glEnable(GL_AUTO_NORMAL);
+    glEnable(GL_NORMALIZE);
     glClearDepth(1.0);
 	glDepthFunc(GL_LEQUAL);
     glEnable(GL_DEPTH_TEST);
