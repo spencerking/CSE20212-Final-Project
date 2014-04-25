@@ -21,9 +21,9 @@ GameController::GameController(){
 void GameController::GameRender(){
 	glPushMatrix();
 	skybox.render();
-	//glDisable(GL_LIGHTING);
+	glDisable(GL_LIGHTING);
 	hField.render();
-	//glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHTING);
 	pikachu.render();
 	pikachu2.render();
 	pikachu3.render();
