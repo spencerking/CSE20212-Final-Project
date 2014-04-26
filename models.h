@@ -24,6 +24,9 @@ public:
     void move(float, float, float); //movement function
     void render(); //render function
     void setFilename(std::string);
+    float getXpos();
+    float getYpos();
+    float getZpos();
     
 private:
     Object * model;

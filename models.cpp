@@ -25,8 +25,23 @@ void Models::init(float x, float y, float z){
 	model->getLocation()->setZ(z);
 }
 
+float Models::getXpos(){
+    float xcurrent = model->getLocation()->getX();
+    return xcurrent;
+}
+
+float Models::getYpos(){
+    float ycurrent = model->getLocation()->getY();
+    return ycurrent;
+}
+
+float Models::getZpos(){
+    float zcurrent = model->getLocation()->getZ();
+    return zcurrent;
+}
+
 void Models::move(float xChange, float yChange, float zChange) {
-    
+    /*
     float xcurrent = model->getLocation()->getX();
 	float ycurrent = model->getLocation()->getY();
 	float zcurrent = model->getLocation()->getZ();
@@ -34,8 +49,8 @@ void Models::move(float xChange, float yChange, float zChange) {
     float xfuture = xcurrent+xChange;
     float yfuture = ycurrent+yChange;
     float zfuture = zcurrent+zChange;
-    
-    if (hField.collisionDetection(677.839, 223.289, 286.583)){
+    cout<<"calling func"<<endl;
+    if (hField.collisionDetection(xfuture, yfuture, zfuture)){
         cout << "collision"<<endl;
     }
     else{
@@ -44,8 +59,10 @@ void Models::move(float xChange, float yChange, float zChange) {
         model->getLocation()->setY(yfuture);
         model->getLocation()->setZ(zfuture);
     }
-    
-    
+    */
+    model->getLocation()->setX(xChange);
+    model->getLocation()->setY(yChange);
+    model->getLocation()->setZ(zChange);
 }
 
 void Models::render() {

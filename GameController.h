@@ -4,6 +4,7 @@
 #define GAMECONTROLLER_H
 
 #include <iostream>
+#include <vector>
 #include "Heightfield.h"
 #include "Camera.h"
 #include "Skybox.h"
@@ -37,6 +38,7 @@ private:
     Models diglet;
     //Raichu raichu;
    
+    vector<Models> groundPokemon;
     
 };
 

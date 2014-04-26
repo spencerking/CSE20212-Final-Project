@@ -70,7 +70,7 @@ void init (void) {
 
     gamecontroller.GameSetNames();
     gamecontroller.GameInit();
-    sound.init();
+  //  sound.init();
 }
 
 
