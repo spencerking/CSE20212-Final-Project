@@ -32,11 +32,13 @@ private:
     Models pikachu4;
     Models pikachu5;
     Models pikachu6;
-    Models xatu;
+    Models xatu; //the textures don't load completely correctly
     Models wooper;
     Models PikachuTest;
     Models diglet;
     //Raichu raichu;
+    Models snorlax; //the textures don't load at all, the model is the right shape
+    //Models eevee; //textures don't load, is ridiculously huge
    
     vector<Models> groundPokemon;
     

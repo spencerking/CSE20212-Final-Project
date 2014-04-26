@@ -17,7 +17,15 @@ float ynew=2.2964;
 //default constructor
 GameController::GameController(){
 	srand(time(NULL)); //seeds with time
-	
+    groundPokemon.push_back(pikachu);
+    groundPokemon.push_back(pikachu2);
+    groundPokemon.push_back(pikachu3);
+    groundPokemon.push_back(pikachu4);
+    groundPokemon.push_back(pikachu5);
+    groundPokemon.push_back(pikachu6);
+    groundPokemon.push_back(wooper);
+    groundPokemon.push_back(diglet);
+   // groundPokemon.push_back(eevee);
 }
 
 //render function
@@ -28,21 +36,17 @@ void GameController::GameRender(){
 	hField.render();
 	glEnable(GL_LIGHTING);
 	pikachu.render();
-    groundPokemon.push_back(pikachu);
 	pikachu2.render();
-    groundPokemon.push_back(pikachu2);
 	pikachu3.render();
-    groundPokemon.push_back(pikachu3);
 	pikachu4.render();
-    groundPokemon.push_back(pikachu4);
 	pikachu5.render();
-    groundPokemon.push_back(pikachu5);
 	pikachu6.render();
-    groundPokemon.push_back(pikachu6);
 	xatu.render();
 	wooper.render();
 	diglet.render();
 	//raichu.render();
+    snorlax.render();
+   // eevee.render();
 	glPopMatrix();
 
 
@@ -61,6 +65,8 @@ void GameController::GameInit(){
 	wooper.init(898.486, 2.2964, 361.856);
 	diglet.init(933.58, 11.2538, 351.413);
 	//raichu.init(882.902, 1.9367, 704.263);
+    snorlax.init(699.59, 17.1487, 58.7353);
+   // eevee.init(424.491, 24.2074, 217.821);
 	skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
 	
@@ -190,4 +196,6 @@ void GameController::GameSetNames() {
     pikachu6.setFilename("Pikachu.obj");
 	xatu.setFilename("xatu.obj");
 	diglet.setFilename("Diglett.obj");
+    snorlax.setFilename("Snorlax.obj");
+    //eevee.setFilename("eevee.obj");
 }
