@@ -17,6 +17,8 @@ float ynew=2.2964;
 //default constructor
 GameController::GameController(){
 	srand(time(NULL)); //seeds with time
+    
+    //push all of the appropriate models into vectors
     groundPokemon.push_back(pikachu);
     groundPokemon.push_back(pikachu2);
     groundPokemon.push_back(pikachu3);
@@ -97,7 +99,7 @@ void GameController::GameMoveModels(){
     float yFuture;
     float zFuture;
     
-    vector<int>::const_iterator groundIter;
+    vector<Models>::iterator groundIter;
 
      if (rand()%100<50){
         xChange=-5.0;
@@ -127,11 +129,12 @@ void GameController::GameMoveModels(){
             wooper.move(xFuture, yFuture, zFuture);
     }
     
+    
     //I wanted to iterate through all pokémon and give each a different movement
     //makes it more random instead of just assigning the same thing to all pokémon
     //of a specific type
     /*
-    while (groundIter != groundPokemon.end()){
+    for (groundIter =groundPokemon.begin(); groundIter != groundPokemon.end(); ++groundIter){
         if (rand()%100<50){
             xChange=-5.0;
             yChange=0.0;
@@ -142,8 +145,27 @@ void GameController::GameMoveModels(){
             yChange=5.0;
             zChange=0.0;
         }
-        groundPokemon[groundIter.move(xChange, yChange, zChange)];
+        cout<<"before current"<<endl;
+        xCurrent=groundIter->getXpos();
+        cout<<"after xcurrent"<<endl;
+        yCurrent=groundIter->getYpos();
+        zCurrent=groundIter->getZpos();
+        cout<<"before future"<<endl;
+        xFuture=xChange+xCurrent;
+        yFuture=yChange+yCurrent;
+        zFuture=zChange+zCurrent;
+        cout<<"before collision check"<<endl;
+     
+        if (GameController::GameCollision(xFuture, yFuture, zFuture)){
+     
+        }
+        else{
         
+            groundIter->move(xFuture, yFuture, zFuture);
+
+        }
+       
+     
     }*/
 
     
