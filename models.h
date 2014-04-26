@@ -1,11 +1,3 @@
-//
-//  models.h
-//  
-//
-//  Created by Spencer King on 4/20/14.
-//
-//
-
 #ifndef MODELS_H
 #define MODELS_H
 
@@ -24,9 +16,9 @@ public:
     void move(float, float, float); //movement function
     void render(); //render function
     void setFilename(std::string);
-    float getXpos();
-    float getYpos();
-    float getZpos();
+    float getXpos(); //gets the x-coordinate
+    float getYpos(); //gets the y-coordinate
+    float getZpos(); //gets the z-coordinate
     
 private:
     Object * model;
@@ -36,4 +28,4 @@ private:
         
 };
 
-#endif /* defined(____models__) */
+#endif 

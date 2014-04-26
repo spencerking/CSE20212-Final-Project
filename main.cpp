@@ -24,10 +24,6 @@ Sound sound;
 //basic camera function
 //this is straight from the swiftless tutorial
 void cameraFunc (void) {
-	//int posX = (int)xpos;
-	//int posZ = (int)zpos;
-    //Unused
-    
 	glRotatef(xrot,0.1,0.0,0.0); //rotates on the x-axis
 	glRotatef(yrot,0.0,0.1,0.0); //rotates on the y-axis
 	glTranslated(-xpos,-ypos,-zpos); //translates the screen to the current camera positon
@@ -107,7 +103,7 @@ void orientMe(int x, int y) {
 //keyboard function based on swiftless and Emrich's tutorials
 
 void keyboard (unsigned char key, int x, int y) {
-	if (key == 'e') { //takes a screenshot and play shutter sound
+	if (key == 'e') { //takes a screenshot and plays a shutter sound
 		camera.setupScreenshot();
         sound.shutter();
 	}
@@ -230,9 +226,6 @@ void arrowKeys(int key, int x, int y){
 }
 
 //a standard function for handling reshaping of the window
-//we will probably want w and h to be global variables
-//this is for the benefit of screenshot function as it needs w and h
-//basically, as the screen is reshaped we need to adapt the screenshot function
 void reshape (int w, int h) {
 	glViewport (0, 0, (GLsizei)w, (GLsizei)h);
 	glMatrixMode (GL_PROJECTION);

@@ -19,22 +19,25 @@ void Models::setFilename(std::string name) {
 //default constructor
 void Models::init(float x, float y, float z){
 	model = new Object();
-	   model->loadObjectFile(filename);
+    model->loadObjectFile(filename);
 	model->getLocation()->setX(x);
 	model->getLocation()->setY(y);
 	model->getLocation()->setZ(z);
 }
 
+//returns the current x-coordinate
 float Models::getXpos(){
     float xcurrent = model->getLocation()->getX();
     return xcurrent;
 }
 
+//returns the current y-coordinate
 float Models::getYpos(){
     float ycurrent = model->getLocation()->getY();
     return ycurrent;
 }
 
+//returns the current z-coordinate
 float Models::getZpos(){
     float zcurrent = model->getLocation()->getZ();
     return zcurrent;

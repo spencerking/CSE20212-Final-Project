@@ -25,7 +25,7 @@ Camera::Camera(){
 }
 
 //string incrementer
-//help from: http://rosettacode.org/wiki/Increment_a_numerical_string#C.2B.2B
+//referenced from: http://rosettacode.org/wiki/Increment_a_numerical_string#C.2B.2B
 void Camera::stringIncrement(std::string& s){
     std::string::reverse_iterator iter = s.rbegin(), end = s.rend();
     int carry = 1;
@@ -43,7 +43,7 @@ void Camera::stringIncrement(std::string& s){
 
 
 //takes a screenshot and outputs it as an image file
-//code taken from:
+//code referenced from:
 //https://www.opengl.org/discussion_boards/showthread.php/158514-capturing-the-OpenGL-output-to-a-image-file
 void Camera::screenshot(char *tga_file, short W, short H) {
 	FILE   *out = fopen(tga_file, "w");

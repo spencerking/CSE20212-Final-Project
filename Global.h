@@ -7,7 +7,6 @@ float ypos = 51.594;
 float zpos = 320.00;
 float xrot = 758;
 float yrot = 238;
-//float angle=0.0;
 float previousx;
 float previousy;
 

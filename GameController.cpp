@@ -10,9 +10,6 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
-//#include "Global.h"
-float ynew=2.2964;
-
 
 //default constructor
 GameController::GameController(){
@@ -46,7 +43,6 @@ void GameController::GameRender(){
 	xatu.render();
 	wooper.render();
 	diglet.render();
-	//raichu.render();
     snorlax.render();
    // eevee.render();
 	glPopMatrix();
@@ -66,7 +62,6 @@ void GameController::GameInit(){
 	xatu.init(673.699, 222.815, 272.079);
 	wooper.init(898.486, 2.2964, 361.856);
 	diglet.init(933.58, 11.2538, 351.413);
-	//raichu.init(882.902, 1.9367, 704.263);
     snorlax.init(699.59, 17.1487, 58.7353);
    // eevee.init(424.491, 24.2074, 217.821);
 	skybox.init();
@@ -129,7 +124,7 @@ void GameController::GameMoveModels(){
             wooper.move(xFuture, yFuture, zFuture);
     }
     
-    
+    //SEG FAULTS
     //I wanted to iterate through all pokémon and give each a different movement
     //makes it more random instead of just assigning the same thing to all pokémon
     //of a specific type

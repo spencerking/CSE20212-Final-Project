@@ -1,5 +1,3 @@
-
-
 #ifndef GAMECONTROLLER_H
 #define GAMECONTROLLER_H
 
@@ -36,11 +34,10 @@ private:
     Models wooper;
     Models PikachuTest;
     Models diglet;
-    //Raichu raichu;
     Models snorlax; //the textures don't load at all, the model is the right shape
     //Models eevee; //textures don't load, is ridiculously huge
    
-    vector<Models> groundPokemon;
+    vector<Models> groundPokemon; //vector for storing pokémon that move in x and z direction
     
 };
 
