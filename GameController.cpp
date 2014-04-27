@@ -49,13 +49,14 @@ void GameController::GameRender(){
 	wooper.render();
 	diglet.render();
 
-    snorlax.render();
+    //snorlax.render();
    // eevee.render();
     flaafy.render();
     charizard.render();
    // beedrill.render();
     yanma.render();
     flareon.render();
+    tree1.render();
 	glPopMatrix();
 
 }
@@ -72,13 +73,14 @@ void GameController::GameInit(){
 	xatu.init(673.699, 222.815, 272.079);
 	wooper.init(898.486, 2.2964, 361.856);
 	diglet.init(933.58, 2.2538, 351.413);
-    snorlax.init(699.59, 17.1487, 58.7353);
+    //snorlax.init(699.59, 17.1487, 58.7353);
    // eevee.init(424.491, 24.2074, 217.821);
     flaafy.init(731.374, 84.9367, 431.661);
     charizard.init(510.612, 6.9801, 73.1485);
    // beedrill.init(734.951, 218.833, 431.761);
     yanma.init(734.951, 218.833, 431.761);
     flareon.init(705.482, 3.8517, 784.499);
+    tree1.init(950, 2, 200);
 	skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
 	
@@ -228,11 +230,12 @@ void GameController::GameSetNames() {
     pikachu6.setFilename("Pikachu.obj");
 	xatu.setFilename("xatu.obj");
 	diglet.setFilename("Diglett.obj");
-    snorlax.setFilename("Snorlax.obj");
+    //snorlax.setFilename("Snorlax.obj");
     //eevee.setFilename("eevee.obj");
     flaafy.setFilename("flaafy.obj");
     charizard.setFilename("charizard.obj");
     //beedrill.setFilename("beedrill.obj");
     yanma.setFilename("yanma.obj");
     flareon.setFilename("flareon.obj");
+    tree1.setFilename("Tree.obj");
 }
