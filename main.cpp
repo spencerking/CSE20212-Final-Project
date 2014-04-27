@@ -10,11 +10,15 @@
 #include <string.h>
 #include <fstream>
 #include <assert.h>
+#include <unistd.h>
 #include "Global.h"
 #include "Skybox.h"
 #include "Camera.h"
 #include "Sound.h"
 #include "GameController.h"
+
+#define WINDOW_W 1000
+#define WINDOW_H 800
 
 //instantiate objects
 Camera camera;
@@ -24,10 +28,6 @@ Sound sound;
 //basic camera function
 //this is straight from the swiftless tutorial
 void cameraFunc (void) {
-	//int posX = (int)xpos;
-	//int posZ = (int)zpos;
-    //Unused
-    
 	glRotatef(xrot,0.1,0.0,0.0); //rotates on the x-axis
 	glRotatef(yrot,0.0,0.1,0.0); //rotates on the y-axis
 	glTranslated(-xpos,-ypos,-zpos); //translates the screen to the current camera positon
@@ -36,12 +36,27 @@ void cameraFunc (void) {
 //basic display function
 void display (void) {
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    // 3D scene
     glMatrixMode(GL_MODELVIEW);
-   	glLoadIdentity();
-    
+    glLoadIdentity();
     cameraFunc();
- 
     gamecontroller.GameRender();
+
+    // 2D UI
+    glMatrixMode(GL_PROJECTION);
+    glPushMatrix();
+        glLoadIdentity();
+        glOrtho(0,WINDOW_W,WINDOW_H,0,0,1);
+        glMatrixMode(GL_MODELVIEW);
+        glPushMatrix();
+            glLoadIdentity();
+            //glBegin(GL_QUADS);
+            //glColor4f(0,0,0,shutterAlpha);
+            glRectf(5,25,25,5);
+            //glEnd();
+        glPopMatrix();
+    glMatrixMode(GL_PROJECTION);
+    glPopMatrix();
     
 	glutSwapBuffers();
 }
@@ -70,7 +85,7 @@ void init (void) {
 
     gamecontroller.GameSetNames();
     gamecontroller.GameInit();
-  //  sound.init();
+    sound.init();
 }
 
 
@@ -110,6 +125,7 @@ void keyboard (unsigned char key, int x, int y) {
 	if (key == 'e') { //takes a screenshot and play shutter sound
 		camera.setupScreenshot();
         sound.shutter();
+        shutterAlpha = 1;
 	}
 
     if (key == 'm') { //toggle music
@@ -245,7 +261,7 @@ void reshape (int w, int h) {
 int main (int argc, char **argv) {
    	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGBA);
-	glutInitWindowSize(1000, 800);
+	glutInitWindowSize(WINDOW_W, WINDOW_H);
 	glutInitWindowPosition(0, 0);
    	glutCreateWindow("Pokémon Snap: The Sequel");
 	init();

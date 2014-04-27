@@ -63,7 +63,7 @@ void GameController::GameInit(){
 	pikachu6.init(882.902, 1.9367, 704.263);
 	xatu.init(673.699, 222.815, 272.079);
 	wooper.init(898.486, 2.2964, 361.856);
-	diglet.init(933.58, 11.2538, 351.413);
+	diglet.init(933.58, 2.2538, 351.413);
 	//raichu.init(882.902, 1.9367, 704.263);
     snorlax.init(699.59, 17.1487, 58.7353);
    // eevee.init(424.491, 24.2074, 217.821);
