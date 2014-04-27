@@ -75,37 +75,7 @@ bool HeightField::init(const char *hFileName, const int hWidth, const int hHeigh
     }
 
     textureJpeg(texture, "Heightfield/terrain.jpg", 0); // Load texture into array
-
-
-    //prints out all points on the map
-    /*
-    	for (int hMapX = 0; hMapX < hWidth; hMapX++){
-    		for (int hMapZ = 0; hMapZ < hHeight; hMapZ++){
-    			printf("%d, %d, %d\n", hMapX, hMapZ, hHeightField[hMapX][hMapZ]);
-    		}
-    	}
-       */
-
-    //prints out the max coordinates for each axis
-    /*
-    int testx=0;
-    int testy=0;
-    int testz=0;
-    for (int hMapX = 0; hMapX < hWidth; hMapX++){
-    		for (int hMapZ = 0; hMapZ < hHeight; hMapZ++){
-    			if (hMapX>testx){
-    				testx = hMapX;
-    			}
-    			if (hMapZ>testz){
-    				testz = hMapZ;
-    			}
-    			if (hHeightField[hMapX][hMapZ]>testy){
-    				testy = hHeightField[hMapX][hMapZ];
-    			}
-    		}
-    	}
-
-    printf("%d, %d, %d\n", testx, testz, testy);*/
+    
     HeightField::makeVBO();
 	return true;
 }
@@ -127,7 +97,6 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 	int terrainZ;
 
 	vector<int>::const_iterator xvecIter;
-    cout<<"called func"<<endl;
     
     //Square 1 (bottom left)
     
@@ -145,8 +114,7 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
 
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){
                 return 1;
             }
             
@@ -183,8 +151,7 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
 
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -212,10 +179,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -242,10 +208,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -272,10 +237,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -302,10 +266,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -332,10 +295,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -362,10 +324,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -392,10 +353,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -422,10 +382,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -452,10 +411,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -482,10 +440,8 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -512,10 +468,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -542,10 +497,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -572,10 +526,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -602,10 +555,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -633,10 +585,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+        
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -663,10 +614,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+          
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -693,10 +643,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+         
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -723,10 +672,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -753,10 +701,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -783,10 +730,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -801,11 +747,8 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
     }
     
     //Square 23
-    //system("clear");
-    //769-896
     if (xCamera > 768 && xCamera < 897 && zCamera > 256 && zCamera <385){
         
-        //cout << "test896" <<endl;
         while (xvecIter != xPoints23.end()){
             
             terrainX=xPoints23[counter];
@@ -815,10 +758,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -845,10 +787,8 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -875,10 +815,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -905,10 +844,8 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -935,10 +872,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -965,10 +901,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -995,10 +930,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1025,10 +959,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1046,7 +979,6 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
     
     if (xCamera > 768 && xCamera < 897 && zCamera > 384 && zCamera <513){
         
-        //cout << "test896" <<endl;
         while (xvecIter != xPoints31.end()){
             
             terrainX=xPoints31[counter];
@@ -1056,10 +988,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1086,10 +1017,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1116,10 +1046,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1146,10 +1075,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1176,10 +1104,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1206,10 +1133,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1236,10 +1162,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1266,10 +1191,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1296,10 +1220,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1326,10 +1249,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1357,10 +1279,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1387,10 +1308,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1417,10 +1337,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1447,10 +1366,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1477,10 +1395,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1507,10 +1424,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1537,10 +1453,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1567,10 +1482,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1597,10 +1511,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1627,10 +1540,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1657,10 +1569,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1687,10 +1598,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1717,10 +1627,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1747,10 +1656,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1777,10 +1685,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1807,10 +1714,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1837,10 +1743,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1867,10 +1772,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1897,10 +1801,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1927,10 +1830,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1957,10 +1859,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -1987,10 +1888,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -2017,10 +1917,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -2047,10 +1946,9 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 			
             
             d=sqrt(((xCamera-terrainX)*(xCamera-terrainX))+((yCamera-terrainY)*(yCamera-terrainY))+((zCamera-terrainZ)*(zCamera-terrainZ)));
-            //cout << "d is "<< d<<endl;
+
             //check for collision
-            if (d <= 10){ //might want to increase this
-                cout << "collision detected"<<endl;
+            if (d <= 10){ 
                 return 1;
             }
             
@@ -2073,10 +1971,8 @@ void HeightField::render(void){
     counter1=0;
 
     // Collision detection points
-    // glBegin(GL_POINTS);
     for (int hMapX = 0; hMapX < hmWidth; hMapX++){
         for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
-         //   glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
             //Square 1
             //this series of if statements reads in the points into the appropriate vectors
             if (hMapX > 0 && hMapX < 129 && hMapZ > 0 && hMapZ <129){
@@ -2593,32 +2489,7 @@ void HeightField::render(void){
             counter1++;
         }
     }
-	//glEnd();
-
-    // Draw texture triangles
-    // Old
-    /*
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, texture[0]);
-    for (int hMapX = 0; hMapX < hmWidth; hMapX++){
-        for (int hMapZ = 0; hMapZ < hmHeight; hMapZ++){
-            glBegin(GL_TRIANGLE_STRIP);
-                glTexCoord2f((float)hMapX / hmWidth, (float)hMapZ / hmHeight);
-                glVertex3f(hMapX, hHeightField[hMapX][hMapZ], hMapZ);
-
-                glTexCoord2f((float)hMapX / hmWidth, (float)(hMapZ + 1) / hmHeight);
-                glVertex3f(hMapX, hHeightField[hMapX][hMapZ + 1], hMapZ + 1);
-
-                glTexCoord2f((float)(hMapX + 1) / hmWidth, (float)hMapZ / hmHeight);
-                glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ], hMapZ);
-
-                glTexCoord2f((float)(hMapX + 1) / hmWidth, (float)(hMapZ + 1) / hmHeight);
-                glVertex3f(hMapX + 1, hHeightField[hMapX + 1][hMapZ + 1], hMapZ + 1);
-            glEnd();
-        }
-    }
-    glDisable(GL_TEXTURE_2D); */
-    // New
+	
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
     glEnable(GL_TEXTURE_2D);
     glBindTexture(GL_TEXTURE_2D, texture[0]);

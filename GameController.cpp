@@ -10,13 +10,12 @@
 #include <vector>
 #include <iterator>
 #include <iostream>
-//#include "Global.h"
-float ynew=2.2964;
-
 
 //default constructor
 GameController::GameController(){
 	srand(time(NULL)); //seeds with time
+    
+    //push all of the appropriate models into vectors
     groundPokemon.push_back(pikachu);
     groundPokemon.push_back(pikachu2);
     groundPokemon.push_back(pikachu3);
@@ -26,6 +25,11 @@ GameController::GameController(){
     groundPokemon.push_back(wooper);
     groundPokemon.push_back(diglet);
    // groundPokemon.push_back(eevee);
+    groundPokemon.push_back(flareon);
+    
+    airPokemon.push_back(charizard);
+   // airPokemon.push_back(beedrill);
+    airPokemon.push_back(yanma);
 }
 
 //render function
@@ -44,9 +48,13 @@ void GameController::GameRender(){
 	xatu.render();
 	wooper.render();
 	diglet.render();
-	//raichu.render();
     snorlax.render();
    // eevee.render();
+    flaafy.render();
+    charizard.render();
+   // beedrill.render();
+    yanma.render();
+    flareon.render();
 	glPopMatrix();
 
 
@@ -64,9 +72,13 @@ void GameController::GameInit(){
 	xatu.init(673.699, 222.815, 272.079);
 	wooper.init(898.486, 2.2964, 361.856);
 	diglet.init(933.58, 2.2538, 351.413);
-	//raichu.init(882.902, 1.9367, 704.263);
     snorlax.init(699.59, 17.1487, 58.7353);
    // eevee.init(424.491, 24.2074, 217.821);
+    flaafy.init(731.374, 84.9367, 431.661);
+    charizard.init(510.612, 6.9801, 73.1485);
+   // beedrill.init(734.951, 218.833, 431.761);
+    yanma.init(734.951, 218.833, 431.761);
+    flareon.init(705.482, 3.8517, 784.499);
 	skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
 	
@@ -97,7 +109,7 @@ void GameController::GameMoveModels(){
     float yFuture;
     float zFuture;
     
-    vector<int>::const_iterator groundIter;
+    vector<Models>::iterator groundIter;
 
      if (rand()%100<50){
         xChange=-5.0;
@@ -127,11 +139,12 @@ void GameController::GameMoveModels(){
             wooper.move(xFuture, yFuture, zFuture);
     }
     
+    //SEG FAULTS
     //I wanted to iterate through all pokémon and give each a different movement
     //makes it more random instead of just assigning the same thing to all pokémon
     //of a specific type
     /*
-    while (groundIter != groundPokemon.end()){
+    for (groundIter =groundPokemon.begin(); groundIter != groundPokemon.end(); ++groundIter){
         if (rand()%100<50){
             xChange=-5.0;
             yChange=0.0;
@@ -142,8 +155,27 @@ void GameController::GameMoveModels(){
             yChange=5.0;
             zChange=0.0;
         }
-        groundPokemon[groundIter.move(xChange, yChange, zChange)];
+        cout<<"before current"<<endl;
+        xCurrent=groundIter->getXpos();
+        cout<<"after xcurrent"<<endl;
+        yCurrent=groundIter->getYpos();
+        zCurrent=groundIter->getZpos();
+        cout<<"before future"<<endl;
+        xFuture=xChange+xCurrent;
+        yFuture=yChange+yCurrent;
+        zFuture=zChange+zCurrent;
+        cout<<"before collision check"<<endl;
+     
+        if (GameController::GameCollision(xFuture, yFuture, zFuture)){
+     
+        }
+        else{
         
+            groundIter->move(xFuture, yFuture, zFuture);
+
+        }
+       
+     
     }*/
 
     
@@ -198,4 +230,9 @@ void GameController::GameSetNames() {
 	diglet.setFilename("Diglett.obj");
     snorlax.setFilename("Snorlax.obj");
     //eevee.setFilename("eevee.obj");
+    flaafy.setFilename("flaafy.obj");
+    charizard.setFilename("charizard.obj");
+    //beedrill.setFilename("beedrill.obj");
+    yanma.setFilename("yanma.obj");
+    flareon.setFilename("flareon.obj");
 }

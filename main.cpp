@@ -122,7 +122,7 @@ void orientMe(int x, int y) {
 //keyboard function based on swiftless and Emrich's tutorials
 
 void keyboard (unsigned char key, int x, int y) {
-	if (key == 'e') { //takes a screenshot and play shutter sound
+	if (key == 'e') { //takes a screenshot and plays a shutter sound
 		camera.setupScreenshot();
         sound.shutter();
         shutterAlpha = 1;
@@ -246,9 +246,6 @@ void arrowKeys(int key, int x, int y){
 }
 
 //a standard function for handling reshaping of the window
-//we will probably want w and h to be global variables
-//this is for the benefit of screenshot function as it needs w and h
-//basically, as the screen is reshaped we need to adapt the screenshot function
 void reshape (int w, int h) {
 	glViewport (0, 0, (GLsizei)w, (GLsizei)h);
 	glMatrixMode (GL_PROJECTION);
