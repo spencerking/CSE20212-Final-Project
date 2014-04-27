@@ -15,11 +15,13 @@
 #include "Camera.h"
 #include "Sound.h"
 #include "GameController.h"
+#include "intro.h"
 
 //instantiate objects
 Camera camera;
 GameController gamecontroller;
 Sound sound;
+Intro intro;
 
 //basic camera function
 //this is straight from the swiftless tutorial
@@ -36,7 +38,9 @@ void display (void) {
    	glLoadIdentity();
     
     cameraFunc();
- 
+    
+    intro.renderTitlescreen();
+
     gamecontroller.GameRender();
     
 	glutSwapBuffers();
@@ -63,6 +67,8 @@ void init (void) {
     glClearDepth(1.0);
 	glDepthFunc(GL_LEQUAL);
     glEnable(GL_DEPTH_TEST);
+
+    intro.initTitlescreen();
 
     gamecontroller.GameSetNames();
     gamecontroller.GameInit();

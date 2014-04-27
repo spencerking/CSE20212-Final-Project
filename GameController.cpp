@@ -48,6 +48,7 @@ void GameController::GameRender(){
 	xatu.render();
 	wooper.render();
 	diglet.render();
+
     snorlax.render();
    // eevee.render();
     flaafy.render();
@@ -56,7 +57,6 @@ void GameController::GameRender(){
     yanma.render();
     flareon.render();
 	glPopMatrix();
-
 
 }
 
