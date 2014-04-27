@@ -32,12 +32,17 @@ private:
     Models pikachu6;
     Models xatu; //the textures don't load completely correctly
     Models wooper;
-    Models PikachuTest;
     Models diglet;
     Models snorlax; //the textures don't load at all, the model is the right shape
     //Models eevee; //textures don't load, is ridiculously huge
-   
+    Models flaafy; //texture is mostly correct
+    Models charizard; //texture is mostly correct
+    //Models beedrill; //model is massive
+    Models yanma; //kinda big, textures aren't too bad
+    Models flareon; //pretty big, textures are a little messed up
+    
     vector<Models> groundPokemon; //vector for storing pokémon that move in x and z direction
+    vector<Models> airPokemon; //vector for pokémon that can move in any direction
     
 };
 

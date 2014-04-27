@@ -25,6 +25,11 @@ GameController::GameController(){
     groundPokemon.push_back(wooper);
     groundPokemon.push_back(diglet);
    // groundPokemon.push_back(eevee);
+    groundPokemon.push_back(flareon);
+    
+    airPokemon.push_back(charizard);
+   // airPokemon.push_back(beedrill);
+    airPokemon.push_back(yanma);
 }
 
 //render function
@@ -45,6 +50,11 @@ void GameController::GameRender(){
 	diglet.render();
     snorlax.render();
    // eevee.render();
+    flaafy.render();
+    charizard.render();
+   // beedrill.render();
+    yanma.render();
+    flareon.render();
 	glPopMatrix();
 
 
@@ -64,6 +74,11 @@ void GameController::GameInit(){
 	diglet.init(933.58, 11.2538, 351.413);
     snorlax.init(699.59, 17.1487, 58.7353);
    // eevee.init(424.491, 24.2074, 217.821);
+    flaafy.init(731.374, 84.9367, 431.661);
+    charizard.init(510.612, 6.9801, 73.1485);
+   // beedrill.init(734.951, 218.833, 431.761);
+    yanma.init(734.951, 218.833, 431.761);
+    flareon.init(705.482, 3.8517, 784.499);
 	skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
 	
@@ -215,4 +230,9 @@ void GameController::GameSetNames() {
 	diglet.setFilename("Diglett.obj");
     snorlax.setFilename("Snorlax.obj");
     //eevee.setFilename("eevee.obj");
+    flaafy.setFilename("flaafy.obj");
+    charizard.setFilename("charizard.obj");
+    //beedrill.setFilename("beedrill.obj");
+    yanma.setFilename("yanma.obj");
+    flareon.setFilename("flareon.obj");
 }
