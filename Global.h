@@ -13,4 +13,6 @@ float previousy;
 float bounce;
 float cScale = 5.0; //multiplier for the speed of camera movement
 
+int shutterAlpha = 0; // Transparency value for shutter icon
+
 #endif
