@@ -28,6 +28,7 @@ GameController::GameController(){
     groundPokemon.push_back(flareon);
     
     airPokemon.push_back(charizard);
+    airPokemon.push_back(charizard2);
    // airPokemon.push_back(beedrill);
     airPokemon.push_back(yanma);
 }
@@ -45,7 +46,10 @@ void GameController::GameRender(){
 	pikachu4.render();
 	pikachu5.render();
 	pikachu6.render();
+    pikachu7.render();
+    pikachu8.render();
 	xatu.render();
+    xatu2.render();
 	wooper.render();
 	diglet.render();
 
@@ -53,6 +57,7 @@ void GameController::GameRender(){
    // eevee.render();
     flaafy.render();
     charizard.render();
+    charizard2.render();
    // beedrill.render();
     yanma.render();
     flareon.render();
@@ -70,13 +75,17 @@ void GameController::GameInit(){
 	pikachu4.init(858.902, 1.9367, 704.263);
 	pikachu5.init(852.902, 1.9367, 704.263);
 	pikachu6.init(882.902, 1.9367, 704.263);
+    pikachu7.init(315.101, 255.311, 400.397);
+    pikachu8.init(357.35, 212.789, 461.827);
 	xatu.init(673.699, 222.815, 272.079);
+    xatu2.init(443.58, 247.087, 774.515);
 	wooper.init(898.486, 2.2964, 361.856);
 	diglet.init(933.58, 2.2538, 351.413);
     //snorlax.init(699.59, 17.1487, 58.7353);
    // eevee.init(424.491, 24.2074, 217.821);
     flaafy.init(731.374, 84.9367, 431.661);
     charizard.init(510.612, 6.9801, 73.1485);
+    charizard2.init(42.5802, 4.4871, 968.945);
    // beedrill.init(734.951, 218.833, 431.761);
     yanma.init(734.951, 218.833, 431.761);
     flareon.init(705.482, 3.8517, 784.499);
@@ -228,12 +237,16 @@ void GameController::GameSetNames() {
 	pikachu4.setFilename("Pikachu.obj");
 	pikachu5.setFilename("Pikachu.obj");
     pikachu6.setFilename("Pikachu.obj");
+    pikachu7.setFilename("Pikachu.obj");
+    pikachu8.setFilename("Pikachu.obj");
 	xatu.setFilename("xatu.obj");
+    xatu2.setFilename("xatu.obj");
 	diglet.setFilename("Diglett.obj");
     //snorlax.setFilename("Snorlax.obj");
     //eevee.setFilename("eevee.obj");
     flaafy.setFilename("flaafy.obj");
     charizard.setFilename("charizard.obj");
+    charizard2.setFilename("charizard.obj");
     //beedrill.setFilename("beedrill.obj");
     yanma.setFilename("yanma.obj");
     flareon.setFilename("flareon.obj");

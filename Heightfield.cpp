@@ -98,6 +98,16 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 
 	vector<int>::const_iterator xvecIter;
     
+    //checks the edges
+    if (xCamera < 0 || zCamera < 0){
+        return 1;
+    }
+    
+    if (xCamera > 1024 || zCamera > 1024){
+        return 1;
+    }
+    
+    
     //Square 1 (bottom left)
     
     if (xCamera > 0 && xCamera < 129 && zCamera > 0 && zCamera <129){
