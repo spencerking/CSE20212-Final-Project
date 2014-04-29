@@ -4,8 +4,9 @@
 #include <iostream>
 #include <vector>
 #include "Heightfield.h"
+#include "Sound.h"
 #include "Camera.h"
-#include "Skybox.h"
+//#include "Skybox.h"
 #include "models.h"
 
 
@@ -19,10 +20,14 @@ public:
   //  void GameSetNames();
    // void GameKeyboardInput(unsigned char, int, int); //handles keyboard input
     void GameMoveModels(); //moves models
+    void GameBGM(); //plays the BGM
+    void GameShutterSound(); //plays the shutter sound
+    void GameScreenshot(); //takes a screenshot
     
 private:
-    Skybox skybox;
+    //Skybox skybox;
     HeightField hField;
+    Sound sound;
     Camera camera;
     Models *pikachu;
     Models *pikachu2;

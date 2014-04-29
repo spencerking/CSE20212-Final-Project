@@ -4,7 +4,7 @@
 #include "Object.h"
 #include <iostream>
 #include <string>
-#include "Heightfield.h"
+//#include "Heightfield.h"
 
 
 class Models {
@@ -23,7 +23,7 @@ public:
 private:
     Object * model;
     string filename;
-    HeightField hField;
+    //HeightField hField;
     
         
 };

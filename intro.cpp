@@ -1,10 +1,3 @@
-/*
- * intro.cpp
- * created by Hannah Porter
- * 4/23/2014
- *
- */
-
 #include "intro.h"
 #include <iostream>
 

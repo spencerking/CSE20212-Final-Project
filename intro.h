@@ -1,10 +1,3 @@
-/* 
- * intro.h
- * Created by Hannah Porter
- * 04/23/2014
- *
- */
-
 #ifdef __APPLE__
    #include <GLUT/glut.h>
    #include <OpenGL/gl.h>

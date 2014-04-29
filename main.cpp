@@ -12,9 +12,9 @@
 #include <assert.h>
 #include <unistd.h>
 #include "Global.h"
-#include "Skybox.h"
-#include "Camera.h"
-#include "Sound.h"
+//#include "Skybox.h"
+//#include "Camera.h"
+//#include "Sound.h"
 #include "GameController.h"
 //#include "intro.h"
 
@@ -24,7 +24,7 @@
 //instantiate objects
 Camera camera;
 GameController gamecontroller;
-Sound sound;
+//Sound sound;
 //Intro intro;
 
 //basic camera function
@@ -92,7 +92,7 @@ void init (void) {
 
    // gamecontroller.GameSetNames();
     gamecontroller.GameInit();
-    sound.init();
+    //sound.init();
 }
 
 
@@ -130,13 +130,16 @@ void orientMe(int x, int y) {
 
 void keyboard (unsigned char key, int x, int y) {
 	if (key == 'e') { //takes a screenshot and plays a shutter sound
-		camera.setupScreenshot();
-        sound.shutter();
+		//camera.setupScreenshot();
+        //sound.shutter();
+        gamecontroller.GameScreenshot();
+        gamecontroller.GameShutterSound();
         shutterAlpha = 1;
 	}
 
     if (key == 'm') { //toggle music
-        sound.music();
+        //sound.music();
+        gamecontroller.GameBGM();
     }
     
     if (key == 'q') { //quits the game
@@ -161,7 +164,7 @@ void keyboard (unsigned char key, int x, int y) {
             zpos -= float(cos(yrotrad)) * cScale;
             ypos -= float(sin(xrotrad));
            //cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
-            gamecontroller.GameMoveModels();
+            //gamecontroller.GameMoveModels();
             bounce += 0.04;
         }
 	 }

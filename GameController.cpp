@@ -122,7 +122,7 @@ void GameController::GameRender(){
     
 	glPushMatrix();
 	glDisable(GL_LIGHTING);
-	skybox.render();
+	//skybox.render();
 	hField.render();
 	glEnable(GL_LIGHTING);
 
@@ -194,6 +194,8 @@ void GameController::GameInit(){
 
 	//skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
+    sound.init();
+
 }
 
 //collision detection function
@@ -236,20 +238,30 @@ void GameController::GameMoveModels(){
             yChange=10.0;
             zChange=2.0;
         }
-        else if (rand()%100>20 && rand()%100<40){
+        else if (rand()%100>20 && rand()%100<30){
             xChange=10.0;
             yChange=10.0;
             zChange=8.0;
+        }
+        else if (rand()%100>30 && rand()%100<40){
+            xChange=-10.0;
+            yChange=10.0;
+            zChange=-8.0;
         }
         else if (rand()%100>40 && rand()%100<50){
             xChange=-6.0;
             yChange=10.0;
             zChange=8.0;
         }
-        else if (rand()%100>50 && rand()%100<70){
+        else if (rand()%100>50 && rand()%100<60){
             xChange=-9.0;
             yChange=10.0;
             zChange=4.0;
+        }
+        else if (rand()%100>50 && rand()%100<60){
+            xChange=3.0;
+            yChange=10.0;
+            zChange=-6.0;
         }
         else{
             xChange=9.0;
@@ -286,20 +298,30 @@ void GameController::GameMoveModels(){
             yChange=10.0;
             zChange=2.0;
         }
-        else if (rand()%100>20 && rand()%100<40){
+        else if (rand()%100>20 && rand()%100<30){
             xChange=10.0;
             yChange=10.0;
             zChange=8.0;
+        }
+        else if (rand()%100>30 && rand()%100<40){
+            xChange=-10.0;
+            yChange=20.0;
+            zChange=-8.0;
         }
         else if (rand()%100>40 && rand()%100<50){
             xChange=-6.0;
             yChange=-10.0;
             zChange=8.0;
         }
-        else if (rand()%100>50 && rand()%100<70){
+        else if (rand()%100>50 && rand()%100<60){
             xChange=0.0;
             yChange=-20.0;
             zChange=0.0;
+        }
+        else if (rand()%100>60 && rand()%100<70){
+            xChange=0.0;
+            yChange=-20.0;
+            zChange=-10.0;
         }
         else if (rand()%100>70 && rand()%100<80){
             xChange=-9.0;
@@ -335,6 +357,24 @@ void GameController::GameMoveModels(){
 
 
     
+}
+
+//plays the BGM
+void GameController::GameBGM(){
+    sound.music();
+    
+}
+
+
+//plays the shutter sound
+void GameController::GameShutterSound(){
+   sound.shutter();
+    
+}
+
+//takes a screenshot
+void GameController::GameScreenshot(){
+    camera.setupScreenshot();
 }
 
 //handles arrow key input
