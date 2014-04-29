@@ -24,40 +24,51 @@ void Intro::initTitlescreen() {
 		std::cout << "SOIL loading error" 
 			<< SOIL_last_result() << std::endl;
 	}
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 }
 
 void Intro::renderTitlescreen() {
 	
-	GLfloat vertices[] = { 50.0f,50.0f,250.0f, 50.0f,50.0f,50.0f, 50.0f,650.0f,50.0f, 650.0f,50.0f,250.0f,
-		     50.0f,450.0f,250.0f, 50.0f,450.0f,50.0f, 650.0f,450.0f,50.0f, 650.0f,450.0f,250.0f,
-		     50.0f,50.0f,250.0f, 50.0f,450.0f,250.0f, 650.0f,450.0f,250.0f, 650.0f,50.0f,250.0f,
-		     50.0f,450.0f,50.0f, 50.0f,50.0f,50.0f, 50.0f,650.0f,50.0f, 650.0f,450.0f,50.0f,
-		     650.0f,450.0f,50.0f, 650.0f,450.0f,250.0f, 650.0f,50.0f,250.0f, 50.0f,650.0f,50.0f,
-		     50.0f,450.0f,50.0f, 50.0f,450.0f,250.0f, 50.0f,50.0f,250.0f, 50.0f,50.0f,50.0f };
+	GLfloat vertices[] = { -0.5f, 0.0f, 0.5f,   0.5f, 0.0f, 0.5f,   0.5f, 1.0f, 0.5f,  -0.5f, 1.0f, 0.5f,
+  			       -0.5f, 1.0f, -0.5f,  0.5f, 1.0f, -0.5f,  0.5f, 0.0f, -0.5f, -0.5f, 0.0f, -0.5f,
+  			       0.5f, 0.0f, 0.5f,   0.5f, 0.0f, -0.5f,  0.5f, 1.0f, -0.5f,  0.5f, 1.0f, 0.5f,
+  			       -0.5f, 0.0f, -0.5f,  -0.5f, 0.0f, 0.5f,  -0.5f, 1.0f, 0.5f, -0.5f, 1.0f, -0.5f };
 	
 	GLfloat texcoords[] = { 0.0,0.0, 1.0,0.0, 1.0,1.0, 0.0,1.0,
-                      0.0,0.0, 1.0,0.0, 1.0,1.0, 0.0,1.0,
-                      0.0,0.0, 1.0,0.0, 1.0,1.0, 0.0,1.0,
-                      0.0,0.0, 1.0,0.0, 1.0,1.0, 0.0,1.0,
-		      0.0,0.0, 1.0,0.0, 1.0,1.0, 0.0,1.0,
-		      0.0,0.0, 1.0,0.0, 1.0,1.0, 0.0,1.0 };
+                               0.0,0.0, 1.0,0.0, 1.0,1.0, 0.0,1.0,
+                               0.0,0.0, 1.0,0.0, 1.0,1.0, 0.0,1.0,
+                               0.0,0.0, 1.0,0.0, 1.0,1.0, 0.0,1.0 };
 
-	GLuint indices[] = { 0,1,2,3, 4,5,6,7, 8,9,10,11, 12,13,14,15,
-		    16,17,18,19, 20,21,22,23 }; 
+	GLuint indices[] = {0,1,2,3, 4,5,6,7, 3,2,5,4, 7,6,1,0,
+                                  8,9,10,11, 12,13,14,15};
 
-	glEnableClientState(GL_VERTEX_ARRAY | GL_TEXTURE_COORD_ARRAY | GL_INDEX_ARRAY);	
-	glColor3f(1.0f,1.0f,1.0f);
-	glBindTexture(GL_TEXTURE_2D, tex_2d);
+	//glEnableClientState(GL_VERTEX_ARRAY | GL_TEXTURE_COORD_ARRAY | GL_INDEX_ARRAY);
+        glEnable(GL_TEXTURE_2D);
+	glBindTexture(GL_TEXTURE_2D, tex_2d);	
+	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+        glColor3f(1.0f, 1.0f, 1.0f);
 
-	glTexCoordPointer(2, GL_FLOAT, 0, texcoords);
+        glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+        glEnableClientState(GL_VERTEX_ARRAY);
+
+        glTexCoordPointer(2, GL_FLOAT, 0, texcoords);
+        glVertexPointer(3, GL_FLOAT, 0, vertices);
+
+        //glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, indices);
+        glDisableClientState(GL_VERTEX_ARRAY);
+        glDisable(GL_TEXTURE_2D);
+
+	glTranslatef(908.833,26.8181,400.551);
+
+
+	/*glTexCoordPointer(2, GL_FLOAT, 0, texcoords);
         glVertexPointer(3, GL_FLOAT, 0, vertices);
 	
 	glDrawElements(GL_QUADS, 24, GL_UNSIGNED_BYTE, indices);
 
 	glDisable(GL_TEXTURE_2D);
-	glDisableClientState(GL_VERTEX_ARRAY | GL_TEXTURE_COORD_ARRAY | GL_INDEX_ARRAY);
+	glDisableClientState(GL_VERTEX_ARRAY | GL_TEXTURE_COORD_ARRAY | GL_INDEX_ARRAY);*/
 }
 
 void Intro::loadTitleImage() {

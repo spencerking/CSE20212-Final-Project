@@ -22,10 +22,10 @@ class Intro {
 	void initTitlescreen();
 	void renderTitlescreen();
 	void loadTitleImage();
-	void bindTexture();
+	//void bindTexture();
 
    private:
-	/*GLfloat vertices[24];
-	GLfloat texcoords[24];*/
-	//GLuint tex_2d[24];
+	GLfloat vertices[24];
+	GLfloat texcoords[24];
+	GLuint tex_2d;
 };

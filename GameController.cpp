@@ -51,6 +51,7 @@ GameController::GameController(){
     airPokemon.push_back(charizard);
     airPokemon.push_back(charizard2);
     airPokemon.push_back(yanma);
+
     
     motionlessModels.push_back(pikachu7);
     motionlessModels.push_back(pikachu8);
@@ -58,6 +59,9 @@ GameController::GameController(){
     motionlessModels.push_back(xatu2);
     motionlessModels.push_back(flaafy);
     motionlessModels.push_back(tree1);
+     
+
+
 }
 
 //render function
@@ -72,6 +76,7 @@ void GameController::GameRender(){
 	skybox.render();
 	hField.render();
 	glEnable(GL_LIGHTING);
+
   
     //render the ground pokemon
     for(int n = 0; n < groundPokemon.size(); n++) {
@@ -98,12 +103,14 @@ void GameController::GameRender(){
     }
     
     glPopMatrix();
-    
+
+
 }
 
 //init function
 void GameController::GameInit(){
 	// Init objects
+
 	pikachu->init(876.902, 1.9367, 704.263);
 	pikachu2->init(870.902, 1.9367, 704.263);
 	pikachu3->init(864.902, 1.9367, 704.263);
@@ -123,6 +130,19 @@ void GameController::GameInit(){
     flareon->init(705.482, 3.8517, 784.499);
     muk->init(52.3041, 15.3588, 108.124);
     tree1->init(950, 2, 200);
+
+    plant1.init(415.529,29.2095,610.513);
+    plant2.init(415.529,29.2095,600.513);
+    plant3.init(425.529,29.2095,600.513);
+    plant4.init(425.529,29.2095,610.513);
+    plant5.init(421.529,29.2095,610.513);
+    plant6.init(421.529,29.2095,600.513);
+    plant7.init(415.529,30.2095,604.513);
+    plant8.init(425.529,30.2095,605.513);
+    flower.init(420.0,30.0,605.0);
+    //rock.init(908.0,6.81,400.551);
+
+
 	skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
 }
@@ -301,6 +321,7 @@ void GameController::GameKeyboard(unsigned char key, int x, int y){
 
 void GameController::GameSetNames() {
   
+
   //  cout << "Set name start" << endl;
 	wooper->setFilename("wooper.obj");
 	pikachu->setFilename("Pikachu.obj");
@@ -321,4 +342,16 @@ void GameController::GameSetNames() {
     flareon->setFilename("flareon.obj");
     muk->setFilename("muk.obj");
     tree1->setFilename("Tree.obj");
+
+    plant1.setFilename("Hemp.obj");
+    plant2.setFilename("Hemp.obj");
+    plant3.setFilename("Hemp.obj");
+    plant4.setFilename("Hemp.obj");
+    plant5.setFilename("Hemp.obj");
+    plant6.setFilename("Hemp.obj");
+    plant7.setFilename("Hemp.obj");
+    plant8.setFilename("Hemp.obj");
+    //rock.setFilename("Large Rock.obj");
+    flower.setFilename("Southern Flower.obj");
+
 }

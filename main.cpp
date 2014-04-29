@@ -16,7 +16,7 @@
 #include "Camera.h"
 #include "Sound.h"
 #include "GameController.h"
-#include "intro.h"
+//#include "intro.h"
 
 #define WINDOW_W 1000
 #define WINDOW_H 800
@@ -25,7 +25,7 @@
 Camera camera;
 GameController gamecontroller;
 Sound sound;
-Intro intro;
+//Intro intro;
 
 //basic camera function
 //this is straight from the swiftless tutorial
@@ -43,7 +43,7 @@ void display (void) {
     glLoadIdentity();
     cameraFunc();
     
-    intro.renderTitlescreen();
+   // intro.renderTitlescreen();
 
     gamecontroller.GameRender();
 
@@ -88,7 +88,7 @@ void init (void) {
 	glDepthFunc(GL_LEQUAL);
     glEnable(GL_DEPTH_TEST);
 
-    intro.initTitlescreen();
+    //intro.initTitlescreen();
 
     gamecontroller.GameSetNames();
     gamecontroller.GameInit();
@@ -182,6 +182,7 @@ void keyboard (unsigned char key, int x, int y) {
             xpos -= float(sin(yrotrad)) * cScale;
             zpos += float(cos(yrotrad)) * cScale;
             ypos += float(sin(xrotrad));
+	    cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
             bounce += 0.04;
         }
  	}
@@ -199,6 +200,7 @@ void keyboard (unsigned char key, int x, int y) {
         else {
             xpos += float(cos(yrotrad)) * cScale;
             zpos += float(sin(yrotrad)) * cScale;
+	    cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
         }
  	}
  
@@ -215,6 +217,7 @@ void keyboard (unsigned char key, int x, int y) {
         else {
             xpos -= float(cos(yrotrad)) * cScale;
             zpos -= float(sin(yrotrad)) * cScale;
+	    cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
         }
  	}
  
