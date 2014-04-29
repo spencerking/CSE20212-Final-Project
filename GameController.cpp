@@ -164,27 +164,27 @@ void GameController::GameMoveModels(){
         Models* groundIter = groundPokemon[n];
         if (rand()%100<20){
             xChange=5.0;
-            yChange=0.0;
+            yChange=10.0;
             zChange=2.0;
         }
         else if (rand()%100>20 && rand()%100<40){
             xChange=10.0;
-            yChange=0.0;
+            yChange=10.0;
             zChange=8.0;
         }
         else if (rand()%100>40 && rand()%100<50){
             xChange=-6.0;
-            yChange=0.0;
+            yChange=10.0;
             zChange=8.0;
         }
         else if (rand()%100>50 && rand()%100<70){
             xChange=-9.0;
-            yChange=0.0;
+            yChange=10.0;
             zChange=4.0;
         }
         else{
             xChange=9.0;
-            yChange=0.0;
+            yChange=10.0;
             zChange=0.0;
         }
 
@@ -202,7 +202,7 @@ void GameController::GameMoveModels(){
         else{
             cout <<"collision free"<<endl;
         
-            groundIter->move(xFuture, yFuture, zFuture);
+            groundIter->move(xFuture, yFuture-10, zFuture);
 
         }
        
