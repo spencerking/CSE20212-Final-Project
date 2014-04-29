@@ -122,7 +122,7 @@ void Skybox::init() {
 	skybox[4] = SOIL_load_OGL_texture(TOP, SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);
 	skybox[5] = SOIL_load_OGL_texture(BOTTOM, SOIL_LOAD_AUTO, SOIL_CREATE_NEW_ID, SOIL_FLAG_MIPMAPS);*/
 	std::cout << "Skybox: " << SOIL_last_result() << std::endl;
-	std::cout << "Size of skybox: " << sizeof(skybox) << std::endl;
+	std::cout << "Size of skybox: " << sizeof(&skybox) << std::endl;
 	/*for (int i = 0; i < 6; ++i) {
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
