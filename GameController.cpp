@@ -234,10 +234,10 @@ void GameController::GameMoveModels(){
         zFuture=zChange+zCurrent;
      
         if (GameController::GameCollision(xFuture, yFuture, zFuture)){
-            cout << "collision detected"<<endl;
+            //cout << "collision detected"<<endl;
         }
         else{
-            cout <<"collision free"<<endl;
+            //cout <<"collision free"<<endl;
         
             groundIter->move(xFuture, yFuture-10, zFuture);
 
@@ -269,6 +269,11 @@ void GameController::GameMoveModels(){
             yChange=-20.0;
             zChange=0.0;
         }
+        else if (rand()%100>70 && rand()%100<80){
+            xChange=-9.0;
+            yChange=-10.0;
+            zChange=-3.0;
+        }
         else{
             xChange=9.0;
             yChange=-10.0;
@@ -284,10 +289,10 @@ void GameController::GameMoveModels(){
         zFuture=zChange+zCurrent;
         
         if (GameController::GameCollision(xFuture, yFuture, zFuture)){
-            cout << "collision detected"<<endl;
+            //cout << "collision detected"<<endl;
         }
         else{
-            cout <<"collision free"<<endl;
+            //cout <<"collision free"<<endl;
             
             airIter->move(xFuture, yFuture, zFuture);
             
