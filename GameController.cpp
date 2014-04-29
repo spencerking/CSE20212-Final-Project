@@ -26,6 +26,7 @@ GameController::GameController(){
     groundPokemon.push_back(diglet);
    // groundPokemon.push_back(eevee);
     groundPokemon.push_back(flareon);
+    groundPokemon.push_back(muk);
     
     airPokemon.push_back(charizard);
     airPokemon.push_back(charizard2);
@@ -61,6 +62,7 @@ void GameController::GameRender(){
    // beedrill.render();
     yanma.render();
     flareon.render();
+    muk.render();
     tree1.render();
 	glPopMatrix();
 
@@ -89,6 +91,7 @@ void GameController::GameInit(){
    // beedrill.init(734.951, 218.833, 431.761);
     yanma.init(734.951, 218.833, 431.761);
     flareon.init(705.482, 3.8517, 784.499);
+    muk.init(52.3041, 15.3588, 108.124);
     tree1.init(950, 2, 200);
 	skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
@@ -250,5 +253,6 @@ void GameController::GameSetNames() {
     //beedrill.setFilename("beedrill.obj");
     yanma.setFilename("yanma.obj");
     flareon.setFilename("flareon.obj");
+    muk.setFilename("muk.obj");
     tree1.setFilename("Tree.obj");
 }

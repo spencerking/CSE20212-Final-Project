@@ -44,6 +44,7 @@ private:
     //Models beedrill; //model is massive
     Models yanma; //kinda big, textures aren't too bad
     Models flareon; //pretty big, textures are a little messed up
+    Models muk;
     Models tree1;
     
     vector<Models> groundPokemon; //vector for storing pokémon that move in x and z direction
