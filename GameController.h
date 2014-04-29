@@ -24,31 +24,31 @@ private:
     Skybox skybox;
     HeightField hField;
     Camera camera;
-    Models pikachu;
-    Models pikachu2;
-    Models pikachu3;
-    Models pikachu4;
-    Models pikachu5;
-    Models pikachu6;
-    Models pikachu7; //this one is on a mountain, don't let it move
-    Models pikachu8; //same
-    Models xatu; //the textures don't load completely correctly
-    Models xatu2;
-    Models wooper;
-    Models diglet;
+    Models *pikachu;
+    Models *pikachu2;
+    Models *pikachu3;
+    Models *pikachu4;
+    Models *pikachu5;
+    Models *pikachu6;
+    Models *pikachu7; //this one is on a mountain, don't let it move
+    Models *pikachu8; //same
+    Models *xatu; //the textures don't load completely correctly
+    Models *xatu2;
+    Models *wooper;
+    Models *diglet;
     //Models snorlax; //the textures don't load at all, the model is the right shape
     //Models eevee; //textures don't load, is ridiculously huge
-    Models flaafy; //texture is mostly correct
-    Models charizard; //texture is mostly correct
-    Models charizard2;
+    Models *flaafy; //texture is mostly correct
+    Models *charizard; //texture is mostly correct
+    Models *charizard2;
     //Models beedrill; //model is massive
-    Models yanma; //kinda big, textures aren't too bad
-    Models flareon; //pretty big, textures are a little messed up
-    Models muk;
-    Models tree1;
+    Models *yanma; //kinda big, textures aren't too bad
+    Models *flareon; //pretty big, textures are a little messed up
+    Models *muk;
+    Models *tree1;
     
-    vector<Models> groundPokemon; //vector for storing pokémon that move in x and z direction
-    vector<Models> airPokemon; //vector for pokémon that can move in any direction
+    vector<Models*> groundPokemon; //vector for storing pokémon that move in x and z direction
+    vector<Models*> airPokemon; //vector for pokémon that can move in any direction
     
 };
 
