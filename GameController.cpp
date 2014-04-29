@@ -77,6 +77,38 @@ GameController::GameController(){
     motionlessModels.push_back(plant7);
     motionlessModels.push_back(plant8);
     motionlessModels.push_back(flower);
+    
+    
+    wooper->setFilename("wooper.obj");
+	pikachu->setFilename("Pikachu.obj");
+	pikachu2->setFilename("Pikachu.obj");
+	pikachu3->setFilename("Pikachu.obj");
+	pikachu4->setFilename("Pikachu.obj");
+	pikachu5->setFilename("Pikachu.obj");
+    pikachu6->setFilename("Pikachu.obj");
+    pikachu7->setFilename("Pikachu.obj");
+    pikachu8->setFilename("Pikachu.obj");
+	xatu->setFilename("xatu.obj");
+    xatu2->setFilename("xatu.obj");
+	diglet->setFilename("Diglett.obj");
+    flaafy->setFilename("flaafy.obj");
+    charizard->setFilename("charizard.obj");
+    charizard2->setFilename("charizard.obj");
+    yanma->setFilename("yanma.obj");
+    flareon->setFilename("flareon.obj");
+    muk->setFilename("muk.obj");
+    tree1->setFilename("Tree.obj");
+    
+    plant1->setFilename("Hemp.obj");
+    plant2->setFilename("Hemp.obj");
+    plant3->setFilename("Hemp.obj");
+    plant4->setFilename("Hemp.obj");
+    plant5->setFilename("Hemp.obj");
+    plant6->setFilename("Hemp.obj");
+    plant7->setFilename("Hemp.obj");
+    plant8->setFilename("Hemp.obj");
+    //rock.setFilename("Large Rock.obj");
+    flower->setFilename("SouthernFlower.obj");
 
 
 }
@@ -160,7 +192,7 @@ void GameController::GameInit(){
     //rock.init(908.0,6.81,400.551);
 
 
-	skybox.init();
+	//skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
 }
 
@@ -341,10 +373,11 @@ void GameController::GameKeyboard(unsigned char key, int x, int y){
 }
 */
 
+
+/*
 void GameController::GameSetNames() {
   
 
-  //  cout << "Set name start" << endl;
 	wooper->setFilename("wooper.obj");
 	pikachu->setFilename("Pikachu.obj");
 	pikachu2->setFilename("Pikachu.obj");
@@ -376,4 +409,4 @@ void GameController::GameSetNames() {
     //rock.setFilename("Large Rock.obj");
     flower->setFilename("SouthernFlower.obj");
 
-}
+}*/

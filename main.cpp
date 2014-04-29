@@ -90,7 +90,7 @@ void init (void) {
 
     //intro.initTitlescreen();
 
-    gamecontroller.GameSetNames();
+   // gamecontroller.GameSetNames();
     gamecontroller.GameInit();
     sound.init();
 }
@@ -160,7 +160,7 @@ void keyboard (unsigned char key, int x, int y) {
             xpos += float(sin(yrotrad)) * cScale;
             zpos -= float(cos(yrotrad)) * cScale;
             ypos -= float(sin(xrotrad));
-            cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+           //cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
             gamecontroller.GameMoveModels();
             bounce += 0.04;
         }
@@ -182,7 +182,7 @@ void keyboard (unsigned char key, int x, int y) {
             xpos -= float(sin(yrotrad)) * cScale;
             zpos += float(cos(yrotrad)) * cScale;
             ypos += float(sin(xrotrad));
-	    cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+	   // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
             bounce += 0.04;
         }
  	}
@@ -200,7 +200,7 @@ void keyboard (unsigned char key, int x, int y) {
         else {
             xpos += float(cos(yrotrad)) * cScale;
             zpos += float(sin(yrotrad)) * cScale;
-	    cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+	   // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
         }
  	}
  
@@ -217,7 +217,7 @@ void keyboard (unsigned char key, int x, int y) {
         else {
             xpos -= float(cos(yrotrad)) * cScale;
             zpos -= float(sin(yrotrad)) * cScale;
-	    cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+	   // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
         }
  	}
  
