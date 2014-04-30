@@ -12,13 +12,12 @@ class Intro {
 
    public:
 	Intro(); //constructor
-	void initTitlescreen();
 	void renderTitlescreen();
-	void loadTitleImage();
-	//void bindTexture();
 
    private:
-	GLfloat vertices[24];
+	GLfloat vertices[72];
 	GLfloat texcoords[24];
+	GLshort indices[36];
 	GLuint tex_2d;
+        float size; //size of cube
 };
