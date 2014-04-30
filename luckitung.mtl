@@ -1,101 +1,101 @@
 # Material file for luckitung.obj
 
 newmtl mesh0006mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0006_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0006_0.png
 
 newmtl mesh0007mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0007_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0007_0.png
 
 newmtl mesh0008mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0008_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0008_0.png
 
 newmtl mesh0009mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0009_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0009_0.png
 
 newmtl mesh0012mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0012_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0012_0.png
 
 newmtl mesh0013mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0013_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0013_0.png
 
 newmtl mesh0014mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0014_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0014_0.png
 
 newmtl mesh0015mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0015_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0015_0.png
 
 newmtl mesh0016mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0016_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0016_0.png
 
 newmtl mesh0017mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0017_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0017_0.png
 
 newmtl mesh0019mat
-	Ns 0
-	d 1
-	illum 2
-	Kd 1.0 1.0 1.0
-	Ks 0.0 0.0 0.0
-	Ka 0.0 0.0 0.0
-	map_Kd t0019_0.png
+Ns 0
+d 1
+illum 2
+Kd 1.0 1.0 1.0
+Ks 0.0 0.0 0.0
+Ka 0.0 0.0 0.0
+map_Kd t0019_0.png
 

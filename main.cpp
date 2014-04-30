@@ -12,16 +12,12 @@
 #include <assert.h>
 #include <unistd.h>
 #include "GameController.h"
-//#include "intro.h"
 
 #define WINDOW_W 1000
 #define WINDOW_H 800
 
 //instantiate objects
 GameController gamecontroller;
-
-//Intro intro;
-
 
 
 //basic display function
@@ -33,8 +29,6 @@ void display (void) {
     glLoadIdentity();
     gamecontroller.GameUpdateCamera();
     
-   //intro.renderTitlescreen();
-
     gamecontroller.GameRender();
 
     // 2D UI
@@ -89,8 +83,7 @@ void orientMe(int x, int y) {
 
 }
 
-//keyboard function based on swiftless and Emrich's tutorials
-
+//keyboard function based on swiftless and Professor Emrich's tutorials
 void keyboard (unsigned char key, int x, int y) {
     gamecontroller.GameKeyboardInput(key, x, y);
 	 

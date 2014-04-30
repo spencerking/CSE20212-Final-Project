@@ -1,5 +1,5 @@
 OS := $(shell uname)
-OBJECTS = main.o Skybox.o Heightfield.o Camera.o Sound.o GameController.o models.o intro.o
+OBJECTS = main.o Heightfield.o Camera.o Sound.o GameController.o models.o
 WARNINGS = -g
 
 ifeq ($(OS),Darwin)
@@ -36,9 +36,6 @@ main: $(OBJECTS)
 main.o: main.cpp
 	g++ -c $(INCPATH) main.cpp $(LIBPATH) $(LFLAGS) $(WARNINGS)
 
-Skybox.o: Skybox.cpp
-	g++ -c $(INCPATH) Skybox.cpp $(LIBPATH) $(LFLAGS) $(WARNINGS)
-
 Heightfield.o: Heightfield.cpp
 	g++ -c Heightfield.cpp $(WARNINGS)
 
@@ -53,9 +50,6 @@ GameController.o: GameController.cpp
 
 Models.o: models.cpp
 	g++ -c models.cpp $(WARNINGS)
-
-intro.o: intro.cpp
-	g++ -c $(INCPATH) intro.cpp $(LIBPATH) $(LFLAGS) $(WARNINGS)
 
 clean:
 	rm -rf *.o *.dSYM main

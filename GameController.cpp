@@ -123,7 +123,6 @@ GameController::GameController(){
     plant6->setFilename("Hemp.obj");
     plant7->setFilename("Hemp.obj");
     plant8->setFilename("Hemp.obj");
-    //rock.setFilename("Large Rock.obj");
     flower->setFilename("SouthernFlower.obj");
 
 
@@ -209,7 +208,6 @@ void GameController::GameInit(){
     plant7->init(415.529,30.2095,604.513);
     plant8->init(425.529,30.2095,605.513);
     flower->init(420.0,30.0,605.0);
-    //rock.init(908.0,6.81,400.551);
 
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
     sound.init();
@@ -286,14 +284,17 @@ void GameController::GameMoveModels(){
             zChange=0.0;
         }
 
+        //get the current position
         xCurrent=groundIter->getXpos();
         yCurrent=groundIter->getYpos();
         zCurrent=groundIter->getZpos();
 
+        //calculate the new position
         xFuture=xChange+xCurrent;
         yFuture=yChange+yCurrent;
         zFuture=zChange+zCurrent;
      
+        //make sure new position is valid
         if (GameController::GameCollision(xFuture, yFuture, zFuture)){
 
         }
@@ -350,14 +351,17 @@ void GameController::GameMoveModels(){
             zChange=0.0;
         }
         
+        //get current position
         xCurrent=airIter->getXpos();
         yCurrent=airIter->getYpos();
         zCurrent=airIter->getZpos();
 
+        //calculate new position
         xFuture=xChange+xCurrent;
         yFuture=yChange+yCurrent;
         zFuture=zChange+zCurrent;
         
+        //make sure new position is valid
         if (GameController::GameCollision(xFuture, yFuture, zFuture)){
 
         }
@@ -442,7 +446,7 @@ void GameController::GameArrowKeys(int key, int x, int y){
 			}
 			else {
 				ypos+=5.00;
-                GameController::GameMoveModels();
+                 GameController::GameMoveModels();
 			}
 			break;
         //moves the camera directly downwards
@@ -454,7 +458,7 @@ void GameController::GameArrowKeys(int key, int x, int y){
 			}
 			else {
 				ypos-=5.00;
-                GameController::GameMoveModels();
+                 GameController::GameMoveModels();
 			}
 			break;
 	}

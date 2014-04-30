@@ -38,7 +38,7 @@ private:
     Models *pikachu6;
     Models *pikachu7;
     Models *pikachu8;
-    Models *xatu; //textures are somewhat incorrect
+    Models *xatu; 
     Models *xatu2;
     Models *wooper;
     Models *diglet;
