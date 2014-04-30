@@ -34,7 +34,6 @@ bool HeightField::makeVBO(void) {
 }
 
 //this function open a raw heightmap file and reads it in
-//I have no idea how heightmaps are stored, but this works
 bool HeightField::init(const char *hFileName, const int hWidth, const int hHeight, int hLOD){
 	hmHeight = hHeight;
 	hmWidth = hWidth;
@@ -132,7 +131,7 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
             xvecIter++;
             counter++;
             
-            //check is (0,0,0) appears more than once
+            //check if (0,0,0) appears more than once
             //sometimes this point appears endlessly and we are not sure why
             //this function breaks the loop should it appear more than it should
             if (terrainX==0 && terrainY==0 && terrainZ==0){
@@ -1976,8 +1975,7 @@ int HeightField::collisionDetection(float xCamera, float yCamera, float zCamera)
 }
 
 void HeightField::render(void){
-//this will render the heightfield as a series of coordinate points
-
+    
     counter1=0;
 
     // Collision detection points

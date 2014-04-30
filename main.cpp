@@ -11,9 +11,6 @@
 #include <fstream>
 #include <assert.h>
 #include <unistd.h>
-//#include "Skybox.h"
-//#include "Camera.h"
-//#include "Sound.h"
 #include "GameController.h"
 //#include "intro.h"
 
@@ -21,19 +18,17 @@
 #define WINDOW_H 800
 
 //instantiate objects
-//Camera camera;
 GameController gamecontroller;
-//Sound sound;
 //Intro intro;
 
 
 //basic display function
 void display (void) {
+    glClearColor(0.529, 0.808, 0.980,0);
     glClear (GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     // 3D scene
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    //cameraFunc();
     gamecontroller.GameUpdateCamera();
     
    // intro.renderTitlescreen();
@@ -83,9 +78,7 @@ void init (void) {
 
     //intro.initTitlescreen();
 
-   // gamecontroller.GameSetNames();
     gamecontroller.GameInit();
-    //sound.init();
 }
 
 
@@ -104,7 +97,6 @@ void keyboard (unsigned char key, int x, int y) {
 
 //allows for altitude change with up and down arrow keys
 void arrowKeys(int key, int x, int y){
-    
     gamecontroller.GameArrowKeys(key, x, y);
    
     

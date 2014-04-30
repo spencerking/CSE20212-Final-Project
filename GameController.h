@@ -7,7 +7,6 @@
 #include "Heightfield.h"
 #include "Sound.h"
 #include "Camera.h"
-//#include "Skybox.h"
 #include "models.h"
 
 
@@ -19,7 +18,6 @@ public:
     void GameInit(); //initializes everything in the game
     int GameCollision(float, float, float); //collision detection
     void GameArrowKeys(int, int, int); //handles arrow key input
-  //  void GameSetNames();
     void GameKeyboardInput(unsigned char, int, int); //handles keyboard input
     void GameMouseOrientation(int, int); //handles the change in mouse orientation
     void GameUpdateCamera(void); //updates the camera
@@ -29,7 +27,6 @@ public:
     void GameScreenshot(); //takes a screenshot
     
 private:
-    //Skybox skybox;
     HeightField hField;
     Sound sound;
     Camera camera;
@@ -39,17 +36,17 @@ private:
     Models *pikachu4;
     Models *pikachu5;
     Models *pikachu6;
-    Models *pikachu7; //this one is on a mountain, don't let it move
-    Models *pikachu8; //same
-    Models *xatu; //the textures don't load completely correctly
+    Models *pikachu7;
+    Models *pikachu8;
+    Models *xatu; //textures are somewhat incorrect
     Models *xatu2;
     Models *wooper;
     Models *diglet;
-    Models *flaafy; //texture is mostly correct
-    Models *charizard; //texture is mostly correct
+    Models *flaafy; 
+    Models *charizard; 
     Models *charizard2;
-    Models *yanma; //kinda big, textures aren't too bad
-    Models *flareon; //pretty big, textures are a little messed up
+    Models *yanma; 
+    Models *flareon; 
     Models *muk;
     Models *tree1;
     

@@ -1,14 +1,16 @@
 #include "models.h"
 
+//default constructor
 Models::Models() {
 	
 }
 
+//sets the model's filename
 void Models::setFilename(std::string name) {
 	filename = name;
 }
 
-//default constructor
+//initialize a model
 void Models::init(float x, float y, float z){
 	model = new Object();
     model->loadObjectFile(filename);
@@ -35,31 +37,14 @@ float Models::getZpos(){
     return zcurrent;
 }
 
+//changes a model's current position
 void Models::move(float xChange, float yChange, float zChange) {
-    /*
-    float xcurrent = model->getLocation()->getX();
-	float ycurrent = model->getLocation()->getY();
-	float zcurrent = model->getLocation()->getZ();
-    
-    float xfuture = xcurrent+xChange;
-    float yfuture = ycurrent+yChange;
-    float zfuture = zcurrent+zChange;
-    cout<<"calling func"<<endl;
-    if (hField.collisionDetection(xfuture, yfuture, zfuture)){
-        cout << "collision"<<endl;
-    }
-    else{
-        cout<<"collision free"<<endl;
-        model->getLocation()->setX(xfuture);
-        model->getLocation()->setY(yfuture);
-        model->getLocation()->setZ(zfuture);
-    }
-    */
     model->getLocation()->setX(xChange);
     model->getLocation()->setY(yChange);
     model->getLocation()->setZ(zChange);
 }
 
+//renders a model
 void Models::render() {
 	glPushMatrix();
 	glTranslatef(model->getLocation()->getX(), model->getLocation()->getY(), model->getLocation()->getZ());

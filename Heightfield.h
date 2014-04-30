@@ -6,7 +6,7 @@
 #include <vector>
 #include <algorithm>
 using namespace std; 
-typedef unsigned char MAP; //this somehow stores the heighfield
+typedef unsigned char MAP; //this stores the heighfield
 
 class Vert {
 public:

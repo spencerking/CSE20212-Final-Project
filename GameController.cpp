@@ -16,7 +16,7 @@
 GameController::GameController(){
 	srand(time(NULL)); //seeds with time
     
-    //push all of the appropriate models into vectors
+    //allocate memory
     pikachu = new Models();
     pikachu2 = new Models();
     pikachu3 = new Models();
@@ -46,7 +46,7 @@ GameController::GameController(){
     plant8 = new Models();
     flower = new Models();
 
-    
+    //push all of the appropriate models into vectors
     groundPokemon.push_back(pikachu);
     groundPokemon.push_back(pikachu2);
     groundPokemon.push_back(pikachu3);
@@ -79,7 +79,7 @@ GameController::GameController(){
     motionlessModels.push_back(plant8);
     motionlessModels.push_back(flower);
     
-    
+    //set filenames
     wooper->setFilename("wooper.obj");
 	pikachu->setFilename("Pikachu.obj");
 	pikachu2->setFilename("Pikachu.obj");
@@ -123,7 +123,6 @@ void GameController::GameRender(){
     
 	glPushMatrix();
 	glDisable(GL_LIGHTING);
-	//skybox.render();
 	hField.render();
 	glEnable(GL_LIGHTING);
 
@@ -192,8 +191,6 @@ void GameController::GameInit(){
     flower->init(420.0,30.0,605.0);
     //rock.init(908.0,6.81,400.551);
 
-
-	//skybox.init();
 	hField.init("Heightfield/heightField.raw", 1024, 1024, 8);
     sound.init();
 
@@ -226,12 +223,11 @@ void GameController::GameMoveModels(){
     
     vector<Models*>::iterator groundIter;
     vector<Models*>::iterator airIter;
-
-    //I wanted to iterate through all pokémon and give each a different movement
-    //makes it more random instead of just assigning the same thing to all pokémon
-    //of a specific type
     
-    //random movement for ground based pokemon
+    //This iterates through all pokémon and uses the RNG to apply a different movement for each
+    //This way, not all pokémon will move in the same direction each time
+    
+    //random movement for ground based pokémon
     for(int n = 0; n < groundPokemon.size(); n++) {
         Models* groundIter = groundPokemon[n];
         if (rand()%100<20){
@@ -279,10 +275,9 @@ void GameController::GameMoveModels(){
         zFuture=zChange+zCurrent;
      
         if (GameController::GameCollision(xFuture, yFuture, zFuture)){
-            //cout << "collision detected"<<endl;
+
         }
         else{
-            //cout <<"collision free"<<endl;
         
             groundIter->move(xFuture, yFuture-10, zFuture);
 
@@ -291,7 +286,7 @@ void GameController::GameMoveModels(){
      
     }
     
-    //random movement for air based pokemon
+    //random movement for air based pokémon
     for(int n = 0; n < airPokemon.size(); n++) {
         Models* airIter = airPokemon[n];
         if (rand()%100<20){
@@ -344,10 +339,9 @@ void GameController::GameMoveModels(){
         zFuture=zChange+zCurrent;
         
         if (GameController::GameCollision(xFuture, yFuture, zFuture)){
-            //cout << "collision detected"<<endl;
+
         }
         else{
-            //cout <<"collision free"<<endl;
             
             airIter->move(xFuture, yFuture, zFuture);
             
@@ -419,7 +413,7 @@ void GameController::GameMouseOrientation(int x, int y){
 void GameController::GameArrowKeys(int key, int x, int y){
 	float yposFuture;
 	switch(key) {
-			//moves the camera directly upwards
+        //moves the camera directly upwards
 		case GLUT_KEY_UP :
 			yposFuture=ypos;
 			yposFuture += 5.00;
@@ -428,9 +422,10 @@ void GameController::GameArrowKeys(int key, int x, int y){
 			}
 			else {
 				ypos+=5.00;
+                GameController::GameMoveModels();
 			}
 			break;
-			//moves the camera directly downwards
+        //moves the camera directly downwards
 		case GLUT_KEY_DOWN:
 			yposFuture=ypos;
 			yposFuture -= 5.00;
@@ -439,6 +434,7 @@ void GameController::GameArrowKeys(int key, int x, int y){
 			}
 			else {
 				ypos-=5.00;
+                GameController::GameMoveModels();
 			}
 			break;
 	}
@@ -450,15 +446,12 @@ void GameController::GameArrowKeys(int key, int x, int y){
 void GameController::GameKeyboardInput(unsigned char key, int x, int y){
  
  if (key == 'e') { //takes a screenshot and plays a shutter sound
-    //camera.setupScreenshot();
-    //sound.shutter();
-     GameController::GameScreenshot();
+    GameController::GameScreenshot();
     GameController::GameShutterSound();
     shutterAlpha = 1;
  }
  
  if (key == 'm') { //toggle music
-    //sound.music();
     GameController::GameBGM();
  }
  
@@ -483,8 +476,7 @@ void GameController::GameKeyboardInput(unsigned char key, int x, int y){
         xpos += float(sin(yrotrad)) * cScale;
         zpos -= float(cos(yrotrad)) * cScale;
         ypos -= float(sin(xrotrad));
-        //cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
-        //GameController::GameMoveModels();
+        GameController::GameMoveModels();
         bounce += 0.04;
     }
  }
@@ -505,7 +497,7 @@ void GameController::GameKeyboardInput(unsigned char key, int x, int y){
         xpos -= float(sin(yrotrad)) * cScale;
         zpos += float(cos(yrotrad)) * cScale;
         ypos += float(sin(xrotrad));
-        // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+        GameController::GameMoveModels();
         bounce += 0.04;
     }
  }
@@ -523,7 +515,7 @@ void GameController::GameKeyboardInput(unsigned char key, int x, int y){
     else {
         xpos += float(cos(yrotrad)) * cScale;
         zpos += float(sin(yrotrad)) * cScale;
-        // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+        GameController::GameMoveModels();
     }
  }
  
@@ -540,47 +532,9 @@ void GameController::GameKeyboardInput(unsigned char key, int x, int y){
     else {
         xpos -= float(cos(yrotrad)) * cScale;
         zpos -= float(sin(yrotrad)) * cScale;
-        // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+        GameController::GameMoveModels();
     }
  }
 	
 }
 
-
-
-/*
-void GameController::GameSetNames() {
- 
-
-	wooper->setFilename("wooper.obj");
-	pikachu->setFilename("Pikachu.obj");
-	pikachu2->setFilename("Pikachu.obj");
-	pikachu3->setFilename("Pikachu.obj");
-	pikachu4->setFilename("Pikachu.obj");
-	pikachu5->setFilename("Pikachu.obj");
-    pikachu6->setFilename("Pikachu.obj");
-    pikachu7->setFilename("Pikachu.obj");
-    pikachu8->setFilename("Pikachu.obj");
-	xatu->setFilename("xatu.obj");
-    xatu2->setFilename("xatu.obj");
-	diglet->setFilename("Diglett.obj");
-    flaafy->setFilename("flaafy.obj");
-    charizard->setFilename("charizard.obj");
-    charizard2->setFilename("charizard.obj");
-    yanma->setFilename("yanma.obj");
-    flareon->setFilename("flareon.obj");
-    muk->setFilename("muk.obj");
-    tree1->setFilename("Tree.obj");
-
-    plant1->setFilename("Hemp.obj");
-    plant2->setFilename("Hemp.obj");
-    plant3->setFilename("Hemp.obj");
-    plant4->setFilename("Hemp.obj");
-    plant5->setFilename("Hemp.obj");
-    plant6->setFilename("Hemp.obj");
-    plant7->setFilename("Hemp.obj");
-    plant8->setFilename("Hemp.obj");
-    //rock.setFilename("Large Rock.obj");
-    flower->setFilename("SouthernFlower.obj");
-
-}*/
