@@ -1,9 +1,0 @@
-#ifdef __APPLE__
-   #include <GLUT/glut.h>
-   #include <OpenGL/gl.h>
-   #include <soil.h>
-#else
-   #include <GL/gl.h>
-   #include <GL/glut.h>
-   #include <SOIL/soil.h>
-#endif
