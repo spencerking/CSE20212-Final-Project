@@ -12,7 +12,7 @@
 #include <assert.h>
 #include <unistd.h>
 #include "GameController.h"
-#include "intro.h"
+//#include "intro.h"
 
 #define WINDOW_W 1000
 #define WINDOW_H 800
@@ -20,7 +20,7 @@
 //instantiate objects
 GameController gamecontroller;
 
-Intro intro;
+//Intro intro;
 
 
 
@@ -33,7 +33,7 @@ void display (void) {
     glLoadIdentity();
     gamecontroller.GameUpdateCamera();
     
-   intro.renderTitlescreen();
+   //intro.renderTitlescreen();
 
     gamecontroller.GameRender();
 

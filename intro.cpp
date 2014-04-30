@@ -1,5 +1,5 @@
 #include "intro.h"
-#include <SOIL/soil.h>
+#include <soil.h>
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
