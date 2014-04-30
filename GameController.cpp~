@@ -194,11 +194,7 @@ void GameController::GameInit(){
     flareon->init(705.482, 3.8517, 784.499);
     muk->init(52.3041, 15.3588, 108.124);
     tree1->init(950, 2, 200);
-    luckitung->init(896.0,2.0,292.0);
-    latios->init(490.0, 365.0, 559.0);
-    typhlosion->init(33.0,12.0,708.0);
-    blaziken->init(396.0,13.0,204.0);
-    quilava->init(707.0,16.0,48.0);
+    jynx->init(933.58, 10.0, 351.413);
 
     plant1->init(415.529,29.2095,610.513);
     plant2->init(415.529,29.2095,600.513);

@@ -49,11 +49,7 @@ private:
     Models *flareon; 
     Models *muk;
     Models *tree1;
-    Models *latios;
-    Models *blaziken;
-    Models *typhlosion;
-    Models *quilava;
-    Models *luckitung;
+    Models *jynx;
     
     vector<Models*> groundPokemon; //vector for storing pokémon that move in x and z direction
     vector<Models*> airPokemon; //vector for pokémon that can move in any direction

@@ -1,0 +1,55 @@
+# File produced by AccuTrans 3D
+
+newmtl Inst3D_021
+Ns 19.415
+d 1.0
+illum 2
+Kd 0.7 0.7 0.7
+Ka 0.7 0.7 0.7
+Ks 0 0 0
+map_Kd L1.png
+
+newmtl Inst3D_022
+Ns 19.415
+d 1.0
+illum 2
+Kd 0.7 0.7 0.7
+Ka 0.7 0.7 0.7
+Ks 0 0 0
+map_Kd L2.png
+
+newmtl Inst3D_023
+Ns 19.415
+d 1.0
+illum 2
+Kd 0.7 0.7 0.7
+Ka 0.7 0.7 0.7
+Ks 0 0 0
+map_Kd L3.png
+
+newmtl Inst3D_024
+Ns 19.415
+d 1.0
+illum 2
+Kd 0.7 0.7 0.7
+Ka 0.7 0.7 0.7
+Ks 0 0 0
+map_Kd L4.png
+
+newmtl Inst3D_025
+Ns 19.415
+d 1.0
+illum 2
+Kd 0.7 0.7 0.7
+Ka 0.7 0.7 0.7
+Ks 0 0 0
+map_Kd L5.png
+
+newmtl Inst3D_026
+Ns 19.415
+d 1.0
+illum 2
+Kd 0.7 0.7 0.7
+Ka 0.7 0.7 0.7
+Ks 0 0 0
+map_Kd L6.png

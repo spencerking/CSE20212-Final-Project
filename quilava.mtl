@@ -1,0 +1,82 @@
+# File produced by AccuTrans 3D
+
+newmtl Inst3D
+  Ns 19.415
+  d 1.0
+  illum 2
+  Kd 0.7 0.7 0.7
+  Ka 0.7 0.7 0.7
+  Ks 0 0 0
+  map_Kd Q7.png
+
+newmtl Inst3D_010
+  Ns 19.415
+  d 1.0
+  illum 2
+  Kd 0.7 0.7 0.7
+  Ka 0.7 0.7 0.7
+  Ks 0 0 0
+  map_Kd Q6.png
+
+newmtl Inst3D_011
+  Ns 19.415
+  d 1.0
+  illum 2
+  Kd 0.7 0.7 0.7
+  Ka 0.7 0.7 0.7
+  Ks 0 0 0
+  map_Kd Q5.png
+
+newmtl Inst3D_012
+  Ns 19.415
+  d 1.0
+  illum 2
+  Kd 0.7 0.7 0.7
+  Ka 0.7 0.7 0.7
+  Ks 0 0 0
+  map_Kd Q4.png
+
+newmtl Inst3D_013
+  Ns 19.415
+  d 1.0
+  illum 2
+  Kd 0.7 0.7 0.7
+  Ka 0.7 0.7 0.7
+  Ks 0 0 0
+  map_Kd Q3.png
+
+newmtl Inst3D_014
+  Ns 19.415
+  d 1.0
+  illum 2
+  Kd 0.7 0.7 0.7
+  Ka 0.7 0.7 0.7
+  Ks 0 0 0
+  map_Kd Q2.png
+
+newmtl Inst3D_015
+  Ns 19.415
+  d 1.0
+  illum 2
+  Kd 0.7 0.7 0.7
+  Ka 0.7 0.7 0.7
+  Ks 0 0 0
+  map_Kd Q1.png
+
+newmtl Inst3D_08
+  Ns 19.415
+  d 1.0
+  illum 2
+  Kd 0.7 0.7 0.7
+  Ka 0.7 0.7 0.7
+  Ks 0 0 0
+  map_Kd Q9.png
+
+newmtl Inst3D_09
+  Ns 19.415
+  d 1.0
+  illum 2
+  Kd 0.7 0.7 0.7
+  Ka 0.7 0.7 0.7
+  Ks 0 0 0
+  map_Kd Q8.png
