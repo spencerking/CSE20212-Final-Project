@@ -3,11 +3,13 @@
 
 #include <iostream>
 #include <vector>
+#include <math.h>
 #include "Heightfield.h"
 #include "Sound.h"
 #include "Camera.h"
 //#include "Skybox.h"
 #include "models.h"
+#include "Global.h"
 
 
 class GameController{
@@ -18,7 +20,9 @@ public:
     int GameCollision(float, float, float); //collision detection
     void GameArrowKeys(int, int, int); //handles arrow key input
   //  void GameSetNames();
-   // void GameKeyboardInput(unsigned char, int, int); //handles keyboard input
+    void GameKeyboardInput(unsigned char, int, int); //handles keyboard input
+    void GameMouseOrientation(int, int); //handles the change in mouse orientation
+    void GameUpdateCamera(void); //updates the camera
     void GameMoveModels(); //moves models
     void GameBGM(); //plays the BGM
     void GameShutterSound(); //plays the shutter sound

@@ -377,9 +377,46 @@ void GameController::GameScreenshot(){
     camera.setupScreenshot();
 }
 
+//updates the camera
+void GameController::GameUpdateCamera(void){
+    glRotatef(xrot,0.1,0.0,0.0); //rotates on the x-axis
+	glRotatef(yrot,0.0,0.1,0.0); //rotates on the y-axis
+	glTranslated(-xpos,-ypos,-zpos); //translates the screen to the current camera positon
+    
+}
+
+//handles the mouse orientation
+void GameController::GameMouseOrientation(int x, int y){
+    //calculates the differences between the current x and y positions
+	//and the previous x and y positions
+ 	float diffx = ((float)x-previousx)*0.5f;
+ 	float diffy = ((float)y-previousy)*0.5f;
+    
+    xrot += diffy;
+    yrot += diffx;
+    
+    //this prevents the camera from being easily inverted
+    if (diffx<-M_PI){
+        diffx += M_PI*2;
+    }
+    if (diffx>M_PI){
+        diffx -= M_PI*2;
+    }
+    if (diffy<-M_PI*0.49){
+        diffy = -M_PI*0.49;
+    }
+    if (diffy>M_PI*0.49){
+        diffy = M_PI*0.49;
+    }
+    
+	//the previous x and y positions become the current x and y positions
+    previousx = x;
+    previousy = y;
+}
+
 //handles arrow key input
 void GameController::GameArrowKeys(int key, int x, int y){
-	/*float yposFuture;
+	float yposFuture;
 	switch(key) {
 			//moves the camera directly upwards
 		case GLUT_KEY_UP :
@@ -403,20 +440,116 @@ void GameController::GameArrowKeys(int key, int x, int y){
 				ypos-=5.00;
 			}
 			break;
-	}*/
+	}
 }
-/*
+
+
 
 //handles keyboard input
-void GameController::GameKeyboard(unsigned char key, int x, int y){
+void GameController::GameKeyboardInput(unsigned char key, int x, int y){
+ 
+ if (key == 'e') { //takes a screenshot and plays a shutter sound
+    //camera.setupScreenshot();
+    //sound.shutter();
+     GameController::GameScreenshot();
+    GameController::GameShutterSound();
+    shutterAlpha = 1;
+ }
+ 
+ if (key == 'm') { //toggle music
+    //sound.music();
+    GameController::GameBGM();
+ }
+ 
+ if (key == 'q') { //quits the game
+    cout << "Thank you for playing!" << endl;
+    exit(1);
+ }
+ 
+ if (key == 'w') //moves the camera forwards
+ {
+    float xrotrad, yrotrad;
+    yrotrad = (yrot / 180 * M_PI);
+    xrotrad = (xrot / 180 * M_PI);
+    float xposFuture = xpos + float(sin(yrotrad)) * cScale;
+    float zposFuture = zpos - float(cos(yrotrad)) * cScale;
+    float yposFuture = ypos - float(sin(xrotrad));
+ 
+    if (GameController::GameCollision(xposFuture, yposFuture, zposFuture)) {
+ 
+    }
+    else {
+        xpos += float(sin(yrotrad)) * cScale;
+        zpos -= float(cos(yrotrad)) * cScale;
+        ypos -= float(sin(xrotrad));
+        //cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+        //GameController::GameMoveModels();
+        bounce += 0.04;
+    }
+ }
+ 
+ if (key == 's') //moves the camera backwards
+ {
+    float xrotrad, yrotrad;
+    yrotrad = (yrot / 180 * M_PI);
+    xrotrad = (xrot / 180 * M_PI);
+    float xposFuture = xpos - float(sin(yrotrad)) * cScale;
+    float zposFuture = zpos + float(cos(yrotrad)) * cScale;
+    float yposFuture = ypos + float(sin(xrotrad));
+ 
+    if (GameController::GameCollision(xposFuture, yposFuture, zposFuture)) {
+ 
+    }
+    else {
+        xpos -= float(sin(yrotrad)) * cScale;
+        zpos += float(cos(yrotrad)) * cScale;
+        ypos += float(sin(xrotrad));
+        // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+        bounce += 0.04;
+    }
+ }
+ 
+ if (key == 'd') //moves the camera to the right
+ {
+    float yrotrad;
+    yrotrad = (yrot / 180 * M_PI);
+    float xposFuture = xpos + float(cos(yrotrad)) * cScale;
+    float zposFuture = zpos + float(sin(yrotrad)) * cScale;
+ 
+    if (GameController::GameCollision(xposFuture, ypos, zposFuture)) {
+ 
+    }
+    else {
+        xpos += float(cos(yrotrad)) * cScale;
+        zpos += float(sin(yrotrad)) * cScale;
+        // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+    }
+ }
+ 
+ if (key == 'a') //moves the camera to the left
+ {
+    float yrotrad;
+    yrotrad = (yrot / 180 * M_PI);
+    float xposFuture = xpos - float(cos(yrotrad)) * cScale;
+    float zposFuture = zpos - float(sin(yrotrad)) * cScale;
+ 
+    if (GameController::GameCollision(xposFuture, ypos, zposFuture)) {
+ 
+    }
+    else {
+        xpos -= float(cos(yrotrad)) * cScale;
+        zpos -= float(sin(yrotrad)) * cScale;
+        // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
+    }
+ }
 	
 }
-*/
+
 
 
 /*
 void GameController::GameSetNames() {
-  
+ 
 
 	wooper->setFilename("wooper.obj");
 	pikachu->setFilename("Pikachu.obj");

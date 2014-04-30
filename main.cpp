@@ -11,29 +11,22 @@
 #include <fstream>
 #include <assert.h>
 #include <unistd.h>
-#include "Global.h"
+//#include "Global.h"
 //#include "Skybox.h"
 //#include "Camera.h"
 //#include "Sound.h"
 #include "GameController.h"
 //#include "intro.h"
 
-#define WINDOW_W 1000
-#define WINDOW_H 800
+//#define WINDOW_W 1000
+//#define WINDOW_H 800
 
 //instantiate objects
-Camera camera;
+//Camera camera;
 GameController gamecontroller;
 //Sound sound;
 //Intro intro;
 
-//basic camera function
-//this is straight from the swiftless tutorial
-void cameraFunc (void) {
-	glRotatef(xrot,0.1,0.0,0.0); //rotates on the x-axis
-	glRotatef(yrot,0.0,0.1,0.0); //rotates on the y-axis
-	glTranslated(-xpos,-ypos,-zpos); //translates the screen to the current camera positon
-}
 
 //basic display function
 void display (void) {
@@ -41,7 +34,8 @@ void display (void) {
     // 3D scene
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-    cameraFunc();
+    //cameraFunc();
+    gamecontroller.GameUpdateCamera();
     
    // intro.renderTitlescreen();
 
@@ -98,163 +92,22 @@ void init (void) {
 
 //mouse control function based on the swiftless tutorials
 void orientMe(int x, int y) {
-	//calculates the differences between the current x and y positions
-	//and the previous x and y positions
- 	float diffx = ((float)x-previousx)*0.5f;
- 	float diffy = ((float)y-previousy)*0.5f;
+    gamecontroller.GameMouseOrientation(x, y);
 
-    xrot += diffy;
-    yrot += diffx;
-
-    //this prevents the camera from being inverted
-    //but it also makes the movement less smooth
-    if (diffx<-M_PI){
-        diffx += M_PI*2;
-    }
-    if (diffx>M_PI){
-        diffx -= M_PI*2;
-    }
-    if (diffy<-M_PI*0.49){
-        diffy = -M_PI*0.49;
-    }
-    if (diffy>M_PI*0.49){
-        diffy = M_PI*0.49;
-    }
-    
-	//the previous x and y positions become the current x and y positions
-    previousx = x;
-    previousy = y;
 }
 
 //keyboard function based on swiftless and Emrich's tutorials
 
 void keyboard (unsigned char key, int x, int y) {
-	if (key == 'e') { //takes a screenshot and plays a shutter sound
-		//camera.setupScreenshot();
-        //sound.shutter();
-        gamecontroller.GameScreenshot();
-        gamecontroller.GameShutterSound();
-        shutterAlpha = 1;
-	}
-
-    if (key == 'm') { //toggle music
-        //sound.music();
-        gamecontroller.GameBGM();
-    }
-    
-    if (key == 'q') { //quits the game
-        cout << "Thank you for playing!" << endl;
-        exit(1);
-    }
- 
- 	if (key == 'w') //moves the camera forwards
- 	{
-        float xrotrad, yrotrad;
-        yrotrad = (yrot / 180 * M_PI);
-        xrotrad = (xrot / 180 * M_PI);
-        float xposFuture = xpos + float(sin(yrotrad)) * cScale;
-        float zposFuture = zpos - float(cos(yrotrad)) * cScale;
-        float yposFuture = ypos - float(sin(xrotrad));
-        
-        if (gamecontroller.GameCollision(xposFuture, yposFuture, zposFuture)) {
-            
-        }
-        else {
-            xpos += float(sin(yrotrad)) * cScale;
-            zpos -= float(cos(yrotrad)) * cScale;
-            ypos -= float(sin(xrotrad));
-           //cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
-            //gamecontroller.GameMoveModels();
-            bounce += 0.04;
-        }
-	 }
- 
- 	if (key == 's') //moves the camera backwards
- 	{
-        float xrotrad, yrotrad;
-        yrotrad = (yrot / 180 * M_PI);
-        xrotrad = (xrot / 180 * M_PI);
-        float xposFuture = xpos - float(sin(yrotrad)) * cScale;
-        float zposFuture = zpos + float(cos(yrotrad)) * cScale;
-        float yposFuture = ypos + float(sin(xrotrad));
-        
-        if (gamecontroller.GameCollision(xposFuture, yposFuture, zposFuture)) {
-            
-        }
-        else {
-            xpos -= float(sin(yrotrad)) * cScale;
-            zpos += float(cos(yrotrad)) * cScale;
-            ypos += float(sin(xrotrad));
-	   // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
-            bounce += 0.04;
-        }
- 	}
- 
- 	if (key == 'd') //moves the camera to the right
- 	{
-        float yrotrad;
-        yrotrad = (yrot / 180 * M_PI);
-        float xposFuture = xpos + float(cos(yrotrad)) * cScale;
-        float zposFuture = zpos + float(sin(yrotrad)) * cScale;
-        
-        if (gamecontroller.GameCollision(xposFuture, ypos, zposFuture)) {
-            
-        }
-        else {
-            xpos += float(cos(yrotrad)) * cScale;
-            zpos += float(sin(yrotrad)) * cScale;
-	   // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
-        }
- 	}
- 
- 	if (key == 'a') //moves the camera to the left
- 	{
-        float yrotrad;
-        yrotrad = (yrot / 180 * M_PI);
-        float xposFuture = xpos - float(cos(yrotrad)) * cScale;
-        float zposFuture = zpos - float(sin(yrotrad)) * cScale;
-        
-        if (gamecontroller.GameCollision(xposFuture, ypos, zposFuture)) {
-            
-        }
-        else {
-            xpos -= float(cos(yrotrad)) * cScale;
-            zpos -= float(sin(yrotrad)) * cScale;
-	   // cout<< "x= "<<xpos<<" y= "<<ypos<<" z= "<<zpos<<endl;
-        }
- 	}
- 
+    gamecontroller.GameKeyboardInput(key, x, y);
+	 
 }
 
 //allows for altitude change with up and down arrow keys
 void arrowKeys(int key, int x, int y){
     
-    //gamecontroller.GameArrowKeys(key, x, y);
-    float yposFuture;
-    switch(key) {
-        //moves the camera directly upwards
-        case GLUT_KEY_UP :
-            yposFuture=ypos;
-            yposFuture += 5.00;
-            if (gamecontroller.GameCollision(xpos, yposFuture, zpos)) {
-                
-            }
-            else {
-                ypos+=5.00;
-            }
-            break;
-        //moves the camera directly downwards
-        case GLUT_KEY_DOWN:
-            yposFuture=ypos;
-            yposFuture -= 5.00;
-            if (gamecontroller.GameCollision(xpos, yposFuture, zpos)) {
-                
-            }
-            else {
-                ypos-=5.00;
-            }
-            break;
-    }
+    gamecontroller.GameArrowKeys(key, x, y);
+   
     
 }
 

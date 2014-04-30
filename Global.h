@@ -1,6 +1,9 @@
 #ifndef GLOBAL_H
 #define GLOBAL_H
 
+#define WINDOW_W 1000
+#define WINDOW_H 800
+
 //global variables for camera control and starting position
 float xpos = 1000.00;
 float ypos = 51.594;
