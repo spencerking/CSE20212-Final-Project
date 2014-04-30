@@ -9,7 +9,7 @@
 #include "Camera.h"
 //#include "Skybox.h"
 #include "models.h"
-#include "Global.h"
+
 
 
 class GameController{

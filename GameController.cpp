@@ -7,6 +7,7 @@
 #include <GL/glut.h>
 #endif
 #include "GameController.h"
+#include "Global.h"
 #include <vector>
 #include <iterator>
 #include <iostream>

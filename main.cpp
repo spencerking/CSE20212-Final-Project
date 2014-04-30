@@ -11,15 +11,14 @@
 #include <fstream>
 #include <assert.h>
 #include <unistd.h>
-//#include "Global.h"
 //#include "Skybox.h"
 //#include "Camera.h"
 //#include "Sound.h"
 #include "GameController.h"
 //#include "intro.h"
 
-//#define WINDOW_W 1000
-//#define WINDOW_H 800
+#define WINDOW_W 1000
+#define WINDOW_H 800
 
 //instantiate objects
 //Camera camera;
